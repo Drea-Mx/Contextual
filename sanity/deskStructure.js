@@ -3,15 +3,23 @@ import S from '@sanity/desk-tool/structure-builder'
 
 export default () =>
   S.list()
-    .title('Pages')
+    .title('General')
     .items([
         S.listItem()
-          .title('Ajustes')
+          .title('Configuración General')
           .icon(() => '⚙️')
           .child(
             S.document()
               .schemaType('settingsPage')
               .documentId('settingsPage')
         ),
-        ...S.documentTypeListItems().filter(listItem => !['settingsPage',].includes(listItem.getId()))
+        S.listItem()
+          .title('Manifesto')
+          .icon(() => '📖')
+          .child(
+            S.document()
+              .schemaType('manifestoPage')
+              .documentId('manifestoPage')
+        ),
+        ...S.documentTypeListItems().filter(listItem => !['settingsPage', 'manifestoPage'].includes(listItem.getId()))
     ])

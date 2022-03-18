@@ -1,7 +1,7 @@
 export default {
     //
     name: 'settingsPage',
-    title: 'Settings',
+    title: 'Configuración General',
     type: 'document',
     icon: () => `⚙️`,
     fields: [
