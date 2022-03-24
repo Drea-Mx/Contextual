@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_modulos_editoriales_headlines",
+  "info": {
+    "displayName": "Headline",
+    "icon": "font"
+  },
+  "options": {},
+  "attributes": {
+    "Campo_de_texto": {
+      "type": "string"
+    }
+  }
+}

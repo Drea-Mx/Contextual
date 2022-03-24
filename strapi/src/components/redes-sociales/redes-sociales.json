@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_redes_sociales_redes_sociales",
+  "info": {
+    "displayName": "Redes Sociales",
+    "icon": "address-book"
+  },
+  "options": {},
+  "attributes": {
+    "Twitter_url": {
+      "type": "string"
+    },
+    "Instagram_url": {
+      "type": "string"
+    },
+    "Spotify_url": {
+      "type": "string"
+    },
+    "Apple_Podcast_url": {
+      "type": "string"
+    }
+  }
+}

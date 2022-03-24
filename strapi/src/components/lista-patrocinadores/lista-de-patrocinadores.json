@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_lista_patrocinadores_lista_de_patrocinadores",
+  "info": {
+    "displayName": "Lista de patrocinadores",
+    "icon": "ad"
+  },
+  "options": {},
+  "attributes": {
+    "Nombre": {
+      "type": "string"
+    }
+  }
+}

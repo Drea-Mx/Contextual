@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_modulos_editoriales_imagen_fullscreens",
+  "info": {
+    "displayName": "Imagen Fullscreen",
+    "icon": "camera",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Caption": {
+      "type": "string"
+    }
+  }
+}

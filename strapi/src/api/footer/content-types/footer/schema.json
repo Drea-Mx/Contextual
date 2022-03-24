@@ -1,0 +1,30 @@
+{
+  "kind": "singleType",
+  "collectionName": "footers",
+  "info": {
+    "singularName": "footer",
+    "pluralName": "footers",
+    "displayName": "Footer"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Texto_descriptivo": {
+      "type": "text"
+    },
+    "Redes_sociales": {
+      "displayName": "Redes Sociales",
+      "type": "component",
+      "repeatable": false,
+      "component": "redes-sociales.redes-sociales"
+    },
+    "Boton_donaciones": {
+      "displayName": "Boton donaciones",
+      "type": "component",
+      "repeatable": false,
+      "component": "donaciones.boton-donaciones"
+    }
+  }
+}

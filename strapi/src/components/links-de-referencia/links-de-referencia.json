@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_links_de_referencia_links_de_referencias",
+  "info": {
+    "displayName": "Links de referencia",
+    "icon": "list"
+  },
+  "options": {},
+  "attributes": {
+    "Texto": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "string"
+    }
+  }
+}

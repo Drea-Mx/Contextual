@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_creditos_creditos",
+  "info": {
+    "displayName": "Creditos",
+    "icon": "address-card"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "Value": {
+      "type": "string"
+    }
+  }
+}

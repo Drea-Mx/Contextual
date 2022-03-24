@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_modulos_editoriales_texto_imagens",
+  "info": {
+    "displayName": "Texto + imagen",
+    "icon": "photo-video",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Imagen": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Texto": {
+      "type": "string"
+    }
+  }
+}

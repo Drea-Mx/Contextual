@@ -1,0 +1,87 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articulos",
+  "info": {
+    "singularName": "articulo",
+    "pluralName": "articulos",
+    "displayName": "Articulos",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Titulo": {
+      "type": "string"
+    },
+    "ImagenCover": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Fecha": {
+      "type": "date"
+    },
+    "Headline": {
+      "type": "string"
+    },
+    "Introduccion": {
+      "type": "text"
+    },
+    "Lectura_x_minutos": {
+      "type": "string"
+    },
+    "categorias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::categoria.categoria"
+    },
+    "Cover": {
+      "type": "enumeration",
+      "enum": [
+        "Con Thumbnail",
+        "Sin Thumbnail",
+        "Podcast"
+      ]
+    },
+    "autores": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::autor.autor"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "Destacado": {
+      "type": "boolean"
+    },
+    "Modulos_Editoriales": {
+      "type": "dynamiczone",
+      "components": [
+        "modulos-editoriales.audio",
+        "modulos-editoriales.blockquote",
+        "modulos-editoriales.dos-columnas-de-imagen",
+        "modulos-editoriales.headline",
+        "modulos-editoriales.imagen-fullscreen",
+        "modulos-editoriales.parrafo-1-columna",
+        "modulos-editoriales.parrafo-2-columna",
+        "modulos-editoriales.texto-imagen",
+        "modulos-editoriales.video"
+      ]
+    },
+    "Links_de_referencia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "links-de-referencia.links-de-referencia"
+    },
+    "Archivar": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_modulos_editoriales_blockquotes",
+  "info": {
+    "displayName": "Blockquote",
+    "icon": "quote-left"
+  },
+  "options": {},
+  "attributes": {
+    "Frase": {
+      "type": "string"
+    },
+    "Autor": {
+      "type": "string"
+    }
+  }
+}

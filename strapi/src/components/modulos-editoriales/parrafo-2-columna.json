@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_modulos_editoriales_parrafo_2_columnas",
+  "info": {
+    "displayName": "Parrafo 2 columnas",
+    "icon": "align-right",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Campo_de_texto": {
+      "type": "richtext"
+    },
+    "Capitalizar": {
+      "type": "boolean"
+    }
+  }
+}
