@@ -13,5 +13,10 @@ export default {
             title: 'Capitalizar',
             type: 'boolean'
         }
-    ]
+    ],
+    preview: {
+        select: {
+          title: 'campoDeTexto',
+        }
+      }
 }

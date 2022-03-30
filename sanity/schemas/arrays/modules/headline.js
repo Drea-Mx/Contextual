@@ -8,5 +8,10 @@ export default {
             title: 'Headline Text',
             type: 'string'
         }
-    ]
+    ],
+    preview: {
+        select: {
+          title: 'headlineText',
+        }
+      }
 }

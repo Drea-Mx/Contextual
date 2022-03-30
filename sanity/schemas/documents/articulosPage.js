@@ -82,4 +82,11 @@ export default {
             type: 'destacadoObject'
         }
     ],
+    preview: {
+        select: {
+          title: 'title',
+          subtitle: 'headline',
+          media: 'imagenDeCover'
+        }
+      }
 }

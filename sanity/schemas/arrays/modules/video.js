@@ -13,5 +13,11 @@ export default {
             title: 'Caption',
             type: 'string'
         }
-    ]
+    ],
+    preview: {
+        select: {
+          title: 'embedUrl',
+          subtitle: 'caption',
+        }
+      }
 }

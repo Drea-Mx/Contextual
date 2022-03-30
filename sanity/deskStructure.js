@@ -21,5 +21,13 @@ export default () =>
               .schemaType('manifestoPage')
               .documentId('manifestoPage')
         ),
-        ...S.documentTypeListItems().filter(listItem => !['settingsPage', 'manifestoPage'].includes(listItem.getId()))
+        S.listItem()
+          .title('Footer')
+          .icon(() => '⬇️')
+          .child(
+            S.document()
+              .schemaType('footerPage')
+              .documentId('footerPage')
+        ),
+        ...S.documentTypeListItems().filter(listItem => !['settingsPage', 'manifestoPage', 'footerPage'].includes(listItem.getId()))
     ])

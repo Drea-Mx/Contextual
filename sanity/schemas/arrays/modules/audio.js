@@ -9,5 +9,10 @@ export default {
             type: 'string',
             description: 'Pegar código embed de Anchor',
         }
-    ]
+    ],
+    preview: {
+        select: {
+          title: 'codigo',
+        }
+      }
 }

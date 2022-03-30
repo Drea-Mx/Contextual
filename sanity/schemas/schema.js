@@ -14,6 +14,7 @@ import linksReferenciaObject from './objects/linksReferenciaObject'
 import destacadoObject from './objects/destacadoObject'
 import creditosObject from './objects/creditosObject'
 import patrocinadoresObject from './objects/patrocinadoresObject'
+import red from './objects/red'
 
 //Modules
 import headline from './arrays/modules/headline'
@@ -40,6 +41,7 @@ import categoriasPage from './documents/categoriasPage'
 import tagsPage from './documents/tagsPage'
 import articulosPage from './documents/articulosPage'
 import manifestoPage from './documents/manifestoPage'
+import footerPage from './documents/footerPage'
 
 
 
@@ -58,6 +60,7 @@ export default createSchema({
     destacadoObject,
     creditosObject,
     patrocinadoresObject,
+    red,
 
     headline,
     parrafoColumna,
@@ -79,6 +82,7 @@ export default createSchema({
     categoriasPage,
     tagsPage,
     articulosPage,
-    manifestoPage
+    manifestoPage,
+    footerPage
   ]),
 })

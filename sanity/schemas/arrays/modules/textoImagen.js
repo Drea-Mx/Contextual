@@ -11,7 +11,19 @@ export default {
         {
             name: 'texto',
             title: 'Texto',
-            type: 'parrafoColumna'
+            type: 'blockModule'
+        },
+        {
+            name: 'capitalizar',
+            title: 'Capitalizar',
+            type: 'boolean'
         }
-    ]
+    ],
+    preview: {
+        select: {
+          title: 'texto',
+          media: 'imagen'
+        }
+      }
+    
 }
