@@ -24,4 +24,10 @@ export default {
             type: 'imageType'
         },
     ],
+    preview: {
+        select: {
+          title: 'title',
+          media: 'icono'
+        }
+      }
 }

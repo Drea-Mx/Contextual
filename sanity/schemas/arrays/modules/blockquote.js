@@ -13,5 +13,11 @@ export default {
             title: 'Autor',
             type: 'string'
         }
-    ]
+    ],
+    preview: {
+        select: {
+          title: 'frase',
+          subtitle: 'autor'
+        }
+      }
 }

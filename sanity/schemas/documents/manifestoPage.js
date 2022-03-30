@@ -7,8 +7,13 @@ export default {
     fields: [
         {
             name: 'title',
-            title: 'Headline',
+            title: 'Título de la página',
             type: 'string',
+        },
+        {
+            name: 'titleFormat',
+            title: 'Título de la página con formato',
+            type: 'blockModule',
         },
         {
             name: 'textoPrincipal',

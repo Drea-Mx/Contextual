@@ -24,4 +24,10 @@ export default {
             type: 'text'
         },
     ],
+    preview: {
+        select: {
+          title: 'title',
+          subtitle: 'descripcionAutor'
+        }
+      }
 }
