@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'CentSchbook Mono BT';
+    src: url('CenturySchoolbookBT-Monospace.woff2') format('woff2'),
+        url('CenturySchoolbookBT-Monospace.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

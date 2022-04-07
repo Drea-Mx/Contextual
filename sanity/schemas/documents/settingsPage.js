@@ -15,5 +15,15 @@ export default {
             title: 'Description Site',
             type: 'blockModule'
         },
+        {
+             name: 'logoNegro',
+             title: 'Logo Negro',
+             type: 'imageType'
+        },
+        {
+            name: 'logoBlanco',
+            title: 'Logo Blanco',
+            type: 'imageType'
+        }
     ],
 }

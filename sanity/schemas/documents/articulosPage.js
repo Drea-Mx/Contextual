@@ -6,6 +6,12 @@ export default {
     icon: () => `📝`,
     fields: [
         {
+            name: "order",
+            title: "Order",
+            type: "number",
+            hidden: true,
+        },
+        {
             name: 'title',
             title: 'Título',
             type: 'string',
@@ -39,15 +45,20 @@ export default {
             type: 'number'
         },
         {
-            name: 'categorias',
-            title: 'Categorías',
-            type: 'array',
-            of: [{type: 'categoriasArray'}]
+            name: 'categoria',
+            title: 'Categoría',
+            type: 'reference',
+            to: [{type: 'categoriasPage'}]
         },
         {
             name: 'cover',
             title: 'Cover',
             type: 'coverObject',
+        },
+        {
+            name: 'thumbnailForma',
+            title: 'Forma del Thumbnail',
+            type: 'thumbnailShape',
         },
         {
             name: 'autor',
@@ -82,6 +93,13 @@ export default {
             type: 'destacadoObject'
         }
     ],
+    orderings: [
+        {
+          title: "Manual order",
+          name: "manualOrder",
+          by: [{ field: "order", direction: "asc" }],
+        },
+      ],
     preview: {
         select: {
           title: 'title',
