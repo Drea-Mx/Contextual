@@ -30,6 +30,11 @@ const data = useStaticQuery(graphql`
                     )
                 }
             }
+        otrosLinks {
+            _key
+            texto
+            url
+            }
         }
         #Categories
         allSanityCategoriasPage {
@@ -261,11 +266,13 @@ const HeaderContainer = styled.header`
     return(
         <HeaderContainer>
             <div className='logo'>
-                <GatsbyImage
-                    style={{ height: "100%", width: "100%" }}
-                    image={logoGetDataImage}
-                    alt={logoGetDataImageAlt}
-                /> 
+                <Link to='/'>
+                    <GatsbyImage
+                        style={{ height: "100%", width: "100%" }}
+                        image={logoGetDataImage}
+                        alt={logoGetDataImageAlt}
+                    /> 
+                </Link>
             </div>
             <button className={menu ? 'ham open' : 'ham'} onClick={() => setMenu(!menu)}>
                 <div className='line'></div>
@@ -278,11 +285,13 @@ const HeaderContainer = styled.header`
                         <a href='https://google.com'>¡Apóyanos!</a>
                     </div>
                     <div className='logo'>
-                        <GatsbyImage
-                            style={{ height: "100%", width: "100%" }}
-                            image={logoNegroGetDataImage}
-                            alt={logoNegroGetDataImageAlt}
-                        />
+                        <Link to='/'>
+                            <GatsbyImage
+                                style={{ height: "100%", width: "100%" }}
+                                image={logoNegroGetDataImage}
+                                alt={logoNegroGetDataImageAlt}
+                            />
+                        </Link>
                     </div> 
                     <button className='x' onClick={() => setMenu(!menu)}>
                         <div className='line'></div>
@@ -320,10 +329,15 @@ const HeaderContainer = styled.header`
                         <div className='otros'>
                             <h3>Otros Links</h3>
                             <ul>
-                                <li><Link to='/'>Manifiesto</Link></li>
-                                <li><Link to='/'>Archivo</Link></li>
-                                <li><a href='/'>Instagram</a></li>
-                                <li><a href='/'>Facebook</a></li>
+                                {data.sanitySettingsPage.otrosLinks.map(( link ) => {
+
+                                return (
+                                    <li key={link._key} className='red'>
+                                        <a href={link.url} rel="noreferrer" target='_blank'>{link.texto}</a>
+                                    </li>
+                                )
+                                })}
+
                             </ul>
                         </div>
                     </nav>

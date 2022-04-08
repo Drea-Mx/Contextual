@@ -37,8 +37,8 @@ export default {
         },
         {
             name: 'textoBajoBoton',
-            title: 'Texto debajo botób donaciones',
-            type: 'string'
+            title: 'Texto debajo botón donaciones',
+            type: 'text'
         }
     ],
 }
