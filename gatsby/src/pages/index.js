@@ -40,9 +40,31 @@ export const data = graphql`
         slug {
           current
         }
+        thumbnailForma
         }
     }
+
+#Categorias
+    allSanityCategoriasPage {
+    nodes {
+      _id
+      title
+      slug {
+        current
+      }
+      icono {
+        alt
+        asset {
+          url
+        }
+      }
+    }
   }
+
+
+  }
+
+  
 `;
 
 const IndexPage = ({data}) => {

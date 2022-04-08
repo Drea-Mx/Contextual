@@ -24,6 +24,17 @@ export default {
             name: 'logoBlanco',
             title: 'Logo Blanco',
             type: 'imageType'
-        }
+        },
+        {
+            name: 'otrosLinks',
+            title: 'Otros Links',
+            type: 'array',
+            of: [
+                {
+                    type: 'otros'
+                }
+            ]
+        },
+
     ],
 }

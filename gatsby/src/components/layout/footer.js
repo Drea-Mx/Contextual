@@ -4,7 +4,14 @@ import styled from 'styled-components'
 const Footer = () => {
     return(
         <FooterContainer>
-            <p>Footer</p>
+            <div className='top'>
+                <div className='iz'>
+
+                </div>
+                <div className='de'>
+
+                </div>
+            </div>
         </FooterContainer>
     )
 }

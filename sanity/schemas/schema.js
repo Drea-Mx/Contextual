@@ -16,6 +16,8 @@ import creditosObject from './objects/creditosObject'
 import patrocinadoresObject from './objects/patrocinadoresObject'
 import red from './objects/red'
 import thumbnailShape from './objects/thumbnailShape'
+import link from './objects/link'
+import otros from './objects/otros'
 
 //Modules
 import headline from './arrays/modules/headline'
@@ -63,6 +65,8 @@ export default createSchema({
     patrocinadoresObject,
     red,
     thumbnailShape,
+    link,
+    otros,
 
     headline,
     parrafoColumna,

@@ -1,16 +1,16 @@
 export default {
-    name: 'red',
-    title: 'Red',
+    name: 'link',
+    title: 'Link',
     type: 'object',
     fields: [
         {
             name: 'url',
-            title: 'Url',
+            title: 'URL',
             type: 'url'
         },
         {
             name: 'icon',
-            title: 'Icon',
+            title: 'Icono',
             type: 'imageType'
         }
     ],

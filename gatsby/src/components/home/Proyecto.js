@@ -9,7 +9,7 @@ const Proyecto = ({node}) => {
     const logoGetDataImageAlt = node.imagenDeCover.alt
 
     return(
-        <ProyectoContainer className={`${node.destacado === true ? 'destacado' : 'undefined'} ${node.cover && node.cover}`}>
+        <ProyectoContainer className={`${node.destacado === true ? 'destacado' : 'undefined'} ${node.cover && node.cover} ${node.thumbnailForma && node.thumbnailForma}` }>
             <Link to={`/articulos/${node.slug.current}`}>
                 <div className='image'>
                     <GatsbyImage
