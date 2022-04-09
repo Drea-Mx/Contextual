@@ -16,7 +16,6 @@ export default function SinglePostPage({ data: { articulo } }) {
 }
 
 
-
 export const query = graphql`
     query($slug: String!){
         articulo: sanityArticulosPage(slug: {

@@ -62,7 +62,6 @@ async function turnCategoriesIntoPages({graphql, actions}) {
   });
 }
 
-
 exports.createPages = async (params) => {
 // Create Pages dynamically
     await Promise.all([
