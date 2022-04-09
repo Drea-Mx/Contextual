@@ -208,8 +208,10 @@ const HeaderContainer = styled.header`
                         flex-direction: row;
                         .imagen {
                             display: block;
-                            width: 15px;
                             margin-right: 5px;
+                            img {
+                                height: 10px;
+                            }
                         }
                         p {
                             color: var(--orange)

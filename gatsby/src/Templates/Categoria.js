@@ -1,12 +1,14 @@
+import { graphql } from 'gatsby'
+import Layout from '../components/layout/layout'
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
-import Proyecto from './Proyecto'
 import { XMasonry, XBlock } from "react-xmasonry"; // Imports JSX plain sources
 import useResizeAware from 'react-resize-aware';
-import { Link } from 'gatsby';
+import styled from 'styled-components'
 
 
-const Proyectos = ({data}) => {
+export default function SingleCategoriaPage({ data: { categoria, proyectos, tagsSection } }) {
+
+
 
     const [resizeListener, sizes] = useResizeAware();
 
@@ -38,73 +40,76 @@ const Proyectos = ({data}) => {
     });
 
 
-    return(
-        <Container>
-        {resizeListener}
+
+
+    
+    return (
+        <Layout>
+            {resizeListener}
         <ProyectosContainer
-        targetBlockWidth={columnWidth}
-        responsive={false}
+            targetBlockWidth={columnWidth}
+            responsive={false}
         >
-            {data.allSanityArticulosPage.nodes.map(( node ) => {
+            <XBlock width={2} >
+                <div className='hero'>
+                    <h3>Categoría</h3>
+                    <div className='title'>
+                        <img src={categoria.icono.asset.url} alt={categoria.icono.alt} />
+                        <h1>{categoria.title}</h1>
+                    </div>
+                    <div className='tags'>
+                    {tagsSection.nodes.map(node =>
+                        [...new Set(node.tags)].map(tag => (
+                        <p>{tag.title}</p>
+                        ))
+                    )}
+                    </div>
+                </div>
+                
+            </XBlock>
+            {proyectos.nodes.map(( node ) => {
+
                 return (
-                    <XBlock
-                    width={node.destacado ? '2' : '1'}
-                    >
-                        <Proyecto node={node} key={node._id} />
+
+                    <XBlock width={1} >
+                        <p>{node.title}</p>
                     </XBlock>
                 )
-            })}
-
+                })}
         </ProyectosContainer>
-
-        <ul className='categories'>
-            {data.allSanityCategoriasPage.nodes.map(( node ) => {
-                return (
-                    <li><Link to={`/categorias/${node.slug.current}`}><img src={node.icono.asset.url} alt={node.icono.alt} /><p>{node.title}</p></Link></li>
-                )
-            })}
-        </ul>
-        </Container>
+            
+        </Layout>
     )
 }
 
-const Container = styled.div`
-    position: relative;
-    .categories {
-        position: sticky;
-        bottom: 0;
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        background-color: var(--white);
-        padding-top: 5px;
-        padding-bottom: 5px;
-        li {
-            padding-bottom: 5px;
-            padding-top: 5px;
-            a {
-                display: flex;
-            }
-            img {
-                height: 15px;
-                margin-right: 10px;
-                filter: brightness(0%);
-            }
-            &:hover {
-                a {
-                    color: var(--orange);
-                }
-                img {
-                    filter: brightness(100%);
-                }
-            }
-        }
-    }
-`
-
 const ProyectosContainer = styled(XMasonry)`
     width: 100%;
+    .hero {
+        background-color: var(--orange);
+        padding: 50px 20px 20px 20px;
+        border-radius: 0 0 24px 0;
+        h3 {
+            font-family: var(--mono);
+            color: var(--white);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-size: 0.8rem;
+        }
+        .title {
+            display: flex;
+            h1 {
+                color: var(--white);
+                font-size: 3rem;
+            }
+            img {
+                width: 50px;
+                filter: brightness(0%) invert(1);
+            }
+        }
+        .tags {
+            display: inline-block;
+        }
+    }
     article {
         padding: 50px 10px 10px;
         .icon {
@@ -202,6 +207,32 @@ const ProyectosContainer = styled(XMasonry)`
 
 `
 
-
-
-export default Proyectos
+export const query = graphql`
+    query($slug: String!){
+        categoria: sanityCategoriasPage(slug: {
+		current: {eq: $slug} }){
+            title
+            icono {
+                alt
+                asset {
+                    url
+                }
+            }
+        }
+        proyectos: allSanityArticulosPage(filter: {categoria: {slug: {current: {eq: $slug}}}}) {
+            nodes {
+            title
+            }
+        }
+        tagsSection: allSanityArticulosPage {
+            nodes {
+                tags {
+                    title
+                    slug {
+                    current
+                    }
+                }
+            }
+        }
+    }
+`
