@@ -18,12 +18,12 @@ const ParrafosContainer = styled.section`
 .columns {
     column-count: 2;
     column-gap: 20px;
-    width: 80%;
+    max-width: 960px;
     margin: 50px auto;
+    padding: 0 20px;
     @media (max-width: 650px) {
         column-count: 1;
         width: 100%;
-        padding: 0 20px;
         p {
             padding: 8px 0;
         }

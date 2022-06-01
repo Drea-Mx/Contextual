@@ -17,7 +17,7 @@ const Blockquote = ({data}) => {
 }
 
 const BlockquoteContainer = styled.section`
-    width: 60%;
+    width: 650px;
     margin: 50px auto;
     @media (max-width: 650px) {
         width: 100%;
@@ -31,7 +31,8 @@ const BlockquoteContainer = styled.section`
         h2.quote {
             font-size: 4rem;
             line-height: 0.9;
-            margin-right: 5px;
+            margin-right: 10px;
+            padding-top: 10px;
         }
         .ri {
             h2 {
