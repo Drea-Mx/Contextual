@@ -3,7 +3,7 @@ import Layout from '../components/layout/layout'
 import React from 'react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from 'styled-components';
-
+import Modules from '../components/modules/Modules';
 
 export default function SinglePostPage({ data: { articulo } }) {
 
@@ -42,8 +42,12 @@ export default function SinglePostPage({ data: { articulo } }) {
                             <p className='lectura'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
                         </div>
                     </div>
+                    <div className='coverMov'>
+                        <h2>{articulo.headline}</h2>
+                        <p className='lectura'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
+                    </div>
                 </div>
-                
+                <Modules editorialModule={articulo.moduleArray} />
             </ProjectContainer>
 
         </Layout>
@@ -54,14 +58,24 @@ const ProjectContainer = styled.section`
     .container.conThumbnail {
         .hero {
             display: flex;
+            @media (max-width: 650px) {
+                flex-direction: column-reverse;
+            }
             .image {
                 width: 50%;
+                @media (max-width: 650px) {
+                    width: 100%;
+                }
             }
             .text {
-                padding: 70px 50px;
+                padding: 70px 50px ;
                 box-sizing: border-box;
                 display: block;
                 width: 50%;
+                @media (max-width: 650px) {
+                    width: 100%;
+                    padding: 50px 20px 20px;
+                }
                 p {
                     letter-spacing: 2px;
                     font-size: .7rem;
@@ -69,6 +83,10 @@ const ProjectContainer = styled.section`
                 }
                 .fecha {
                     padding-bottom: 50px;
+                    @media (max-width: 650px) {
+                        padding-bottom: 20px;
+                        padding-top: 30px;
+                    }
                 }
                 h1 {
                     color: var(--orange);
@@ -76,15 +94,36 @@ const ProjectContainer = styled.section`
                     box-sizing: border-box;
                     display: block;
                     width: 100%;
+                    @media (max-width: 850px) {
+                        font-size: 2.5rem;
+                    }
                 }
                 h2 {
                     margin-top: 50px;
                     font-size: 2rem;
+                    @media (max-width: 850px) {
+                        font-size: 1.5rem;
+                    }
+                    @media (max-width: 650px) {
+                        display: none;
+                    }
                 }
                 .lectura {
                     text-transform: uppercase;
                     padding-top: 50px;
+                    @media (max-width: 650px) {
+                        display: none;
+                    }
                 }
+            }
+        }
+        .coverMov {
+            padding: 20px;
+            h2 {
+                margin-bottom: 20px;
+            }
+            @media (min-width: 650px) {
+                display: none;
             }
         }
     }
@@ -161,7 +200,7 @@ export const query = graphql`
                     imagen2 {
                     alt
                     asset {
-                        gatsbyImage(
+                        gatsbyImageData(
                         layout: FULL_WIDTH
                         outputPixelDensities: 1.5
                         placeholder: DOMINANT_COLOR
@@ -185,6 +224,7 @@ export const query = graphql`
                     _key
                     _type
                     _rawTexto
+                    capitalizar
                     imagen {
                     alt
                     asset {
