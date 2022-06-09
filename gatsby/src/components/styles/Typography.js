@@ -65,7 +65,7 @@ html {
       background-color: var(--white);
         color: var(--black);
         font-family: var(--regular);
-        font-size: 14px;
+        font-size: 18px;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         width: 100%;
         overflow-x: hidden;
