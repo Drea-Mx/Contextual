@@ -4,6 +4,7 @@ import React from 'react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from 'styled-components';
 import Modules from '../components/modules/Modules';
+import ProgressBar from "react-progressbar-on-scroll";
 
 export default function SinglePostPage({ data: { articulo } }) {
 
@@ -48,6 +49,21 @@ export default function SinglePostPage({ data: { articulo } }) {
                     </div>
                 </div>
                 <Modules editorialModule={articulo.moduleArray} />
+                <div className='cortinilla'>
+                    <div className='bar'>
+                        <BarProgress
+                            color="#EB4726"
+                            gradient={false}
+                            height={5}
+                        />
+                    </div>
+                    <div className='top'>
+                        <h2>{articulo.title}</h2>
+                        <button>
+                            <img src='/arrowDown.svg' alt='Arrow' />
+                        </button>
+                    </div>
+                </div>
             </ProjectContainer>
 
         </Layout>
@@ -55,6 +71,32 @@ export default function SinglePostPage({ data: { articulo } }) {
 }
 
 const ProjectContainer = styled.section`
+    position: relative;
+
+    .cortinilla {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        background-color: white;
+        .bar {
+            div {
+                position: absolute !important;
+                top: 0;
+                bottom: auto;
+                transition: all 300ms ease-in-out;
+            }
+        }
+        .top {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            h2 {
+                font-size: 1rem;
+                font-weight: normal;
+            }
+        }
+    }
     .container.conThumbnail {
         .hero {
             display: flex;
@@ -128,6 +170,12 @@ const ProjectContainer = styled.section`
         }
     }
 
+`
+
+const BarProgress = styled(ProgressBar)`
+    position: absolute;
+    top: 0;
+    bottom: auto;
 `
 
 
