@@ -1,6 +1,6 @@
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout/layout'
-import React from 'react';
+import React, { useState } from 'react'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from 'styled-components';
 import Modules from '../components/modules/Modules';
@@ -23,6 +23,9 @@ export default function SinglePostPage({ data: { articulo } }) {
     function n(num, len = 2) {
         return `${num}`.padStart(len, '0');
       }
+
+
+      const [bar, setBar] = useState(false);
 
     return (
         <Layout>
@@ -49,7 +52,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                     </div>
                 </div>
                 <Modules editorialModule={articulo.moduleArray} />
-                <div className='cortinilla'>
+                <div className={bar ? 'cortinilla open' : 'cortinilla'}>
                     <div className='bar'>
                         <BarProgress
                             color="#EB4726"
@@ -59,9 +62,54 @@ export default function SinglePostPage({ data: { articulo } }) {
                     </div>
                     <div className='top'>
                         <h2>{articulo.title}</h2>
-                        <button>
+                        <button onClick={() => setBar(!bar)}>
                             <img src='/arrowDown.svg' alt='Arrow' />
                         </button>
+                    </div>
+                    <div className='bot'>
+                        <div className='cont'>
+                            <div className='left'>
+                                <p className='autor'>Autor</p>
+                                <p className='autorDesc'><strong>{articulo.autor.title}</strong> {articulo.autor.descripcionAutor}</p>
+                                <p className='fechaTag'>Fecha</p>
+                                <p className='fecha'>{`${n(dia)}.${n(month + 1)}.${n(year - 2000)}`}</p>
+                            </div>
+                            <div className='der'>
+                                <div className='categorias'>
+                                    <p>Categoría</p>
+                                    <ul>
+                                        <li className='icon'>
+                                            <Link to={`/categorias/${articulo.categoria.slug.current}`}>
+                                                <div className='imagen'>
+                                                    <img src={articulo.categoria.icono.asset.url} alt={articulo.categoria.icono.alt} /> 
+                                                </div>
+                                                <div className='texto'>
+                                                    <p>{articulo.categoria.title}</p>
+                                                </div>
+                                            </Link>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                                <div className='tagsx'>
+                                    <p>Temas</p>
+                                    <ul className='tags'>
+                                        {articulo.tags.map(( node ) => {
+                                            return (
+                                                <li key={node._id} className='icon'>
+                                                    <Link to={`/etiquetas/${node.slug.current}`}>
+                                                        <div className='texto'>
+                                                            <p>{node.title}</p>
+                                                        </div>
+                                                    </Link>
+                                                </li>
+                                            )
+                                        })}
+                                    </ul>
+                                </div>
+                                
+                            </div>
+                        </div>
                     </div>
                 </div>
             </ProjectContainer>
@@ -72,13 +120,18 @@ export default function SinglePostPage({ data: { articulo } }) {
 
 const ProjectContainer = styled.section`
     position: relative;
-
+    .cortinilla.open {
+        top: auto !important;
+        bottom: 0 !important;
+    }
     .cortinilla {
         position: fixed;
-        bottom: 0;
+        top: calc(100% - 40px);
+        bottom: auto;
         left: 0;
         width: 100vw;
         background-color: white;
+        transition: all 350ms ease-in-out;
         .bar {
             div {
                 position: absolute !important;
@@ -91,9 +144,91 @@ const ProjectContainer = styled.section`
             display: flex;
             justify-content: space-between;
             padding: 10px 20px;
+            height: 40px;
+            
             h2 {
                 font-size: 1rem;
                 font-weight: normal;
+            }
+            button {
+                img {
+                    width: 13px;
+                }
+            }
+        }
+        .bot {
+            border-top: solid 1px #E6E6E6;
+            .cont {
+                padding: 10px 20px 50px;
+                display: flex;
+                .left, .der {
+                    width: 50%;
+                }
+                .left {
+                    .autorDesc {
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        strong {
+                            font-weight: normal;
+                            color: var(--orange)
+                        }
+                    }
+                    .fechaTag {
+                        padding-bottom: 10px;
+                    }
+                }
+                .der {
+                    .categorias {
+                       
+                        ul {
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            display: flex;
+                        }
+                        .icon {
+                            margin-right: 10px;
+                            a {
+                                background-color: var(--gray);
+                                padding: 10px;
+                                border-radius: 3px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-direction: row;
+                                .imagen {
+                                    display: block;
+                                    margin-right: 5px;
+                                    img {
+                                        height: 10px;
+                                    }
+                                }
+                                p {
+                                    align-self: center;
+                                    justify-self: center;
+                                    color: var(--orange);
+                                    margin-bottom: 0;
+                                }
+                            }
+                        }
+                    }
+                    .tags {
+                        display: flex;
+                        padding-top: 20px;
+                        .icon {
+                            margin-right: 10px;
+                            a {
+                                background-color: var(--gray);
+                                padding: 8px 10px;
+                                border-radius: 3px;
+                                display: flex;
+                                flex-direction: row;
+                                p {
+                                    color: var(--orange)
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -198,6 +333,30 @@ export const query = graphql`
             }
             headline
             lecturaDeXMinutos
+            autor {
+                descripcionAutor
+                title
+            }
+            categoria {
+                _id
+                title
+                icono {
+                alt
+                asset {
+                    url
+                }
+                }
+                slug {
+                current
+                }
+            }
+            tags {
+                _id
+                title
+                slug {
+                current
+                }
+            }
             moduleArray {
                 ... on SanityAudio {
                     _key
