@@ -5,6 +5,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from 'styled-components';
 import Modules from '../components/modules/Modules';
 import ProgressBar from "react-progressbar-on-scroll";
+import Seo from "../components/layout/seo"
 
 export default function SinglePostPage({ data: { articulo } }) {
 
@@ -29,6 +30,7 @@ export default function SinglePostPage({ data: { articulo } }) {
 
     return (
         <Layout>
+            <Seo title={articulo.title} description={articulo.headline} image={articulo.imagenDeCover.asset.url} />
             <ProjectContainer>
                 <div className={`container ${articulo.cover}`}>
                     <div className='hero'>
@@ -50,7 +52,9 @@ export default function SinglePostPage({ data: { articulo } }) {
                         <h2>{articulo.headline}</h2>
                         <p className='lectura'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
                     </div>
+                    <div className='deg'></div>
                 </div>
+
                 <Modules editorialModule={articulo.moduleArray} />
                 <div className={bar ? 'cortinilla open' : 'cortinilla'}>
                     <div className='bar'>
@@ -305,6 +309,26 @@ const ProjectContainer = styled.section`
         }
     }
 
+    .container.sinThumbnail {
+        background-color: var(--orange);
+        color: white;
+        text-align: center;
+        padding-top: 100px;
+        .hero {
+            .image {
+                display: none;
+            }
+        }
+        .coverMov {
+            display: none;
+        }
+        .deg {
+            height: 200px;
+            margin-top: 100px;
+            background: linear-gradient(linear, var(--orange), white);
+        }
+    }
+
 `
 
 const BarProgress = styled(ProgressBar)`
@@ -324,10 +348,11 @@ export const query = graphql`
             imagenDeCover {
                 alt
                 asset {
+                    url
                     gatsbyImageData(
-                    layout: FULL_WIDTH
-                    outputPixelDensities: 1.5
-                    placeholder: DOMINANT_COLOR
+                        layout: FULL_WIDTH
+                        outputPixelDensities: 1.5
+                        placeholder: DOMINANT_COLOR
                     )
                 }
             }

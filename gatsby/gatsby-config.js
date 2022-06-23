@@ -1,6 +1,14 @@
+const siteUrl = `https://contextual.mx/`
+
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl,
+    title: `Coontaxtual`,
+    description: `Contextual MX es un espacio de resistencia frente a quienes concentran el poder político, económico y mediático. Desde Monterrey nos sumamos a la descentralización de esta discusión con una perspectiva local, atípica y contextual.`,
+    social: {
+      twitter: `contextual`,
+    },
+    author: `contextual`,
   },
   plugins: [{
     resolve: 'gatsby-source-sanity',

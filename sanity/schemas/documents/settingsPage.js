@@ -13,7 +13,12 @@ export default {
         {
             name: 'descriptionSite',
             title: 'Description Site',
-            type: 'blockModule'
+            type: 'text'
+        },
+        {
+             name: 'siteImage',
+             title: 'Site Image',
+             type: 'imageType'
         },
         {
              name: 'logoNegro',
