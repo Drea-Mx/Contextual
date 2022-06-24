@@ -142,9 +142,15 @@ const HeaderContainer = styled.header`
         display: ${menu ? 'block' : 'none'};
         padding-bottom: 50px;
         height: auto;
+        @media (max-width: 680px) {
+            overflow-y: scroll;
+        }
         .top {
             border-bottom: solid 1px var(--gray);
             padding-bottom: 70px;
+            @media (max-width: 680px) {
+                padding-bottom: 40px;
+            }
             .donate {
                 a {
                     padding: 10px 15px;
@@ -155,6 +161,9 @@ const HeaderContainer = styled.header`
                     left: 20px;
                     border: solid 1px var(--darkgray);
                     border-radius: 3px;
+                }
+                @media (max-width: 680px) {
+                    display: none;
                 }
             }
             .x {
@@ -185,21 +194,28 @@ const HeaderContainer = styled.header`
         .bot {
             width: 100%;
             display: flex;
+            @media (max-width: 680px) {
+                flex-direction: column;
+            }
             .iz {
             margin-top: 20px;
             padding-left: 20px;
             padding-right: 20px;
             width: 50%;
+            @media (max-width: 680px) {
+                width: 100%
+            }
             h3 {
                 text-transform: uppercase;
-                font-size: 0.75rem;
                 font-family: var(--mono);
             }
             .categorias {
-                display: flex;
+                display: block;
                 padding-top: 20px;
                 .icon {
                     margin-right: 10px;
+                    margin-bottom: 10px;
+                    display: inline-block;
                     a {
                         background-color: var(--gray);
                         padding: 8px 10px;
@@ -224,8 +240,15 @@ const HeaderContainer = styled.header`
                 ul {
                     padding-top: 15px;
                     display: flex;
+                    @media (max-width: 680px) {
+                        display: block;
+                        margin-bottom: 20px;
+                    }
                     li {
                         margin-right: 20px;
+                        @media (max-width: 680px) {
+                            margin-bottom: 10px;
+                        }
                     }
                 }
             }
@@ -235,16 +258,20 @@ const HeaderContainer = styled.header`
             padding-left: 20px;
             padding-right: 20px;
             width: 50%;
+            @media (max-width: 680px) {
+                width: 100%
+            }
             h3 {
                 text-transform: uppercase;
-                font-size: 0.75rem;
                 font-family: var(--mono);
             }
             .tags {
-                display: flex;
+                display: block;
                 padding-top: 20px;
                 .icon {
                     margin-right: 10px;
+                    display: inline-block;
+                    margin-bottom: 10px;
                     a {
                         background-color: var(--gray);
                         padding: 8px 10px;
@@ -303,7 +330,7 @@ const HeaderContainer = styled.header`
                 </div>
                 <div className='bot'>
                     <nav className='iz'>
-                        <h3>Categorías</h3>
+                        <h3 className='meta'>Categorías</h3>
                         <ul className='categorias'>
                         {data.allSanityCategoriasPage.nodes.map(( node ) => {
 
@@ -329,7 +356,7 @@ const HeaderContainer = styled.header`
                         </li>
                         </ul>
                         <div className='otros'>
-                            <h3>Otros Links</h3>
+                            <h3 className='meta'>Otros Links</h3>
                             <ul>
                                 {data.sanitySettingsPage.otrosLinks.map(( link ) => {
 
@@ -344,7 +371,7 @@ const HeaderContainer = styled.header`
                         </div>
                     </nav>
                     <nav className='de'>
-                        <h3>Etiquetas</h3>
+                        <h3 className='meta'>Etiquetas</h3>
                         <ul className='tags'>
                         {data.allSanityTagsPage.nodes.map(( node ) => {
                             return (

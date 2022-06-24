@@ -7,8 +7,8 @@ const Blockquote = ({data}) => {
             <div className='frase'>
                 <h2 className='quote'>“</h2>
                 <div className='ri'>
-                    <h2>{data.frase}</h2>
-                    <p>{data.autor}</p>
+                    <h2 className='headline-3' >{data.frase}</h2>
+                    <p className='meta'>{data.autor}</p>
                 </div>
                 
             </div>
@@ -36,7 +36,6 @@ const BlockquoteContainer = styled.section`
         }
         .ri {
             h2 {
-                font-size: 2.5rem;
                 line-height: 1;
                 @media (max-width: 850px) {
                     font-size: 2rem;
@@ -45,7 +44,6 @@ const BlockquoteContainer = styled.section`
             p {
                 margin-top: 10px;
                 text-transform: uppercase;
-                font-size: 0.8rem;
             }
         }
     }

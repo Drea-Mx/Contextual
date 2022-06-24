@@ -48,9 +48,9 @@ class Newsletter extends React.Component {
   
       return (
         <NewsletterWrapper>
-            <h3>Newsletter</h3>
+            <h3 className='meta'>Newsletter</h3>
   
-          <p className="detail">{this.state.message}</p>
+          <p>{this.state.message}</p>
   
   
           <div className='links'>
@@ -78,7 +78,6 @@ class Newsletter extends React.Component {
 
 const  NewsletterWrapper = styled.section`
 h3 {
-    font-size: 0.7rem;
     font-family: var(--mono);
     text-transform: uppercase;
     margin-bottom: 10px;
@@ -99,12 +98,16 @@ form {
         color: var(--orange);
         outline: none;
         margin-bottom: 10px;
+        background-color: var(--gray);
         ::placeholder,
         ::-webkit-input-placeholder {
             color: var(--orange);
         }
         :-ms-input-placeholder {
             color: var(--orange);
+        }
+        @media (max-width: 680px) {
+            width: 100%;
         }
     }
 }

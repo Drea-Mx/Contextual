@@ -80,6 +80,8 @@ const Container = styled.div`
         background-color: var(--white);
         padding-top: 5px;
         padding-bottom: 5px;
+        border-top: solid 1px var(--darkgray);
+        border-bottom: solid 1px var(--darkgray);
         li {
             padding-bottom: 5px;
             padding-top: 5px;
@@ -105,6 +107,7 @@ const Container = styled.div`
 
 const ProyectosContainer = styled(XMasonry)`
     width: 100%;
+    margin-bottom: 100px;
     article {
         padding: 50px 10px 10px;
         .icon {
@@ -115,6 +118,7 @@ const ProyectosContainer = styled(XMasonry)`
         }
         .texto {
             h2 {
+                font-size: 1.563rem;
                 text-transform: uppercase;
                 color: var(--orange);
             }
@@ -127,7 +131,7 @@ const ProyectosContainer = styled(XMasonry)`
         .texto {
             padding: 10px;
             h2 {
-                font-size: 3rem;
+                font-size: 2.441rem;
             }
         }
     }
@@ -165,7 +169,7 @@ const ProyectosContainer = styled(XMasonry)`
     .podcast, .sinThumbnail {
         .texto {
             h2 {
-                font-size: 3rem;
+                font-size: 2.441rem;
             }
             .icon {
                 float: left;

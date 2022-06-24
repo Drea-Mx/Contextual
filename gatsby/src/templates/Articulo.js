@@ -30,7 +30,7 @@ export default function SinglePostPage({ data: { articulo } }) {
 
     return (
         <Layout>
-            <Seo title={articulo.title} description={articulo.headline} image={articulo.imagenDeCover.asset.url} />
+            <Seo title={articulo.seo.title} description={articulo.seo.description} image={articulo.seo.image.asset.url} />
             <ProjectContainer>
                 <div className={`container ${articulo.cover}`}>
                     <div className='hero'>
@@ -42,10 +42,11 @@ export default function SinglePostPage({ data: { articulo } }) {
                                 />
                         </div>
                         <div className='text'>
-                            <p className='fecha'>{`${n(dia)}.${n(month + 1)}.${n(year - 2000)}`}</p>
+                            <img src='/play.svg' alt='Play icon' />
+                            <p className='fecha meta'>{`${n(dia)}.${n(month + 1)}.${n(year - 2000)}`}</p>
                             <h1>{articulo.title}</h1>
                             <h2>{articulo.headline}</h2>
-                            <p className='lectura'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
+                            <p className='lectura meta'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
                         </div>
                     </div>
                     <div className='coverMov'>
@@ -73,14 +74,14 @@ export default function SinglePostPage({ data: { articulo } }) {
                     <div className='bot'>
                         <div className='cont'>
                             <div className='left'>
-                                <p className='autor'>Autor</p>
+                                <p className='autor meta'>Autor</p>
                                 <p className='autorDesc'><strong>{articulo.autor.title}</strong> {articulo.autor.descripcionAutor}</p>
-                                <p className='fechaTag'>Fecha</p>
+                                <p className='fechaTag meta'>Fecha</p>
                                 <p className='fecha'>{`${n(dia)}.${n(month + 1)}.${n(year - 2000)}`}</p>
                             </div>
                             <div className='der'>
                                 <div className='categorias'>
-                                    <p>Categoría</p>
+                                    <p className='meta'>Categoría</p>
                                     <ul>
                                         <li className='icon'>
                                             <Link to={`/categorias/${articulo.categoria.slug.current}`}>
@@ -96,7 +97,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                                     
                                 </div>
                                 <div className='tagsx'>
-                                    <p>Temas</p>
+                                    <p className='meta'>Temas</p>
                                     <ul className='tags'>
                                         {articulo.tags.map(( node ) => {
                                             return (
@@ -137,6 +138,7 @@ const ProjectContainer = styled.section`
         background-color: white;
         transition: all 350ms ease-in-out;
         .bar {
+            border-top: solid 1px #E6E6E6;
             div {
                 position: absolute !important;
                 top: 0;
@@ -149,14 +151,24 @@ const ProjectContainer = styled.section`
             justify-content: space-between;
             padding: 10px 20px;
             height: 40px;
-            
+            position: relative;
             h2 {
                 font-size: 1rem;
                 font-weight: normal;
+                white-space: nowrap;
             }
             button {
+                background-color: white;
+                height: 40px;
+                position: absolute;
+                right: 0px;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 35px;
                 img {
-                    width: 13px;
+                    width: 15px;
+                    margin-right: 20px;
+                    margin-left: 10px;
                 }
             }
         }
@@ -165,13 +177,24 @@ const ProjectContainer = styled.section`
             .cont {
                 padding: 10px 20px 50px;
                 display: flex;
+                @media (max-width: 680px) {
+                    flex-direction: column;
+                }
                 .left, .der {
                     width: 50%;
+                    @media (max-width: 680px) {
+                        width: 100%;
+                    }
                 }
                 .left {
                     .autorDesc {
                         padding-top: 10px;
-                        padding-bottom: 10px;
+                        padding-bottom: 30px;
+                        width: 90%;
+                        @media (max-width: 680px) {
+                            width: 100%;
+                            padding-bottom: 20px;
+                        }
                         strong {
                             font-weight: normal;
                             color: var(--orange)
@@ -182,15 +205,20 @@ const ProjectContainer = styled.section`
                     }
                 }
                 .der {
+                    @media (max-width: 680px) {
+                        margin-top: 30px;
+                    }
                     .categorias {
                        
                         ul {
                             margin-top: 10px;
                             margin-bottom: 10px;
-                            display: flex;
+                            display: block;
                         }
                         .icon {
                             margin-right: 10px;
+                            display: inline-block;
+                            margin-bottom: 10px;
                             a {
                                 background-color: var(--gray);
                                 padding: 10px;
@@ -215,11 +243,19 @@ const ProjectContainer = styled.section`
                             }
                         }
                     }
+                    .tagsx {
+                        margin-top: 50px;
+                        @media (max-width: 680px) {
+                            margin-top: 20px;
+                        }
+                    }
                     .tags {
-                        display: flex;
+                        display: block;
                         padding-top: 20px;
                         .icon {
                             margin-right: 10px;
+                            display: inline-block;
+                            margin-bottom: 10px;
                             a {
                                 background-color: var(--gray);
                                 padding: 8px 10px;
@@ -236,6 +272,15 @@ const ProjectContainer = styled.section`
             }
         }
     }
+
+    .container {
+        .text {
+            img {
+                display: none;
+            }
+        }
+    }
+
     .container.conThumbnail {
         .hero {
             display: flex;
@@ -259,7 +304,6 @@ const ProjectContainer = styled.section`
                 }
                 p {
                     letter-spacing: 2px;
-                    font-size: .7rem;
                     font-family: var(--mono);
                 }
                 .fecha {
@@ -271,7 +315,7 @@ const ProjectContainer = styled.section`
                 }
                 h1 {
                     color: var(--orange);
-                    font-size: 4rem;
+                    font-size: 3.052rem;
                     box-sizing: border-box;
                     display: block;
                     width: 100%;
@@ -281,7 +325,7 @@ const ProjectContainer = styled.section`
                 }
                 h2 {
                     margin-top: 50px;
-                    font-size: 2rem;
+                    font-size: 1.953rem;
                     @media (max-width: 850px) {
                         font-size: 1.5rem;
                     }
@@ -292,6 +336,7 @@ const ProjectContainer = styled.section`
                 .lectura {
                     text-transform: uppercase;
                     padding-top: 50px;
+                    font-size: 0.64rem;
                     @media (max-width: 650px) {
                         display: none;
                     }
@@ -310,22 +355,84 @@ const ProjectContainer = styled.section`
     }
 
     .container.sinThumbnail {
-        background-color: var(--orange);
         color: white;
         text-align: center;
-        padding-top: 100px;
         .hero {
+            background-color: var(--orange);
+            padding-top: 100px;
+            .text {
+                .meta {
+                    letter-spacing: 2px;
+                }
+            }
             .image {
                 display: none;
+            }
+            h1 {
+                padding-top: 50px;
+                padding-bottom: 50px;
+                font-size: 3.052rem;
+                width: 80%;
+                margin: 0 auto;
+                text-transform: uppercase;
+            }
+            h2 {
+                font-size: 1.563rem;
+                padding-bottom: 50px;
+                width: 80%;
+                margin: 0 auto;
             }
         }
         .coverMov {
             display: none;
         }
         .deg {
-            height: 200px;
-            margin-top: 100px;
-            background: linear-gradient(linear, var(--orange), white);
+            height: 300px;
+            background: linear-gradient(to top,rgba(235,71,38,0),rgba(235,71,38,1));
+            margin-bottom: -150px;
+            
+        }
+    }
+    .container.podcast {
+        text-align: center;
+        .hero {
+            background-color: var(--gray);
+            padding-top: 100px;
+            padding-bottom: 50px;
+            .text {
+                .meta {
+                    letter-spacing: 2px;
+                }
+                img {
+                    display: block;
+                    width: 80px;
+                    margin: 0 auto 25px;
+                }
+            }
+            .lectura {
+                display: none;
+            }
+            .image {
+                display: none;
+            }
+            h1 {
+                padding-top: 25px;
+                padding-bottom: 25px;
+                font-size: 3.052rem;
+                max-width: 450px;
+                margin: 0 auto;
+                color: var(--orange);
+                text-transform: uppercase;
+            }
+            h2 {
+                font-size: 1.563rem;
+                padding-bottom: 50px;
+                width: 80%;
+                margin: 0 auto;
+            }
+        }
+        .coverMov {
+            display: none;
         }
     }
 
@@ -361,6 +468,15 @@ export const query = graphql`
             autor {
                 descripcionAutor
                 title
+            }
+            seo {
+                title
+                description
+                image {
+                    asset {
+                    url
+                    }
+                }
             }
             categoria {
                 _id

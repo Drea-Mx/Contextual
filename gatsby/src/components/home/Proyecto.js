@@ -46,6 +46,7 @@ const ProyectoContainer = styled.article`
         }
         p {
             margin-bottom: 20px;
+            font-size: 1.25rem;
         }
         ul {
             width: 100%;
@@ -55,7 +56,7 @@ const ProyectoContainer = styled.article`
             li {
                 font-family: var(--mono);
                 text-transform: uppercase;
-                font-size: 0.7rem;
+                font-size: 0.64rem;
             }
         }
     }

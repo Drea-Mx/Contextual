@@ -73,4 +73,40 @@ html {
         -webkit-font-smoothing: antialiased;
     }
 
+
+    .jumbo {
+        font-size: 4.768rem;
+    }
+    .headline-1 {
+        font-size: 3.815rem;
+    }
+    .headline-2 {
+        font-size: 3.052rem;
+    }
+    .headline-3 {
+        font-size: 2.441rem;
+    }
+    .headline-4 {
+        font-size: 1.953rem;
+    }
+    .headline-5 {
+        font-size: 1.563rem;
+    }
+    .headline-6 {
+        font-size: 1.25rem;
+    }
+    .paragraph {
+        font-size: 1rem;
+    }
+    .small {
+        font-size: 0.8rem;
+    }
+    .meta {
+        font-size: 0.64rem;
+        text-transform: uppercase;
+    }
+    .detail {
+        font-size: 0.512rem;
+    }
+
 `

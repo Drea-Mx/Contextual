@@ -12,7 +12,7 @@ const ImagenFullscreen = ({data}) => {
                     alt={data.image.alt}
                 />
             </div>
-            <p className='caption'>{data.caption}</p>
+            <p className='caption meta'>{data.caption}</p>
         </ImagenFullscreenContainer>
     )
 }
@@ -22,6 +22,7 @@ padding-top: 30px;
 margin-bottom: 50px;
     .caption {
         padding: 5px 20px;
+        text-transform: uppercase;
     }
 `
 

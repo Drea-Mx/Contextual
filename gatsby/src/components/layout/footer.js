@@ -70,7 +70,7 @@ query {
                         <p>{data.sanityFooterPage.textoBajoBoton}</p>
                 </div>
                 <div className='de'>
-                        <h3>Otros Links</h3>
+                        <h3 className='meta'>Otros Links</h3>
                         <ul>
                         {data.sanitySettingsPage.otrosLinks.map(( link ) => {
 
@@ -89,16 +89,27 @@ query {
 }
 
 const FooterContainer = styled.footer`
+background-color: var(--gray);
 .top {
     border-bottom: solid 1px var(--darkgray);
     display: flex;
+    @media (max-width: 680px) {
+        flex-direction: column;
+    }
 .de {
     width: 50%;
     padding: 20px;
+    @media (max-width: 680px) {
+        width: 100%;
+    }
 }
 .iz {
     padding: 20px;
     width: 50%;
+    @media (max-width: 680px) {
+        width: 100%;
+        border-bottom: solid 1px var(--darkgray);
+    }
     .texto {
         a {
             color: var(--orange);
@@ -107,6 +118,13 @@ const FooterContainer = styled.footer`
     .redes {
         margin-top: 50px;
         display: flex;
+        @media (max-width: 680px) {
+            justify-content: center;
+            img {
+                width: 25px !important;
+                margin-right: 20px !important;
+            }
+        }
         img {
             margin-right: 15px;
             width: 18px;
@@ -117,9 +135,16 @@ const FooterContainer = styled.footer`
 .bot {
     display: flex;
     padding-bottom: 50px;
+    @media (max-width: 680px) {
+        flex-direction: column;
+    }
     .iz {
         width: 50%;
         padding: 50px 20px;
+        @media (max-width: 680px) {
+            width: 100%;
+            border-bottom: solid 1px var(--darkgray);
+        }
         a {
             display: inline-block;
             background-color: var(--orange);
@@ -129,6 +154,10 @@ const FooterContainer = styled.footer`
             font-family: var(--mono);
             border-radius: 4px;
             margin-bottom: 20px;
+            @media (max-width: 680px) {
+                display: block;
+                text-align: center;
+            }
         }
         p {
             max-width: 500px;
@@ -137,8 +166,10 @@ const FooterContainer = styled.footer`
     .de {
         width: 50%;
         padding: 50px 20px;
+        @media (max-width: 680px) {
+            width: 100%;
+        }
         h3 {
-            font-size: .7rem;
             text-transform: uppercase;
             font-family: var(--mono);
         }

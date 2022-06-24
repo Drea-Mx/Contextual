@@ -107,6 +107,11 @@ export default {
             title: '¿Destacado?',
             type: 'destacadoObject',
             group: 'inicio'
+        },
+        {
+            name: 'seo',
+            title: 'SEO',
+            type: 'seo'
         }
     ],
     orderings: [

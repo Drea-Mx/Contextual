@@ -18,6 +18,7 @@ import red from './objects/red'
 import thumbnailShape from './objects/thumbnailShape'
 import link from './objects/link'
 import otros from './objects/otros'
+import seo from './objects/seo'
 
 //Modules
 import headline from './arrays/modules/headline'
@@ -67,6 +68,7 @@ export default createSchema({
     thumbnailShape,
     link,
     otros,
+    seo,
 
     headline,
     parrafoColumna,

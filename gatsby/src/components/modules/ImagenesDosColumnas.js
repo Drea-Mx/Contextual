@@ -14,7 +14,7 @@ const ImagenesDosColumnas = ({data}) => {
                         alt={data.imagen1.alt}
                     />
                 </div>
-                <p>{data.caption1}</p>
+                <p className='meta'>{data.caption1}</p>
             </div>
             <div className='image2 element'>
                 <div className='image'>
@@ -23,7 +23,7 @@ const ImagenesDosColumnas = ({data}) => {
                         alt={data.imagen2.alt}
                     />
                 </div>
-                <p>{data.caption2}</p>
+                <p className='meta'>{data.caption2}</p>
             </div>
 
         </ImagenesDosColumnasContainer>
@@ -49,6 +49,7 @@ const ImagenesDosColumnasContainer = styled.section`
         p {
             padding: 5px 20px;
             font-family: var(--mono);
+            text-transform: uppercase;
         }
         .image {
             position: relative;

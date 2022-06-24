@@ -14,7 +14,7 @@ const TextoImagen = ({data}) => {
                         alt={data.imagen.alt}
                     />
                 </div>
-                <p>{data.imagen.alt}</p>
+                <p className='meta'>{data.imagen.alt}</p>
             </div>
             <div className='de'>
                 <div className={`texto ${data.capitalizar}`}>
@@ -44,6 +44,7 @@ const TextoImagenContainer = styled.section`
     .iz {
         p {
             padding-top: 5px;
+            text-transform: uppercase;
         }
     }
     .de {
