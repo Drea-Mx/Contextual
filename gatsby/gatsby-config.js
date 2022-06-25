@@ -16,7 +16,7 @@ module.exports = {
       "projectId": "emwh2ijw",
       "dataset": "production",
       token: process.env.SANITY_TOKEN,
-      watchMode: true,
+      watchMode: false,
     }
   }, "gatsby-plugin-styled-components", "gatsby-plugin-gatsby-cloud", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {
     resolve: 'gatsby-plugin-manifest',
