@@ -25,6 +25,9 @@ const BlockquoteContainer = styled.section`
         border-top: solid 1px #E6E6E6;
         margin-top: 20px;
         margin-bottom: 0px;
+        @media (max-width: 650px) {
+            border: none;
+        }
     }
     .frase {
         display: flex;

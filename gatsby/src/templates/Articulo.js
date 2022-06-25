@@ -357,9 +357,15 @@ const ProjectContainer = styled.section`
     .container.sinThumbnail {
         color: white;
         text-align: center;
+        @media (max-width: 650px) {
+            text-align: left;
+        }
         .hero {
             background-color: var(--orange);
             padding-top: 100px;
+            @media (max-width: 650px) {
+                padding: 100px 20px 0;
+            }
             .text {
                 .meta {
                     letter-spacing: 2px;
@@ -375,12 +381,18 @@ const ProjectContainer = styled.section`
                 width: 80%;
                 margin: 0 auto;
                 text-transform: uppercase;
+                @media (max-width: 650px) {
+                    width: 100%;
+                }
             }
             h2 {
                 font-size: 1.563rem;
                 padding-bottom: 50px;
                 width: 80%;
                 margin: 0 auto;
+                @media (max-width: 650px) {
+                    width: 100%;
+                }
             }
         }
         .coverMov {
@@ -390,15 +402,24 @@ const ProjectContainer = styled.section`
             height: 300px;
             background: linear-gradient(to top,rgba(235,71,38,0),rgba(235,71,38,1));
             margin-bottom: -150px;
-            
+            @media (max-width: 650px) {
+                height: 200px;
+                margin-top: -2px;
+            }
         }
     }
     .container.podcast {
         text-align: center;
+        @media (max-width: 650px) {
+            text-align: left;
+        }
         .hero {
             background-color: var(--gray);
             padding-top: 100px;
             padding-bottom: 50px;
+            @media (max-width: 650px) {
+                padding: 100px 20px 50px;
+            }
             .text {
                 .meta {
                     letter-spacing: 2px;
@@ -429,6 +450,9 @@ const ProjectContainer = styled.section`
                 padding-bottom: 50px;
                 width: 80%;
                 margin: 0 auto;
+                @media (max-width: 650px) {
+                    width: 100%;
+                }
             }
         }
         .coverMov {

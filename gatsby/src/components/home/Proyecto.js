@@ -39,6 +39,9 @@ const ProyectoContainer = styled.article`
     .image {
         filter: grayscale(100%);
         margin-bottom: 10px;
+        @media (max-width: 650px) {
+            filter: none;
+        }
     }
     .texto {
         h2 {

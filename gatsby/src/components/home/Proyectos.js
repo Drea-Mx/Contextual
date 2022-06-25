@@ -82,9 +82,18 @@ const Container = styled.div`
         padding-bottom: 5px;
         border-top: solid 1px var(--darkgray);
         border-bottom: solid 1px var(--darkgray);
+        @media (max-width: 680px) {
+            overflow-x: scroll;
+            white-space:nowrap;
+            display: block;
+        }
         li {
             padding-bottom: 5px;
             padding-top: 5px;
+            @media (max-width: 680px) {
+                display: inline-block;
+                padding: 5px 20px;
+            }
             a {
                 display: flex;
             }
