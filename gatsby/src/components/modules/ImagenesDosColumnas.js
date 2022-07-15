@@ -32,6 +32,7 @@ const ImagenesDosColumnas = ({data}) => {
 
 const ImagenesDosColumnasContainer = styled.section`
     display: flex;
+    padding: 48px 0;
     @media (max-width: 650px) {
         padding: 20px;
         flex-direction: column;
@@ -57,6 +58,9 @@ const ImagenesDosColumnasContainer = styled.section`
             img {
                 transform: scale(1.1);
             }
+        }
+        &:first-child {
+            margin-right: 1px;
         }
     }
 `

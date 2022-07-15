@@ -29,8 +29,7 @@ const TextoImagen = ({data}) => {
 
 const TextoImagenContainer = styled.section`
     display: flex;
-    padding: 0 20px;
-    margin-bottom: 50px;
+    padding: 48px 24px;
     @media (max-width: 650px) {
         flex-direction: column;
         margin-bottom: 20px;

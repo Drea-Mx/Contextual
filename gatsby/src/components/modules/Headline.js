@@ -11,7 +11,7 @@ const Headline = ({data}) => {
 
 const HeadlineContainer = styled.section`
     text-align: center;
-    padding: 20px;
+    padding: 48px 20px;
     font-weight: normal;
     line-height: 1;
 `

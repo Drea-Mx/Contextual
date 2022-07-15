@@ -118,7 +118,7 @@ const ProyectosContainer = styled(XMasonry)`
     width: 100%;
     margin-bottom: 100px;
     article {
-        padding: 50px 10px 10px;
+        padding: 48px 24px 48px;
         .icon {
             display: none;
         }
@@ -133,6 +133,11 @@ const ProyectosContainer = styled(XMasonry)`
             }
         }
     }
+    .undefined {
+        h2 {
+            font-size: 1.563rem;
+        }
+    }
     
     .destacado {
         
@@ -141,6 +146,8 @@ const ProyectosContainer = styled(XMasonry)`
             padding: 10px;
             h2 {
                 font-size: 2.441rem;
+                line-height: 108%;
+                letter-spacing: 1%;
             }
         }
     }
@@ -154,7 +161,7 @@ const ProyectosContainer = styled(XMasonry)`
         }
     }
     .sinThumbnail {
-        padding: 10px;
+        padding: 48px 24px 48px;
         a {
             display: block;
             background-color: var(--orange);

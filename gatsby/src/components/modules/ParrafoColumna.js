@@ -15,11 +15,12 @@ const ParrafoColumna = ({data}) => {
 }
 
 const ParrafoColumnaContainer = styled.section`
+padding: 48px 0;
 .columns {
     column-count: 1;
     column-gap: 20px;
-    width: 380px;
-    margin: 50px auto;
+    max-width: 503px;
+    margin: 0 auto;
     @media (max-width: 650px) {
         width: 100%;
         padding: 0 20px;

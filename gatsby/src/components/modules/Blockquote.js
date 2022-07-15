@@ -7,7 +7,7 @@ const Blockquote = ({data}) => {
             <div className='frase'>
                 <h2 className='quote'>“</h2>
                 <div className='ri'>
-                    <h2 className='headline-3' >{data.frase}</h2>
+                    <h2 className='headline-3'>{data.frase}</h2>
                     <p className='meta'>{data.autor}</p>
                 </div>
                 
@@ -18,7 +18,8 @@ const Blockquote = ({data}) => {
 
 const BlockquoteContainer = styled.section`
     width: 650px;
-    margin: 50px auto;
+    margin: 0 auto;
+    padding: 48px 0;
     @media (max-width: 650px) {
         width: 100%;
         padding: 50px 20px 0;
@@ -33,13 +34,11 @@ const BlockquoteContainer = styled.section`
         display: flex;
         h2.quote {
             font-size: 4rem;
-            line-height: 0.9;
             margin-right: 10px;
             padding-top: 10px;
         }
         .ri {
             h2 {
-                line-height: 1;
                 @media (max-width: 850px) {
                     font-size: 2rem;
                 }

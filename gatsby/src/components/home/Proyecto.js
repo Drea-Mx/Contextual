@@ -38,9 +38,10 @@ const Proyecto = ({node}) => {
 const ProyectoContainer = styled.article`
     .image {
         filter: grayscale(100%);
+        transition: filter 300ms ease-in;
         margin-bottom: 10px;
         @media (max-width: 650px) {
-            filter: none;
+            filter: grayscale(0);
         }
     }
     .texto {

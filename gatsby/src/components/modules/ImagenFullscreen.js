@@ -18,8 +18,7 @@ const ImagenFullscreen = ({data}) => {
 }
 
 const ImagenFullscreenContainer = styled.section`
-padding-top: 30px;
-margin-bottom: 50px;
+padding: 48px 0;
     .caption {
         padding: 5px 20px;
         text-transform: uppercase;

@@ -12,7 +12,8 @@ const Audio = ({data}) => {
 
 const AudioContainer = styled.section`
     display: flex;
-    padding: 20px;
+    padding: 48px 20px;
+
     iframe {
         width: 60%;
         margin: 50px auto;

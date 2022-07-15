@@ -222,6 +222,10 @@ const HeaderContainer = styled.header`
                         border-radius: 3px;
                         display: flex;
                         flex-direction: row;
+                        border: solid 1px transparent;
+                        &:hover {
+                            border: solid 1px var(--orange);
+                        }
                         .imagen {
                             display: block;
                             margin-right: 5px;
@@ -246,6 +250,11 @@ const HeaderContainer = styled.header`
                     }
                     li {
                         margin-right: 20px;
+                        a {
+                            &:hover {
+                                color: var(--orange);
+                            }
+                        }
                         @media (max-width: 680px) {
                             margin-bottom: 10px;
                         }
@@ -278,6 +287,10 @@ const HeaderContainer = styled.header`
                         border-radius: 3px;
                         display: flex;
                         flex-direction: row;
+                        border: solid 1px transparent;
+                        &:hover {
+                            border: solid 1px var(--orange);
+                        }
                         p {
                             color: var(--orange)
                         }

@@ -44,13 +44,13 @@ export default function SinglePostPage({ data: { articulo } }) {
                         <div className='text'>
                             <img src='/play.svg' alt='Play icon' />
                             <p className='fecha meta'>{`${n(dia)}.${n(month + 1)}.${n(year - 2000)}`}</p>
-                            <h1>{articulo.title}</h1>
-                            <h2>{articulo.headline}</h2>
+                            <h1 className='headline-2'>{articulo.title}</h1>
+                            <h2 className='headline-4'>{articulo.headline}</h2>
                             <p className='lectura meta'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
                         </div>
                     </div>
                     <div className='coverMov'>
-                        <h2>{articulo.headline}</h2>
+                        <h2 className='headline-4'>{articulo.headline}</h2>
                         <p className='lectura'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
                     </div>
                     <div className='deg'></div>
@@ -66,7 +66,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                         />
                     </div>
                     <div className='top'>
-                        <h2>{articulo.title}</h2>
+                        <h2 className='headline-4'>{articulo.title}</h2>
                         <button onClick={() => setBar(!bar)}>
                             <img src='/arrowDown.svg' alt='Arrow' />
                         </button>
@@ -154,6 +154,7 @@ const ProjectContainer = styled.section`
             position: relative;
             h2 {
                 font-size: 1rem;
+                line-height: 108%;
                 font-weight: normal;
                 white-space: nowrap;
             }
@@ -227,6 +228,10 @@ const ProjectContainer = styled.section`
                                 justify-content: center;
                                 align-items: center;
                                 flex-direction: row;
+                                border: solid 1px transparent;
+                                &:hover {
+                                    border: solid 1px var(--orange);
+                                }
                                 .imagen {
                                     display: block;
                                     margin-right: 5px;
@@ -262,6 +267,10 @@ const ProjectContainer = styled.section`
                                 border-radius: 3px;
                                 display: flex;
                                 flex-direction: row;
+                                border: solid 1px transparent;
+                                &:hover {
+                                    border: solid 1px var(--orange);
+                                }
                                 p {
                                     color: var(--orange)
                                 }
@@ -316,9 +325,11 @@ const ProjectContainer = styled.section`
                 h1 {
                     color: var(--orange);
                     font-size: 3.052rem;
+                    line-height: 108%;
                     box-sizing: border-box;
                     display: block;
                     width: 100%;
+                    text-transform: uppercase;
                     @media (max-width: 850px) {
                         font-size: 2.5rem;
                     }
@@ -326,6 +337,7 @@ const ProjectContainer = styled.section`
                 h2 {
                     margin-top: 50px;
                     font-size: 1.953rem;
+                    line-height: 108%;
                     @media (max-width: 850px) {
                         font-size: 1.5rem;
                     }
@@ -347,6 +359,7 @@ const ProjectContainer = styled.section`
             padding: 20px;
             h2 {
                 margin-bottom: 20px;
+                line-height: 108%;
             }
             @media (min-width: 650px) {
                 display: none;
@@ -378,6 +391,7 @@ const ProjectContainer = styled.section`
                 padding-top: 50px;
                 padding-bottom: 50px;
                 font-size: 3.052rem;
+                line-height: 108%;
                 width: 80%;
                 margin: 0 auto;
                 text-transform: uppercase;
@@ -387,6 +401,7 @@ const ProjectContainer = styled.section`
             }
             h2 {
                 font-size: 1.563rem;
+                line-height: 108%;
                 padding-bottom: 50px;
                 width: 80%;
                 margin: 0 auto;
@@ -440,6 +455,7 @@ const ProjectContainer = styled.section`
                 padding-top: 25px;
                 padding-bottom: 25px;
                 font-size: 3.052rem;
+                line-height: 108%;
                 max-width: 450px;
                 margin: 0 auto;
                 color: var(--orange);
@@ -447,6 +463,7 @@ const ProjectContainer = styled.section`
             }
             h2 {
                 font-size: 1.563rem;
+                line-height: 108%;
                 padding-bottom: 50px;
                 width: 80%;
                 margin: 0 auto;

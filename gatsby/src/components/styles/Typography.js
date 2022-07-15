@@ -72,22 +72,35 @@ html {
         position: relative;
         -webkit-font-smoothing: antialiased;
     }
+    ::-webkit-scrollbar {
+        display: none;
+    }
 
 
     .jumbo {
         font-size: 4.768rem;
+        line-height: 108%;
+        letter-spacing: 1%;
     }
     .headline-1 {
         font-size: 3.815rem;
+        line-height: 108%;
+        letter-spacing: 1%;
     }
     .headline-2 {
         font-size: 3.052rem;
+        line-height: 108%;
+        letter-spacing: 1%;
     }
     .headline-3 {
         font-size: 2.441rem;
+        line-height: 108%;
+        letter-spacing: 1%;
     }
     .headline-4 {
         font-size: 1.953rem;
+        line-height: 108%;
+        letter-spacing: 1%;
     }
     .headline-5 {
         font-size: 1.563rem;
@@ -104,9 +117,14 @@ html {
     .meta {
         font-size: 0.64rem;
         text-transform: uppercase;
+        line-height: 116%;
+        letter-spacing: 0.5px;
     }
     .detail {
         font-size: 0.512rem;
+    }
+    p {
+        line-height: 140%;
     }
 
 `
