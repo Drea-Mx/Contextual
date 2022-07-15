@@ -1,4 +1,4 @@
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/layout/layout'
 import React, { useEffect, useState } from 'react'
 import { XMasonry, XBlock } from "react-xmasonry"; // Imports JSX plain sources
@@ -58,21 +58,21 @@ export default function SingleCategoriaPage({ data: { categoria, proyectos, tags
                         <h1>{categoria.title}</h1>
                     </div>
                     <div className='tags'>
-                    {tagsSection.nodes.map(node =>
-                        [...new Set(node.tags)].map(tag => (
-                        <p>{tag.title}</p>
-                        ))
-                    )}
+                        {tagsSection.nodes.map(( tag ) => {
+                            return (
+                                <p>{tag.title}</p>
+                            )
+                        })}
                     </div>
                 </div>
                 
             </XBlock>
-            {proyectos.nodes.map(( node ) => {
+            {proyectos.nodes.map(( proyecto ) => {
 
                 return (
 
                     <XBlock width={1} >
-                        <p>{node.title}</p>
+                        <p>{proyecto.title}</p>
                     </XBlock>
                 )
                 })}
@@ -206,8 +206,7 @@ const ProyectosContainer = styled(XMasonry)`
 
 export const query = graphql`
     query($slug: String!){
-        categoria: sanityCategoriasPage(slug: {
-		current: {eq: $slug} }){
+        categoria: sanityCategoriasPage(slug: { current: {eq: $slug} }){
             title
             icono {
                 alt
@@ -219,15 +218,16 @@ export const query = graphql`
         proyectos: allSanityArticulosPage(filter: {categoria: {slug: {current: {eq: $slug}}}}) {
             nodes {
             title
+            tags {
+                title
+            }
             }
         }
-        tagsSection: allSanityArticulosPage {
+        tagsSection:   allSanityCategoriasPage {
             nodes {
-                tags {
-                    title
-                    slug {
+                title
+                slug {
                     current
-                    }
                 }
             }
         }
