@@ -48,6 +48,7 @@ export const Typography = createGlobalStyle`
       --gray: #F7F7F7;
       --darkgray: #E6E6E6;
       --orange: #EB4726;
+      --darkOrange: #E03715;
       --gra: #999999;
       overflow-wrap: break-word;
 }
