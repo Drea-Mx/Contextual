@@ -55,6 +55,7 @@ export const Typography = createGlobalStyle`
 
 html {
       scroll-behavior: smooth;
+      font-size: 18px !important;
     }
 
     * {
@@ -66,7 +67,6 @@ html {
       background-color: var(--white);
         color: var(--black);
         font-family: var(--regular);
-        font-size: 18px;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         width: 100%;
         overflow-x: hidden;
@@ -87,6 +87,7 @@ html {
         font-size: 3.815rem;
         line-height: 108%;
         letter-spacing: 1%;
+        text-transform: uppercase;
     }
     .headline-2 {
         font-size: 3.052rem;
@@ -119,13 +120,18 @@ html {
         font-size: 0.64rem;
         text-transform: uppercase;
         line-height: 116%;
-        letter-spacing: 0.5px;
+        letter-spacing: .05rem;
+            font-family: var(--mono);
     }
     .detail {
         font-size: 0.512rem;
     }
     p {
         line-height: 140%;
+    }
+
+    .red a {
+        letter-spacing: 0.2rem;
     }
 
 `

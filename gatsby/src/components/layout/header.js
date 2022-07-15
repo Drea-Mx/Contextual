@@ -16,7 +16,7 @@ const data = useStaticQuery(graphql`
                     gatsbyImageData(
                         layout: FULL_WIDTH
                         outputPixelDensities: 1.5
-                        placeholder: DOMINANT_COLOR
+                        placeholder: BLURRED
                     )
                 }
             }
@@ -26,7 +26,7 @@ const data = useStaticQuery(graphql`
                     gatsbyImageData(
                         layout: FULL_WIDTH
                         outputPixelDensities: 1.5
-                        placeholder: DOMINANT_COLOR
+                        placeholder: BLURRED
                     )
                 }
             }
@@ -120,6 +120,8 @@ const HeaderContainer = styled.header`
     .ham.open {
         .line{
             background-color: var(--gray);
+            transition: background-color 300ms ease-in;
+            
             &:first-child {
                 top: 6.5px;
                 transform: rotate(45deg);
@@ -132,6 +134,18 @@ const HeaderContainer = styled.header`
                 opacity: 0;
             }
         }
+    }
+
+    .over {
+        display: ${menu ? 'block' : 'none'};
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: black;
+        opacity: 0.25;
+        z-index: 0;
     }
 
     .nav {
@@ -172,11 +186,17 @@ const HeaderContainer = styled.header`
                 right: 20px;
                 width: 30px;
                 height: 20px;
+                &:hover {
+                    .line {
+                        background-color: black !important;
+                    }
+                }
                 .line {
                     width: 100%;
                     height: 2px;
                     background-color: var(--darkgray);
                     position: absolute;
+                    transition: background-color 300ms ease-in;
                     &:first-child {
                         top: 9px;
                         transform: rotate(45deg);
@@ -230,7 +250,8 @@ const HeaderContainer = styled.header`
                             display: block;
                             margin-right: 5px;
                             img {
-                                height: 10px;
+                                height: 16px;
+                                vertical-align: middle;
                             }
                         }
                         p {
@@ -321,6 +342,9 @@ const HeaderContainer = styled.header`
                 <div className='line'></div>
                 <div className='line'></div>
             </button>
+            <div className='over'  onClick={() => setMenu(!menu)}>
+
+            </div>
             <div className='nav'>
                 <div className='top'>
                     <div className='donate'>

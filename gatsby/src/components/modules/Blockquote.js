@@ -33,9 +33,10 @@ const BlockquoteContainer = styled.section`
     .frase {
         display: flex;
         h2.quote {
-            font-size: 4rem;
+            font-size: 4.768rem;
             margin-right: 10px;
-            padding-top: 10px;
+            padding-top: 0px;
+            line-height: 100%;
         }
         .ri {
             h2 {
@@ -44,7 +45,7 @@ const BlockquoteContainer = styled.section`
                 }
             }
             p {
-                margin-top: 10px;
+                margin-top: 1rem;
                 text-transform: uppercase;
             }
         }

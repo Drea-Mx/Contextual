@@ -131,7 +131,7 @@ const ProjectContainer = styled.section`
     }
     .cortinilla {
         position: fixed;
-        top: calc(100% - 40px);
+        top: calc(100% - 50px);
         bottom: auto;
         left: 0;
         width: 100vw;
@@ -148,15 +148,15 @@ const ProjectContainer = styled.section`
         }
         .top {
             display: flex;
+            -webkit-box-pack: justify;
             justify-content: space-between;
             padding: 10px 20px;
-            height: 40px;
+            height: 50px;
             position: relative;
             h2 {
-                font-size: 1rem;
-                line-height: 108%;
-                font-weight: normal;
-                white-space: nowrap;
+                line-height: 140%;
+                font-size: 1.2rem;
+                letter-spacing: .02rem;
             }
             button {
                 background-color: white;
@@ -176,7 +176,7 @@ const ProjectContainer = styled.section`
         .bot {
             border-top: solid 1px #E6E6E6;
             .cont {
-                padding: 10px 20px 50px;
+                padding: 24px;
                 display: flex;
                 @media (max-width: 680px) {
                     flex-direction: column;
@@ -206,6 +206,9 @@ const ProjectContainer = styled.section`
                     }
                 }
                 .der {
+                    a {
+                        font-size: 1rem;
+                    }
                     @media (max-width: 680px) {
                         margin-top: 30px;
                     }
@@ -330,6 +333,7 @@ const ProjectContainer = styled.section`
                     display: block;
                     width: 100%;
                     text-transform: uppercase;
+                    letter-spacing: .01em;
                     @media (max-width: 850px) {
                         font-size: 2.5rem;
                     }
@@ -349,6 +353,7 @@ const ProjectContainer = styled.section`
                     text-transform: uppercase;
                     padding-top: 50px;
                     font-size: 0.64rem;
+                    letter-spacing: .1rem;
                     @media (max-width: 650px) {
                         display: none;
                     }

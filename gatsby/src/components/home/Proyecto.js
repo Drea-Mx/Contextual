@@ -47,10 +47,13 @@ const ProyectoContainer = styled.article`
     .texto {
         h2 {
             margin-bottom: 10px;
+            letter-spacing: .05rem;
         }
         p {
             margin-bottom: 20px;
             font-size: 1.25rem;
+            letter-spacing: .025rem;
+	        line-height: 132%;
         }
         ul {
             width: 100%;

@@ -30,6 +30,11 @@ padding: 48px 0;
         color: var(--orange);
     }
     p {
+        line-height: 140%;
+        font-size: 1.2rem;
+        letter-spacing: .02rem;
+    }
+    p {
             padding: 8px 0;
         }
     a {
@@ -41,11 +46,11 @@ padding: 48px 0;
         &:first-child {
             &:first-letter {
                 text-transform: uppercase;
-                font-size: 3rem;
+                font-size: 4.768rem;
                 color: var(--orange);
                 float: left;
-                margin-right: 5px;
-                line-height: 1.009;
+                margin-right: 0.8rem;
+                line-height: 100%;
             }
         }
     }
