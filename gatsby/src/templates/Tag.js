@@ -1,17 +1,17 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout/layout'
-import Categorias from '../components/categoria/Categorias';
+import Tags from '../components/tag/Tags';
 
 
-export default function SingleCategoriaPage({ data}) {
+export default function SingleTagPage({ data}) {
 
 
 
     
     return (
         <Layout>
-            <Categorias data={data} />
+            <Tags data={data} />
         </Layout>
     )
 }
@@ -19,16 +19,13 @@ export default function SingleCategoriaPage({ data}) {
 
 export const query = graphql`
     query($slug: String!){
-        categoria: sanityCategoriasPage(slug: { current: {eq: $slug} }){
+        tag: sanityTagsPage(slug: { current: {eq: $slug} }){
             title
-            icono {
-                alt
-                asset {
-                    url
-                }
+            slug {
+                current
             }
         }
-        proyectos: allSanityArticulosPage(filter: {categoria: {slug: {current: {eq: $slug}}}}) {
+        proyectos: allSanityArticulosPage(filter: {tags: {elemMatch: {slug: {current: {eq: $slug}}}}}) {
             nodes {
                 _id
                 title
@@ -68,19 +65,20 @@ export const query = graphql`
                 }
             }
         }
-        tagsSection:allSanityCategoriasPage {
+        categorias: #Categorias
+            allSanityCategoriasPage {
             nodes {
-            _id
-            title
-            slug {
-                current
-            }
-            icono {
-                alt
-                asset {
-                url
+                _id
+                title
+                slug {
+                    current
                 }
-            }
+                icono {
+                    alt
+                    asset {
+                    url
+                    }
+                }
             }
         }
     }

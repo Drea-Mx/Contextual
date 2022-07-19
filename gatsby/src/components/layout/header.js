@@ -251,7 +251,6 @@ const HeaderContainer = styled.header`
                             margin-right: 5px;
                             img {
                                 height: 16px;
-                                vertical-align: middle;
                             }
                         }
                         p {

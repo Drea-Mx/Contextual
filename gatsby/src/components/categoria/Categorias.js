@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { XMasonry, XBlock } from "react-xmasonry"; // Imports JSX plain sources
 import useResizeAware from 'react-resize-aware';
 import { Link } from 'gatsby';
+import Proyecto from '../home/Proyecto';
+import ProyectoCat from './ProyectoCat';
 
 
 const Categorias = ( {data: { categoria, proyectos, tagsSection } }) => {
@@ -74,9 +76,10 @@ const Categorias = ( {data: { categoria, proyectos, tagsSection } }) => {
                 {proyectos.nodes.map(( proyecto ) => {
 
                     return (
-
-                        <XBlock width={1} key={proyecto._id}>
-                            <p>{proyecto.title}</p>
+                        <XBlock
+                            width={proyecto.destacado ? '2' : '1'}
+                        >
+                            <ProyectoCat key={proyecto._id} node={proyecto} />
                         </XBlock>
                     )
                     })}
@@ -131,6 +134,7 @@ const CategoriasContainer = styled.div`
                 height: 15px;
                 margin-right: 10px;
                 filter: brightness(0%);
+                align-self: center;
             }
             &:hover {
                 a {

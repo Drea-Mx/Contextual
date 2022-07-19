@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Proyecto from './Proyecto'
 import { XMasonry, XBlock } from "react-xmasonry"; // Imports JSX plain sources
 import useResizeAware from 'react-resize-aware';
 import { Link } from 'gatsby';
+import ProyectoTag from './ProyectoTag';
 
 
-const Proyectos = ({data}) => {
+const Tags = ( {data: { tag, proyectos, categorias } }) => {
+
+    
 
     const [resizeListener, sizes] = useResizeAware();
 
@@ -38,37 +40,53 @@ const Proyectos = ({data}) => {
     });
 
 
+
+
     return(
-        <Container>
-        {resizeListener}
-        <ProyectosContainer
-        targetBlockWidth={columnWidth}
-        responsive={false}
-        >
-            {data.allSanityArticulosPage.nodes.map(( node ) => {
-                return (
-                    <XBlock
-                    width={node.destacado ? '2' : '1'}
-                    >
-                        <Proyecto node={node} key={node._id} />
-                    </XBlock>
-                )
-            })}
+        <CategoriasContainer>
+            {resizeListener}
+            <ProyectosContainer
+                targetBlockWidth={columnWidth}
+                responsive={false}
+            >
+                <XBlock width={2} >
+                    <div className='hero'>
+                        <h3 className='meta'>Etiqueta</h3>
+                        <div className='title'>
+                            <h1 className='headline-2'>{tag.title}</h1>
+                        </div>
+                    </div>
+                    
+                </XBlock>
+                {proyectos.nodes.map(( proyecto ) => {
 
-        </ProyectosContainer>
-
-        <ul className='categories'>
-            {data.allSanityCategoriasPage.nodes.map(( node ) => {
-                return (
-                    <li><Link to={`/categorias/${node.slug.current}`}><img src={node.icono.asset.url} alt={node.icono.alt} /><p>{node.title}</p></Link></li>
-                )
-            })}
-        </ul>
-        </Container>
+                    return (
+                        <XBlock
+                            width={proyecto.destacado ? '2' : '1'}
+                        >
+                            <ProyectoTag key={proyecto._id} node={proyecto} />
+                        </XBlock>
+                    )
+                    })}
+            </ProyectosContainer>
+            <ul className='categories'>
+                {categorias.nodes.map(( node ) => {
+                    return (
+                        <li><Link to={`/categorias/${node.slug.current}`}><img src={node.icono.asset.url} alt={node.icono.alt} /><p>{node.title}</p></Link></li>
+                    )
+                })}
+            </ul>
+        </CategoriasContainer>
     )
 }
 
-const Container = styled.div`
+const ProyectosContainer = styled(XMasonry)`
+    width: 100%;
+    
+`
+
+const CategoriasContainer = styled.div`
+    width: 100%;
     position: relative;
     .categories {
         position: sticky;
@@ -113,30 +131,62 @@ const Container = styled.div`
             }
         }
     }
-`
-
-const ProyectosContainer = styled(XMasonry)`
-    width: 100%;
-    margin-bottom: 100px;
+    .hero {
+        background-color: var(--orange);
+        padding: 50px 20px 20px 20px;
+        border-radius: 0 0 24px 0;
+        h3 {
+            margin-bottom: 28px;
+            color: var(--white);
+        }
+        .title {
+            display: flex;
+            h1 {
+                color: var(--white);
+            }
+            img {
+                width: 50px;
+                filter: brightness(0%) invert(1);
+            }
+        }
+        .tags {
+            margin-top: 32px;
+            .meta {
+                color: white;
+                margin-bottom: 18px;
+                opacity: 0.75;
+            }
+            li {
+                display: inline-block;
+                margin-right: 10px;
+                margin-bottom: 10px;
+            }
+            a {
+                background-color: var(--darkOrange);
+                color: white;
+                padding: 8px 10px;
+                border-radius: 3px;
+                display: flex;
+                flex-direction: row;
+                border: solid 1px transparent;
+                &:hover {
+                    border: solid 1px var(--orange);
+                }
+            }
+        }
+    }
     article {
-        padding: 48px 24px 48px;
+        padding: 50px 10px 10px;
         .icon {
             display: none;
         }
         .image {
-
         }
         .texto {
             h2 {
-                font-size: 1.563rem;
                 text-transform: uppercase;
                 color: var(--orange);
             }
-        }
-    }
-    .undefined {
-        h2 {
-            font-size: 1.563rem;
         }
     }
     
@@ -146,9 +196,7 @@ const ProyectosContainer = styled(XMasonry)`
         .texto {
             padding: 10px;
             h2 {
-                font-size: 2.441rem;
-                line-height: 108%;
-                letter-spacing: 1%;
+                font-size: 3rem;
             }
         }
     }
@@ -162,7 +210,7 @@ const ProyectosContainer = styled(XMasonry)`
         }
     }
     .sinThumbnail {
-        padding: 48px 24px 48px;
+        padding: 10px;
         a {
             display: block;
             background-color: var(--orange);
@@ -186,7 +234,7 @@ const ProyectosContainer = styled(XMasonry)`
     .podcast, .sinThumbnail {
         .texto {
             h2 {
-                font-size: 2.441rem;
+                font-size: 3rem;
             }
             .icon {
                 float: left;
@@ -219,10 +267,6 @@ const ProyectosContainer = styled(XMasonry)`
             overflow: hidden;
         }
     }
-
-
 `
 
-
-
-export default Proyectos
+export default Tags

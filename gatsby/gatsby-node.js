@@ -62,6 +62,36 @@ async function turnCategoriesIntoPages({graphql, actions}) {
   });
 }
 
+async function turnTagsIntoPages({graphql, actions}) {
+  // 1. Get a template for this page
+  const tagTemplate = path.resolve('./src/templates/Tag.js')
+  // 2. Query all artists
+  const {data} = await graphql(`
+      query {
+          tags:   allSanityTagsPage {
+            nodes {
+              title
+              slug {
+                current
+              }
+            }
+          }
+      }
+  `);
+  // 3. Loop over each artist and create a page for each artist
+  data.tags.nodes.forEach((tag) => {
+      actions.createPage({
+          // url forths new page
+          path: `/etiquetas/${tag.slug.current}`,
+          component: tagTemplate,
+          context: {
+              language: 'es',
+              slug: tag.slug.current,
+          }
+      })
+  });
+}
+
 
 exports.createPages = async (params) => {
 // Create Pages dynamically
@@ -69,6 +99,7 @@ exports.createPages = async (params) => {
         // 1. Posts
         turnPostsIntoPages(params),
         turnCategoriesIntoPages(params),
+        turnTagsIntoPages(params),
 
     ])
 }
