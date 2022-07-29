@@ -520,12 +520,6 @@ export const query = graphql`
             categoria {
                 _id
                 title
-                icono {
-                alt
-                asset {
-                    url
-                }
-                }
                 slug {
                 current
                 }

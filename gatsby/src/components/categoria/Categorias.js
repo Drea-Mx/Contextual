@@ -146,27 +146,22 @@ const CategoriasContainer = styled.div`
         }
     }
     .hero {
-        background-color: var(--orange);
+        background-color: var(--gray);
         padding: 50px 20px 20px 20px;
         border-radius: 0 0 24px 0;
+        margin-bottom: 25px;
+        margin-right: 25px;
         h3 {
             margin-bottom: 28px;
-            color: var(--white);
         }
         .title {
             display: flex;
             h1 {
-                color: var(--white);
-            }
-            img {
-                width: 50px;
-                filter: brightness(0%) invert(1);
             }
         }
         .tags {
             margin-top: 32px;
             .meta {
-                color: white;
                 margin-bottom: 18px;
                 opacity: 0.75;
             }
@@ -176,8 +171,8 @@ const CategoriasContainer = styled.div`
                 margin-bottom: 10px;
             }
             a {
-                background-color: var(--darkOrange);
-                color: white;
+                background-color: var(--darkgray);
+                color: var(--black);
                 padding: 8px 10px;
                 border-radius: 3px;
                 display: flex;

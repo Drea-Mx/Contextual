@@ -21,12 +21,6 @@ export const query = graphql`
     query($slug: String!){
         categoria: sanityCategoriasPage(slug: { current: {eq: $slug} }){
             title
-            icono {
-                alt
-                asset {
-                    url
-                }
-            }
         }
         proyectos: allSanityArticulosPage(filter: {categoria: {slug: {current: {eq: $slug}}}}) {
             nodes {
@@ -49,12 +43,6 @@ export const query = graphql`
                 }
                 categoria {
                     title
-                    icono {
-                        alt
-                        asset {
-                        url
-                        }
-                    }
                 }
                 lecturaDeXMinutos
                 cover
@@ -74,12 +62,6 @@ export const query = graphql`
             title
             slug {
                 current
-            }
-            icono {
-                alt
-                asset {
-                url
-                }
             }
             }
         }

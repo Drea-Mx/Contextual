@@ -27,12 +27,6 @@ export const data = graphql`
         }
         categoria {
           title
-          icono {
-            alt
-            asset {
-              url
-            }
-          }
         }
         lecturaDeXMinutos
         cover
@@ -51,12 +45,6 @@ export const data = graphql`
       title
       slug {
         current
-      }
-      icono {
-        alt
-        asset {
-          url
-        }
       }
     }
   }
