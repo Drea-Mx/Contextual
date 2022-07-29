@@ -56,13 +56,13 @@ export const query = graphql`
                 }
             }
         }
-        tagsSection:allSanityCategoriasPage {
+        tagsSection: allSanityTagsPage {
             nodes {
-            _id
-            title
-            slug {
-                current
-            }
+                _id
+                title
+                slug {
+                    current
+                }
             }
         }
     }

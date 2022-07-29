@@ -62,7 +62,7 @@ const Categorias = ( {data: { categoria, proyectos, tagsSection } }) => {
                                 {tagsSection.nodes.map(( tag ) => {
                                     return (
                                         <li key={tag._id}>
-                                            <Link to={`/tags/${tag.slug.current}`}>{tag.title}</Link>
+                                            <Link to={`/etiquetas/${tag.slug.current}`}>{tag.title}</Link>
                                         </li>
                                     )
                                 })}
