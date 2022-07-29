@@ -44,12 +44,6 @@ const data = useStaticQuery(graphql`
             slug {
                 current
             }
-            icono {
-                alt
-                asset {
-                url
-                }
-            }
             }
         }
         #Tags
@@ -84,7 +78,7 @@ const HeaderContainer = styled.header`
     z-index: 1;
     width: 100%;
     height: 100px;
-    background-image: linear-gradient(to top, rgba(235,71,38,0), rgba(235,71,38,1));
+    background: linear-gradient(180deg, #1A1A1A -20%, rgba(26, 26, 26, 0) 100%);
     .logo {
         width: 150px;
         position: relative;
@@ -373,9 +367,6 @@ const HeaderContainer = styled.header`
                             return (
                                 <li key={node._key} className='icon'>
                                     <Link to={`/categorias/${node.slug.current}`}>
-                                        <div className='imagen'>
-                                            <img src={node.icono.asset.url} alt={node.icono.alt} /> 
-                                        </div>
                                         <div className='texto'>
                                             <p>{node.title}</p>
                                         </div>

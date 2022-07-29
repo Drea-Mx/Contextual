@@ -5,21 +5,20 @@ import { Link } from 'gatsby'
 
 const Proyecto = ({node}) => {
 
-    const logoGetDataImage = getImage(node.imagenDeCover.asset)
-    const logoGetDataImageAlt = node.imagenDeCover.alt
-
     return(
         <ProyectoContainer className={`${node.destacado === true ? 'destacado' : 'undefined'} ${node.cover && node.cover} ${node.thumbnailForma && node.thumbnailForma}` }>
             <Link to={`/articulos/${node.slug.current}`}>
                 <div className='image'>
-                    <GatsbyImage
-                        style={{ height: "100%", width: "100%" }}
-                        image={logoGetDataImage}
-                        alt={logoGetDataImageAlt}
-                    />
+                    {node.imagenDeCover && 
+                        <GatsbyImage
+                            style={{ height: "100%", width: "100%" }}
+                            image={getImage(node.imagenDeCover.asset)}
+                            alt={node.imagenDeCover.alt}
+                        />
+                    }
                 </div>
                 <div className='texto'>
-                    <h2><img className='icon' src={node.categoria.icono.asset.url} alt={node.categoria.icono.alt} />{node.title}</h2>
+                    <h2>{node.title}</h2>
                     <p>{node.headline}</p>
                     <div className='meta'>
                         <ul>

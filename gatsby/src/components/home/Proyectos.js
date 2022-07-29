@@ -60,7 +60,7 @@ const Proyectos = ({data}) => {
         <ul className='categories'>
             {data.allSanityCategoriasPage.nodes.map(( node ) => {
                 return (
-                    <li><Link to={`/categorias/${node.slug.current}`}><img src={node.icono.asset.url} alt={node.icono.alt} /><p>{node.title}</p></Link></li>
+                    <li><Link to={`/categorias/${node.slug.current}`}><p>{node.title}</p></Link></li>
                 )
             })}
         </ul>

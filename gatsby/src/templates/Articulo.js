@@ -10,10 +10,6 @@ import Seo from "../components/layout/seo"
 export default function SinglePostPage({ data: { articulo } }) {
 
 
-    const logoGetDataImage = getImage(articulo.imagenDeCover.asset)
-    const logoGetDataImageAlt = articulo.imagenDeCover.alt
-
-
     const fecha = new Date(articulo.fecha)
 
     const year = fecha.getFullYear() // 2019
@@ -37,8 +33,8 @@ export default function SinglePostPage({ data: { articulo } }) {
                         <div className='image'>
                             <GatsbyImage
                                     style={{ height: "100%", width: "100%" }}
-                                    image={articulo.imagenDeCover ? logoGetDataImage : ''}
-                                    alt={articulo.imagenDeCover ? logoGetDataImageAlt : ''}
+                                    image={articulo.imagenDeCover ? getImage(articulo.imagenDeCover.asset) : ''}
+                                    alt={articulo.imagenDeCover ? articulo.imagenDeCover.alt : ''}
                                 />
                         </div>
                         <div className='text'>
@@ -85,9 +81,6 @@ export default function SinglePostPage({ data: { articulo } }) {
                                     <ul>
                                         <li className='icon'>
                                             <Link to={`/categorias/${articulo.categoria.slug.current}`}>
-                                                <div className='imagen'>
-                                                    <img src={articulo.categoria.icono.asset.url} alt={articulo.categoria.icono.alt} /> 
-                                                </div>
                                                 <div className='texto'>
                                                     <p>{articulo.categoria.title}</p>
                                                 </div>

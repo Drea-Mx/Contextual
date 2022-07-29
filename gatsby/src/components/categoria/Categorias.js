@@ -54,7 +54,6 @@ const Categorias = ( {data: { categoria, proyectos, tagsSection } }) => {
                     <div className='hero'>
                         <h3 className='meta'>Categoría</h3>
                         <div className='title'>
-                            <img src={categoria.icono.asset.url} alt={categoria.icono.alt} />
                             <h1 className='headline-2'>{categoria.title}</h1>
                         </div>
                         <div className='tags'>
@@ -87,7 +86,7 @@ const Categorias = ( {data: { categoria, proyectos, tagsSection } }) => {
             <ul className='categories'>
                 {tagsSection.nodes.map(( node ) => {
                     return (
-                        <li><Link to={`/categorias/${node.slug.current}`}><img src={node.icono.asset.url} alt={node.icono.alt} /><p>{node.title}</p></Link></li>
+                        <li><Link to={`/categorias/${node.slug.current}`}><p>{node.title}</p></Link></li>
                     )
                 })}
             </ul>
