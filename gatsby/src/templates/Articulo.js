@@ -48,7 +48,6 @@ export default function SinglePostPage({ data: { articulo } }) {
                         <h2 className='headline-4'>{articulo.headline}</h2>
                         <p className='lectura'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
                     </div>
-                    <div className='deg'></div>
                 </div>
 
                 <Modules editorialModule={articulo.moduleArray} />
@@ -373,6 +372,7 @@ const ProjectContainer = styled.section`
         .hero {
             background-color: var(--orange);
             padding-top: 100px;
+            padding-bottom: 50px;
             @media (max-width: 650px) {
                 padding: 100px 20px 0;
             }
