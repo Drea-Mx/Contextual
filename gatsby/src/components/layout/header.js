@@ -59,10 +59,6 @@ const data = useStaticQuery(graphql`
     }
 `);
 
-
-const logoGetDataImage = getImage(data.sanitySettingsPage.logoBlanco.asset)
-const logoGetDataImageAlt = data.sanitySettingsPage.logoBlanco.alt
-
 const logoNegroGetDataImage = getImage(data.sanitySettingsPage.logoNegro.asset)
 const logoNegroGetDataImageAlt = data.sanitySettingsPage.logoNegro.alt
 
@@ -77,8 +73,8 @@ const HeaderContainer = styled.header`
     position: fixed;
     z-index: 1;
     width: 100%;
-    height: 100px;
-    background: linear-gradient(180deg, #1A1A1A -20%, rgba(26, 26, 26, 0) 100%);
+    height: 60px;
+    background: white;
     .logo {
         width: 150px;
         position: relative;
@@ -95,7 +91,7 @@ const HeaderContainer = styled.header`
         .line {
             height: 2px;
             width: 100%;
-            background-color: var(--white);
+            background-color: var(--black);
             margin-bottom: 5px;
             transition: all 250ms ease-in-out;
             position: absolute;
@@ -325,8 +321,8 @@ const HeaderContainer = styled.header`
                 <Link to='/'>
                     <GatsbyImage
                         style={{ height: "100%", width: "100%" }}
-                        image={logoGetDataImage}
-                        alt={logoGetDataImageAlt}
+                        image={logoNegroGetDataImage}
+                        alt={logoNegroGetDataImageAlt}
                     /> 
                 </Link>
             </div>
@@ -385,6 +381,9 @@ const HeaderContainer = styled.header`
                         <div className='otros'>
                             <h3 className='meta'>Otros Links</h3>
                             <ul>
+                                <li>
+                                    <Link to='/archivo'>Archivo</Link>
+                                </li>
                                 {data.sanitySettingsPage.otrosLinks.map(( link ) => {
 
                                 return (

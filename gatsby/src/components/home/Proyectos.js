@@ -70,6 +70,7 @@ const Proyectos = ({data}) => {
 
 const Container = styled.div`
     position: relative;
+    padding-top: 60px;
     .categories {
         position: sticky;
         bottom: 0;

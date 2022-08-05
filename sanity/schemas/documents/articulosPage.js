@@ -4,12 +4,6 @@ export default {
     title: 'Articulos',
     type: 'document',
     icon: () => `📝`,
-    groups: [
-        {
-          name: 'inicio',
-          title: 'Opciones de Inicio',
-        },
-      ],
     fields: [
         {
             name: "order",
@@ -21,7 +15,6 @@ export default {
             name: 'title',
             title: 'Título',
             type: 'string',
-            group: 'inicio'
         },
         {
             name: 'slug',
@@ -35,51 +28,43 @@ export default {
             name: 'imagenDeCover',
             title: 'Imagen de Cover',
             type: 'imageType',
-            group: 'inicio'
         },
         {
             name: 'fecha',
             title: 'Fecha',
             type: 'dateObject',
-            group: 'inicio'
         },
         {
             name: 'headline',
             title: 'Headline',
             type: 'string',
-            group: 'inicio'
         },
         {
             name: 'lecturaDeXMinutos',
             title: 'Lectura de X minutos',
             type: 'number',
-            group: 'inicio'
         },
         {
             name: 'categoria',
             title: 'Categoría',
             type: 'reference',
             to: [{type: 'categoriasPage'}],
-            group: 'inicio'
         },
         {
             name: 'cover',
             title: 'Cover',
             type: 'coverObject',
-            group: 'inicio'
         },
         {
             name: 'thumbnailForma',
             title: 'Forma del Thumbnail',
             type: 'thumbnailShape',
-            group: 'inicio'
         },
         {
             name: 'autor',
             title: 'Autor',
             type: 'reference',
             to: [{type: 'autoresPage'}],
-            group: 'inicio'
         },
         {
             name: 'tags',
@@ -106,7 +91,11 @@ export default {
             name: 'destacado',
             title: '¿Destacado?',
             type: 'destacadoObject',
-            group: 'inicio'
+        },
+        {
+            name: 'archivo',
+            title: 'Archivo',
+            type: 'destacadoObject',
         },
         {
             name: 'seo',

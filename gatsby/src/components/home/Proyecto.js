@@ -5,6 +5,20 @@ import { Link } from 'gatsby'
 
 const Proyecto = ({node}) => {
 
+
+    const date = new Date(node.fecha)
+
+    const year = date.getFullYear() // 2019
+    const month = date.toLocaleString('default', { month: 'short' });
+    const dia = date.getDate() // 23
+
+
+    function n(num, len = 2) {
+        return `${num}`.padStart(len, '0');
+      }
+
+
+
     return(
         <ProyectoContainer className={`${node.destacado === true ? 'destacado' : 'undefined'} ${node.cover && node.cover} ${node.thumbnailForma && node.thumbnailForma}` }>
             <Link to={`/articulos/${node.slug.current}`}>
@@ -22,7 +36,7 @@ const Proyecto = ({node}) => {
                     <p>{node.headline}</p>
                     <div className='meta'>
                         <ul>
-                            <li>{node.fecha ? node.fecha : ''}</li>
+                            <li>{`${n(dia)}.${n(month)}.${n(year)}`}</li>
                             <li>{node.categoria ?  node.categoria.title : ''}</li>
                             <li>{node.autor ? node.autor.title : ''}</li>
                             <li>{node.lecturaDeXMinutos ? node.lecturaDeXMinutos : ''} min</li>

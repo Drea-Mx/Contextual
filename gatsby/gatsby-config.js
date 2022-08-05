@@ -1,3 +1,28 @@
+// require('dotenv').config({
+//   path: `.env.${process.env.NODE_ENV}`,
+// });
+
+// // gatsby-config.js
+// const postSearchQuery = `
+// query {
+//     allSanityArticulosPage {
+//       nodes {
+//         id
+//         title
+//       }
+//     }
+//   }
+// `;
+
+
+// const queries = [
+//   {
+//     query: postSearchQuery,
+//     transformer: ({ data }) => data.allSanityArticulosPage.nodes, // optional
+//   },
+// ];
+
+
 const siteUrl = `https://contextual.mx/`
 
 module.exports = {
@@ -10,13 +35,14 @@ module.exports = {
     },
     author: `contextual`,
   },
-  plugins: [{
+  plugins: [
+    {
     resolve: 'gatsby-source-sanity',
     options: {
       "projectId": "emwh2ijw",
       "dataset": "production",
       token: process.env.SANITY_TOKEN,
-      watchMode: true,
+      watchMode: false,
       overlayDrafts: true, 
     }
   }, "gatsby-plugin-styled-components", "gatsby-plugin-gatsby-cloud", "gatsby-plugin-image", "gatsby-plugin-react-helmet", "gatsby-plugin-sitemap", {

@@ -13,7 +13,7 @@ export default function SinglePostPage({ data: { articulo } }) {
     const fecha = new Date(articulo.fecha)
 
     const year = fecha.getFullYear() // 2019
-    const month = fecha.getMonth() // 2019
+    const month = fecha.toLocaleString('default', { month: 'short' });
     const dia = fecha.getDate() // 23
 
 
@@ -38,8 +38,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                                 />
                         </div>
                         <div className='text'>
-                            <img src='/play.svg' alt='Play icon' />
-                            <p className='fecha meta'>{`${n(dia)}.${n(month + 1)}.${n(year - 2000)}`}</p>
+                            <p className='fecha meta'>{`${n(dia)}.${n(month)}.${n(year)}`}</p>
                             <h1 className='headline-2'>{articulo.title}</h1>
                             <h2 className='headline-4'>{articulo.headline}</h2>
                             <p className='lectura meta'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>

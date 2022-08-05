@@ -3,7 +3,7 @@ export default {
     title: 'Fecha',
     type: 'date',
     options: {
-        dateFormat: 'YYYY.MM.DD',
+        dateFormat: 'DD.MMM.YYYY',
         calendarTodayLabel: 'Today'
     }
 }

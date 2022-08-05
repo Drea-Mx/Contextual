@@ -5,7 +5,6 @@ const Blockquote = ({data}) => {
     return(
         <BlockquoteContainer>
             <div className='frase'>
-                <h2 className='quote'>“</h2>
                 <div className='ri'>
                     <h2 className='headline-3'>{data.frase}</h2>
                     <p className='meta'>{data.autor}</p>

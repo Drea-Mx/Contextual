@@ -5,6 +5,16 @@ import { Link } from 'gatsby'
 
 const ProyectoCat = ({node}) => {
 
+    const fecha = new Date(node.fecha)
+
+    const year = fecha.getFullYear() // 2019
+    const month = fecha.toLocaleString('default', { month: 'short' });
+    const dia = fecha.getDate() // 23
+
+
+    function n(num, len = 2) {
+        return `${num}`.padStart(len, '0');
+      }
 
 
     return(
@@ -25,7 +35,7 @@ const ProyectoCat = ({node}) => {
                     <p>{node.headline}</p>
                     <div className='meta'>
                         <ul>
-                            <li>{node.fecha ? node.fecha : ''}</li>
+                            <li>{`${n(dia)}.${n(month)}.${n(year)}`}</li>
                             <li>{node.categoria ?  node.categoria.title : ''}</li>
                             <li>{node.autor ? node.autor.title : ''}</li>
                             <li>{node.lecturaDeXMinutos ? node.lecturaDeXMinutos : ''} min</li>
