@@ -38,7 +38,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                                 />
                         </div>
                         <div className='text'>
-                            <p className='fecha meta'>{`${n(dia)}.${n(month)}.${n(year)}`}</p>
+                            <p className='fecha meta'><span>FORMATO, </span>{`${n(dia)}.${n(month)}.${n(year)}`}</p>
                             <h1 className='headline-2'>{articulo.title}</h1>
                             <h2 className='headline-4'>{articulo.headline}</h2>
                             <p className='lectura meta'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
@@ -68,8 +68,15 @@ export default function SinglePostPage({ data: { articulo } }) {
                     <div className='bot'>
                         <div className='cont'>
                             <div className='left'>
-                                <p className='autor meta'>Autor</p>
-                                <p className='autorDesc'><strong>{articulo.autor.title}</strong> {articulo.autor.descripcionAutor}</p>
+                                <p className='autor meta'>Autores</p>
+                                <div className='autores'>
+                                    {articulo.autor.map(( autor ) => {
+                                        return (
+                                            <p key={autor._id} className='autorDesc'><strong>{autor.title}</strong>{autor.descripcionAutor}</p>
+                                        )
+                                    })}
+                                </div>
+                                
                                 <p className='fechaTag meta'>Fecha</p>
                                 <p className='fecha'>{`${n(dia)}.${n(month + 1)}.${n(year - 2000)}`}</p>
                             </div>
@@ -179,9 +186,13 @@ const ProjectContainer = styled.section`
                     }
                 }
                 .left {
+                    .autores {
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                    }
                     .autorDesc {
-                        padding-top: 10px;
-                        padding-bottom: 30px;
+                        padding-top: 0;
+                        padding-bottom: 5px;
                         width: 90%;
                         @media (max-width: 680px) {
                             width: 100%;
@@ -189,7 +200,8 @@ const ProjectContainer = styled.section`
                         }
                         strong {
                             font-weight: normal;
-                            color: var(--orange)
+                            color: var(--orange);
+                            margin-right: 15px;
                         }
                     }
                     .fechaTag {
@@ -504,8 +516,9 @@ export const query = graphql`
             headline
             lecturaDeXMinutos
             autor {
-                descripcionAutor
                 title
+                _id
+                descripcionAutor
             }
             seo {
                 title
@@ -550,7 +563,7 @@ export const query = graphql`
                 ... on SanityImagenFullscreen {
                     _key
                     _type
-                    caption
+                    _rawCaption
                     image {
                     alt
                     asset {
@@ -565,7 +578,7 @@ export const query = graphql`
                 ... on SanityImagenesDosColumnas {
                     _key
                     _type
-                    caption1
+                    _rawCaption1
                     imagen1 {
                     alt
                     asset {
@@ -576,7 +589,7 @@ export const query = graphql`
                         )
                     }
                     }
-                    caption2
+                    _rawCaption2
                     imagen2 {
                     alt
                     asset {
@@ -619,7 +632,7 @@ export const query = graphql`
                 ... on SanityVideo {
                     _key
                     _type
-                    caption
+                    _rawCaption
                     embedUrl
                 }
             }

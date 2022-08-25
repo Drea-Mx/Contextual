@@ -21,9 +21,27 @@ export default {
              type: 'imageType'
         },
         {
+            name: 'navSize',
+            title: 'Tamaño de barra blanca',
+            type: 'number',
+            description: 'Slider para elegir el tamaño del logo',
+            options: {
+                range: {min: 20, max: 150, step: 5}
+            }
+        },
+        {
              name: 'logoNegro',
              title: 'Logo Negro',
              type: 'imageType'
+        },
+        {
+            name: 'logoSize',
+            title: 'Tamaño del logo',
+            type: 'number',
+            description: 'Slider para elegir el tamaño del logo',
+            options: {
+                range: {min: 100, max: 500, step: 5}
+            }
         },
         {
             name: 'logoBlanco',

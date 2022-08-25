@@ -11,7 +11,7 @@ export default {
         {
             name: 'caption',
             title: 'Caption',
-            type: 'string'
+            type: 'blockModule'
         }
     ],
     preview: {

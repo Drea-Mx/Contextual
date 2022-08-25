@@ -9,6 +9,8 @@ const Header = () => {
 const data = useStaticQuery(graphql`
     query {
         sanitySettingsPage {
+            logoSize
+            navSize
             title
             logoBlanco {
                 alt
@@ -73,10 +75,10 @@ const HeaderContainer = styled.header`
     position: fixed;
     z-index: 1;
     width: 100%;
-    height: 60px;
+    height: ${data.sanitySettingsPage.navSize}px;
     background: white;
     .logo {
-        width: 150px;
+        width: ${data.sanitySettingsPage.logoSize}px;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
@@ -331,9 +333,9 @@ const HeaderContainer = styled.header`
                 <div className='line'></div>
                 <div className='line'></div>
             </button>
-            <div className='over'  onClick={() => setMenu(!menu)}>
+            <button className='over'  onClick={() => setMenu(!menu)}>
 
-            </div>
+            </button>
             <div className='nav'>
                 <div className='top'>
                     <div className='donate'>

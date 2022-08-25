@@ -19,6 +19,7 @@ import thumbnailShape from './objects/thumbnailShape'
 import link from './objects/link'
 import otros from './objects/otros'
 import seo from './objects/seo'
+import autores from './objects/autores'
 
 //Modules
 import headline from './arrays/modules/headline'
@@ -69,6 +70,7 @@ export default createSchema({
     link,
     otros,
     seo,
+    autores,
 
     headline,
     parrafoColumna,

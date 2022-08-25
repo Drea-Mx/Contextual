@@ -1,6 +1,7 @@
 import React from 'react'
 import Parser from 'html-react-parser';
 import styled from 'styled-components';
+import BlockContent from '@sanity/block-content-to-react';
 
 const Video = ({data}) => {
     return(
@@ -8,7 +9,11 @@ const Video = ({data}) => {
             <div className='cont'>
                 {Parser(data.embedUrl)}
             </div>
-            <p className='meta'>{data.caption}</p>
+            <div className='meta'>
+            `   <BlockContent
+                    blocks={data._rawCaption}
+                />
+            </div>
         </VideoContainer>
     )
 }

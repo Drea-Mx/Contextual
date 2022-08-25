@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { XMasonry, XBlock } from "react-xmasonry"; // Imports JSX plain sources
 import useResizeAware from 'react-resize-aware';
 import { Link } from 'gatsby';
-import Proyecto from '../home/Proyecto';
 import ProyectoCat from './ProyectoCat';
 
 

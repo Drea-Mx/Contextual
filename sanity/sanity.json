@@ -13,7 +13,8 @@
     "@sanity/default-login",
     "@sanity/desk-tool",
     "order-documents",
-    "@sanity/production-preview"
+    "@sanity/production-preview",
+    "unicorn-slider"
   ],
   "env": {
     "development": {
@@ -33,7 +34,11 @@
     },
     {
       "implements": "part:@sanity/production-preview/resolve-production-url",
-      "path": "./resolveProductionUrl.js" 
+      "path": "./resolveProductionUrl.js"
+    },
+    {
+      "implements": "part:@sanity/form-builder/input-resolver",
+      "path": "./parts/inputResolver.js"
     }
   ]
 }

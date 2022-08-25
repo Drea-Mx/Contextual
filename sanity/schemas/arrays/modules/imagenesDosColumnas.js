@@ -11,7 +11,7 @@ export default {
         {
             name: 'caption1',
             title: 'Caption 1',
-            type: 'string'
+            type: 'blockModule'
         },
         {
             name: 'imagen2',
@@ -21,7 +21,7 @@ export default {
         {
             name: 'caption2',
             title: 'Caption 2',
-            type: 'string'
+            type: 'blockModule'
         },
     ],
     preview: {

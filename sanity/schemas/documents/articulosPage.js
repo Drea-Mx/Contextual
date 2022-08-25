@@ -63,8 +63,15 @@ export default {
         {
             name: 'autor',
             title: 'Autor',
-            type: 'reference',
-            to: [{type: 'autoresPage'}],
+            type: 'array',
+            of: [
+                {
+                    type: 'reference',
+                    to: [
+                        {type: 'autoresPage'}
+                    ]
+                }
+            ],
         },
         {
             name: 'tags',

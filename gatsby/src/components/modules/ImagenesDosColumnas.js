@@ -1,6 +1,7 @@
 import React from 'react'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
+import BlockContent from '@sanity/block-content-to-react';
 
 const ImagenesDosColumnas = ({data}) => {
     const imageOneGatsby = getImage(data.imagen1.asset);
@@ -14,7 +15,11 @@ const ImagenesDosColumnas = ({data}) => {
                         alt={data.imagen1.alt}
                     />
                 </div>
-                <p className='meta'>{data.caption1}</p>
+                <div className='meta'>
+                    <BlockContent
+                        blocks={data._rawCaption1}
+                    />
+                </div>
             </div>
             <div className='image2 element'>
                 <div className='image'>
@@ -23,7 +28,11 @@ const ImagenesDosColumnas = ({data}) => {
                         alt={data.imagen2.alt}
                     />
                 </div>
-                <p className='meta'>{data.caption2}</p>
+                <div className='meta'>
+                    <BlockContent
+                        blocks={data._rawCaption2}
+                    />
+                </div>
             </div>
 
         </ImagenesDosColumnasContainer>

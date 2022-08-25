@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import BlockContent from '@sanity/block-content-to-react';
 
 const ImagenFullscreen = ({data}) => {
     const imageOneGatsby = getImage(data.image.asset);
@@ -12,7 +13,11 @@ const ImagenFullscreen = ({data}) => {
                     alt={data.image.alt}
                 />
             </div>
-            <p className='caption meta'>{data.caption}</p>
+            <div className='caption meta'>
+                    <BlockContent
+                        blocks={data._rawCaption}
+                    />
+            </div>
         </ImagenFullscreenContainer>
     )
 }
