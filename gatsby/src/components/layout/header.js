@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+// import Search from './SearchContainer';
 
 
 const Header = () => {
@@ -363,6 +364,7 @@ const HeaderContainer = styled.header`
                         <div className='line'></div>
                     </button>
                 </div>
+                {/* <Search /> */}
                 <div className='bot'>
                     <nav className='iz'>
                         <h3 className='meta'>Formato</h3>

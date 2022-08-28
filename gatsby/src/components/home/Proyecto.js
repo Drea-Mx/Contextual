@@ -38,7 +38,13 @@ const Proyecto = ({node}) => {
                         <ul>
                             <li>{`${n(dia)}.${n(month)}.${n(year)}`}</li>
                             <li>{node.categoria ?  node.categoria.title : ''}</li>
-                            <li>{node.autor ? node.autor.title : ''}</li>
+                            <li className='autores'>
+                            {node.autor.map(( autor ) => {
+                                            return (
+                                                <span key={autor._id} className='autorDesc'> {autor.title} <span className='slash'>/</span> </span>
+                                            )
+                                        })}
+                                {node.autor ? node.autor.title : ''}</li>
                             <li>{node.lecturaDeXMinutos ? node.lecturaDeXMinutos : ''} min</li>
                         </ul>
                     </div>
@@ -77,6 +83,9 @@ const ProyectoContainer = styled.article`
                 font-family: var(--mono);
                 text-transform: uppercase;
                 font-size: 0.64rem;
+            }
+            .autores {
+                display: none;
             }
         }
     }

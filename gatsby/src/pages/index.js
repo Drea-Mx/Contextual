@@ -26,7 +26,8 @@ export const data = graphql`
         }
         fecha
         autor {
-            title
+          _id
+          title
         }
         categoria {
           title
