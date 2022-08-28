@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import BlockContent from '@sanity/block-content-to-react';
 
 const Blockquote = ({data}) => {
     return(
@@ -7,7 +8,11 @@ const Blockquote = ({data}) => {
             <div className='frase'>
                 <div className='ri'>
                     <h2 className='headline-3'>{data.frase}</h2>
-                    <p className='meta'>{data.autor}</p>
+                    <p className='meta'>
+                        <BlockContent
+                            blocks={data._rawAutor}
+                        />
+                    </p>
                 </div>
                 
             </div>

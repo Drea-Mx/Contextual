@@ -61,7 +61,7 @@ query {
                     </ul>
                 </div>
                 <div className='de'>
-                        <Newsletter />
+                        <Newsletter data={data} />
                 </div>
             </div>
             <div className='bot'>

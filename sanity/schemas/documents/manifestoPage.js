@@ -21,20 +21,9 @@ export default {
             type: 'blockModule'
         },
         {
-            name: 'creditos',
-            title: 'Créditos',
-            type: 'array',
-            of: [
-                {type: 'creditosObject'}
-            ]
-        },
-        {
-            name: 'patrocinadores',
-            title: 'Lista de patrocinadores',
-            type: 'array',
-            of: [
-                {type: 'patrocinadoresObject'}
-            ]
+            name: 'seo',
+            title: 'SEO',
+            type: 'seo'
         }
     ],
 }

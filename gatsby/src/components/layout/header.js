@@ -9,6 +9,7 @@ const Header = () => {
 const data = useStaticQuery(graphql`
     query {
         sanitySettingsPage {
+            donaLink
             logoSize
             navSize
             title
@@ -73,16 +74,22 @@ const [menu, setMenu] = useState(false);
 
 const HeaderContainer = styled.header`
     position: fixed;
-    z-index: 1;
+    z-index: 3;
     width: 100%;
-    height: ${data.sanitySettingsPage.navSize}px;
+    height: 60px;
     background: white;
+    @media (max-width: 680px) {
+        height: ${data.sanitySettingsPage.navSize}px;
+    }
     .logo {
-        width: ${data.sanitySettingsPage.logoSize}px;
+        width: 150px;
         position: relative;
         left: 50%;
         transform: translateX(-50%);
         top: 15px;
+        @media (max-width: 680px) {
+            width: ${data.sanitySettingsPage.logoSize}px;
+        }
     }
     .ham {
         position: absolute;
@@ -339,7 +346,7 @@ const HeaderContainer = styled.header`
             <div className='nav'>
                 <div className='top'>
                     <div className='donate'>
-                        <a href='https://google.com'>¡Apóyanos!</a>
+                        <a rel="noreferrer" target='_blank' href={data.sanitySettingsPage.donaLink}>¡Dona a Contextual!</a>
                     </div>
                     <div className='logo'>
                         <Link to='/'>
@@ -358,7 +365,7 @@ const HeaderContainer = styled.header`
                 </div>
                 <div className='bot'>
                     <nav className='iz'>
-                        <h3 className='meta'>Categorías</h3>
+                        <h3 className='meta'>Formato</h3>
                         <ul className='categorias'>
                         {data.allSanityCategoriasPage.nodes.map(( node ) => {
 
@@ -373,7 +380,7 @@ const HeaderContainer = styled.header`
                             )
                         })}
                         <li className='icon'>
-                            <Link to={`/categorias`}>
+                            <Link to={`/`}>
                             <div className='texto'>
                                 <p>Ver Todo</p>
                             </div>
@@ -386,10 +393,13 @@ const HeaderContainer = styled.header`
                                 <li>
                                     <Link to='/archivo'>Archivo</Link>
                                 </li>
+                                <li>
+                                    <Link to='/manifesto'>Manifesto</Link>
+                                </li>
                                 {data.sanitySettingsPage.otrosLinks.map(( link ) => {
 
                                 return (
-                                    <li key={link._key} className='red'>
+                                    <li key={link._key}>
                                         <a href={link.url} rel="noreferrer" target='_blank'>{link.texto}</a>
                                     </li>
                                 )
@@ -399,7 +409,7 @@ const HeaderContainer = styled.header`
                         </div>
                     </nav>
                     <nav className='de'>
-                        <h3 className='meta'>Etiquetas</h3>
+                        <h3 className='meta'>Categorías</h3>
                         <ul className='tags'>
                         {data.allSanityTagsPage.nodes.map(( node ) => {
                             return (

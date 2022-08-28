@@ -21,6 +21,11 @@ export default {
              type: 'imageType'
         },
         {
+            name: 'donaLink',
+             title: 'Link de donación',
+             type: 'url'
+        },
+        {
             name: 'navSize',
             title: 'Tamaño de barra blanca',
             type: 'number',
@@ -57,7 +62,7 @@ export default {
                     type: 'otros'
                 }
             ]
-        },
+        }
 
     ],
 }

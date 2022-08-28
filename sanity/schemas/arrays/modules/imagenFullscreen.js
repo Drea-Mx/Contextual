@@ -9,6 +9,15 @@ export default {
             type: 'imageType'
         },
         {
+            name: 'imageSize',
+            title: 'Image % Width',
+            type: 'number',
+            description: 'Slider para elegir el tamaño del logo',
+            options: {
+                range: {min: 0, max: 100, step: 1}
+            }
+        },
+        {
             name: 'caption',
             title: 'Caption',
             type: 'blockModule'

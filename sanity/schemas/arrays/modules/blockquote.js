@@ -11,8 +11,8 @@ export default {
         {
             name: 'autor',
             title: 'Autor',
-            type: 'string'
-        }
+            type: 'blockModule'
+        },
     ],
     preview: {
         select: {

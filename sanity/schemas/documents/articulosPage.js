@@ -40,6 +40,11 @@ export default {
             type: 'string',
         },
         {
+            title: 'Mostrar o esconder headline en home',
+            name: 'showHideHeadline',
+            type: 'boolean'
+        },
+        {
             name: 'lecturaDeXMinutos',
             title: 'Lectura de X minutos',
             type: 'number',
@@ -93,6 +98,19 @@ export default {
             of: [
                 {type: 'linksReferenciaObject'}
             ]
+        },
+        {
+            name: 'postRelacionados',
+            title: 'Posts relacionados',
+            type: 'array',
+            of: [
+                {
+                    type: 'reference',
+                    to: [
+                        {type: 'articulosPage'}
+                    ]
+                }
+            ],
         },
         {
             name: 'destacado',

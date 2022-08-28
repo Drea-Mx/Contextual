@@ -296,4 +296,8 @@ button {
 a {
   color: inherit;
 }
+
+.hideHeadeline {
+  display: none;
+}
 `

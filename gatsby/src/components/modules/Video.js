@@ -4,22 +4,11 @@ import styled from 'styled-components';
 import BlockContent from '@sanity/block-content-to-react';
 
 const Video = ({data}) => {
-    return(
-        <VideoContainer>
-            <div className='cont'>
-                {Parser(data.embedUrl)}
-            </div>
-            <div className='meta'>
-            `   <BlockContent
-                    blocks={data._rawCaption}
-                />
-            </div>
-        </VideoContainer>
-    )
-}
 
 const VideoContainer = styled.section`
     padding: 48px 0;
+    width: ${data.videoSize}%;
+    margin: 0 auto;
     .cont {
         position: relative;
         overflow: hidden;
@@ -40,5 +29,20 @@ const VideoContainer = styled.section`
         text-transform: uppercase;
     }
 `
+    return(
+        <VideoContainer>
+            <div className='cont'>
+                {Parser(data.embedUrl)}
+            </div>
+            <div className='meta'>
+            `   <BlockContent
+                    blocks={data._rawCaption}
+                />
+            </div>
+        </VideoContainer>
+    )
+}
+
+
 
 export default Video

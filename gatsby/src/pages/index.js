@@ -13,6 +13,7 @@ export const data = graphql`
         _id
         title
         headline
+        showHideHeadline
         imagenDeCover {
             alt
             asset {

@@ -5,6 +5,20 @@ import BlockContent from '@sanity/block-content-to-react';
 
 const ImagenFullscreen = ({data}) => {
     const imageOneGatsby = getImage(data.image.asset);
+
+
+
+const ImagenFullscreenContainer = styled.section`
+width: ${data.imageSize}%;
+margin: 0 auto;
+padding: 48px 0;
+    .caption {
+        padding: 5px 20px;
+        text-transform: uppercase;
+    }
+`
+
+
     return(
         <ImagenFullscreenContainer>
             <div className='imagen'>
@@ -22,12 +36,6 @@ const ImagenFullscreen = ({data}) => {
     )
 }
 
-const ImagenFullscreenContainer = styled.section`
-padding: 48px 0;
-    .caption {
-        padding: 5px 20px;
-        text-transform: uppercase;
-    }
-`
+
 
 export default ImagenFullscreen

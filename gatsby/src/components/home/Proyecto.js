@@ -33,7 +33,7 @@ const Proyecto = ({node}) => {
                 </div>
                 <div className='texto'>
                     <h2>{node.title}</h2>
-                    <p>{node.headline}</p>
+                    <p className={`${node.showHideHeadline === true ? 'showHeadline' : 'hideHeadeline'}`}>{node.headline}</p>
                     <div className='meta'>
                         <ul>
                             <li>{`${n(dia)}.${n(month)}.${n(year)}`}</li>

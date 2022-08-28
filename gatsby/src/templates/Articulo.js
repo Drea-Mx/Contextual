@@ -38,10 +38,25 @@ export default function SinglePostPage({ data: { articulo } }) {
                                 />
                         </div>
                         <div className='text'>
-                            <p className='fecha meta'><span>FORMATO, </span>{`${n(dia)}.${n(month)}.${n(year)}`}</p>
-                            <h1 className='headline-2'>{articulo.title}</h1>
-                            <h2 className='headline-4'>{articulo.headline}</h2>
-                            <p className='lectura meta'>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</p>
+                            <div className='overlay'></div>
+                            <div className='data'>
+                                <p className='fecha meta'>
+                                    <span>FORMATO, <p>{articulo.categoria.title}</p></span>
+                                    <span>{`${n(dia)}.${n(month)}.${n(year)}`}</span>
+                                </p>
+                                <h1 className='headline-2'>{articulo.title}</h1>
+                                <h2 className='headline-4'>{articulo.headline}</h2>
+                                <p className='lectura meta'>
+                                    <strong> POR 
+                                        {articulo.autor.map(( autor ) => {
+                                            return (
+                                                <span key={autor._id} className='autorDesc'> {autor.title} <span className='slash'>/</span> </span>
+                                            )
+                                        })}
+                                    </strong>
+                                    <span>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                     <div className='coverMov'>
@@ -51,6 +66,52 @@ export default function SinglePostPage({ data: { articulo } }) {
                 </div>
 
                 <Modules editorialModule={articulo.moduleArray} />
+
+                {articulo.linksDeReferencia.length === 0 ?
+                    ''
+                    :
+                    <LinksReferencia>
+                        <div className='linksCont'>
+                            <p>Links de Referencia<img src='/flecha.svg' alt='Flecha abajo' /></p>
+                            <ul>
+                                {articulo.linksDeReferencia.map(( link ) => {
+                                    return (
+                                        <li key={link._key}>
+                                            <a rel="noreferrer" target='_blank' href={link.url}>{link.texto}</a>
+                                        </li>
+                                    )
+                                })}
+                            </ul>
+                        </div>
+                    </LinksReferencia>
+                }
+
+                {articulo.postRelacionados.length === 0 ?
+                    ''
+                    :
+                
+                    <RelatedPost>
+                        <p className='headline-6'>Sigue Leyendo<img src='/flecha.svg' alt='Flecha abajo' /></p>
+                        <ul className='posts'>
+                            {articulo.postRelacionados.map(( post ) => {
+                                return (
+                                    <li key={post._id}>
+                                        <Link to={`/articulos/${post.slug.current}`}>
+                                            <div className='image'>
+                                                <GatsbyImage
+                                                        style={{ height: "100%", width: "100%" }}
+                                                        image={post.imagenDeCover ? getImage(post.imagenDeCover.asset) : ''}
+                                                        alt={post.imagenDeCover ? post.imagenDeCover.alt : ''}
+                                                    />
+                                            </div>
+                                            <h2 className='headline-4'>{post.title}</h2>
+                                        </Link>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </RelatedPost>
+                }
                 <div className={bar ? 'cortinilla open' : 'cortinilla'}>
                     <div className='bar'>
                         <BarProgress
@@ -190,6 +251,9 @@ const ProjectContainer = styled.section`
                         margin-top: 20px;
                         margin-bottom: 20px;
                     }
+                    .fecha {
+                        text-transform: uppercase;
+                    }
                     .autorDesc {
                         padding-top: 0;
                         padding-bottom: 5px;
@@ -296,6 +360,85 @@ const ProjectContainer = styled.section`
         }
     }
 
+    .container.typePost {
+        .hero {
+            position: relative;
+            .image {
+                filter: grayscale(100%);
+                height: 100vh;
+                @media (max-width: 700px) {
+                    height: 130vh;
+                }
+                @media (max-width: 700px) {
+                    padding-top: 50px;
+                }
+            }
+            .text {
+                position: absolute;
+                bottom: 0;
+                color: white;
+                text-align: center;
+                padding-bottom: 50px;
+                padding-top: 50px;
+                @media (max-width: 700px) {
+                    padding-top: 50px;
+                }
+                .overlay {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    z-index: 1;
+                    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,1) 100%);                
+                }
+                .data {
+                    position: relative;
+                    z-index: 1;
+                    width: 80%;
+                    margin: 0 auto;
+                    @media (max-width: 700px) {
+                        width: 100%;
+                        padding: 50px 20px 20px;
+                    }
+                    .fecha {
+                        display: flex;
+                        justify-content: space-between;
+                        padding-bottom: 30px;
+                        span {
+                            p {
+                                display: inline;
+                                color: var(--gra);
+                            }
+                        }
+                    }
+                    h1 {
+                        padding-bottom: 40px;
+                    }
+                    h2 {
+                        padding-bottom: 30px;
+                    }
+                    .lectura {
+                        strong {
+                            display: block;
+                            margin-bottom: 3px;
+                            .autorDesc {
+                                &:last-child {
+                                    span.slash {
+                                        display: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .coverMov {
+            display: none;
+        }
+    }
+
     .container.conThumbnail {
         .hero {
             display: flex;
@@ -323,6 +466,13 @@ const ProjectContainer = styled.section`
                 }
                 .fecha {
                     padding-bottom: 50px;
+                    display: flex;
+                    justify-content: space-between;
+                    span {
+                        p {
+                            display: inline;
+                        }
+                    }
                     @media (max-width: 650px) {
                         padding-bottom: 20px;
                         padding-top: 30px;
@@ -357,6 +507,18 @@ const ProjectContainer = styled.section`
                     padding-top: 50px;
                     font-size: 0.64rem;
                     letter-spacing: .1rem;
+                    text-align: center;
+                    strong {
+                        display: block;
+                        margin-bottom: 5px;
+                    }
+                    span.autorDesc {
+                        &:last-child {
+                            span {
+                                display: none;
+                            }
+                        }
+                    }
                     @media (max-width: 650px) {
                         display: none;
                     }
@@ -439,12 +601,26 @@ const ProjectContainer = styled.section`
         }
         .hero {
             background-color: var(--gray);
-            padding-top: 100px;
-            padding-bottom: 50px;
+            padding: 100px 20px 50px;
             @media (max-width: 650px) {
                 padding: 100px 20px 50px;
             }
             .text {
+                .data {
+                    .fecha {
+                        display: flex;
+                        justify-content: space-between;
+                        span {
+                            p {
+                                display: inline;
+                            }
+                        }
+                        @media (max-width: 650px) {
+                            padding-bottom: 20px;
+                            padding-top: 30px;
+                        }
+                    }
+                }
                 .meta {
                     letter-spacing: 2px;
                 }
@@ -495,6 +671,52 @@ const BarProgress = styled(ProgressBar)`
 `
 
 
+const LinksReferencia = styled.section`
+    border-top: solid 1px var(--gray);
+    padding: 20px;
+    .linksCont {
+        width: 350px;
+        margin: 0 auto;
+        ul {
+            li {
+                display: block;
+            }
+        }
+    }
+    p {
+        margin-bottom: 10px;
+        img {
+            margin-left: 10px;
+            width: 10px;
+        }
+    }
+`
+
+const RelatedPost = styled.section`
+    border-top: solid 1px var(--gray);
+    padding: 20px;
+    p {
+        margin-bottom: 20px;
+        img {
+            margin-left: 10px;
+            width: 10px;
+        }
+    }
+    ul.posts {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        h2 {
+            text-transform: uppercase;
+            @media (max-width: 680px) {
+                margin-top: 5px;
+                font-size: 0.8rem;
+            }
+        }
+    }
+`
+
+
 export const query = graphql`
     query($slug: String!){
         articulo: sanityArticulosPage(slug: {
@@ -511,6 +733,28 @@ export const query = graphql`
                         outputPixelDensities: 1.5
                         placeholder: DOMINANT_COLOR
                     )
+                }
+            }
+            linksDeReferencia {
+                _key
+                texto
+                url
+            }
+            postRelacionados {
+                _id
+                title
+                slug {
+                    current
+                }
+                imagenDeCover {
+                    alt
+                    asset {
+                        gatsbyImageData(
+                            layout: FULL_WIDTH
+                            outputPixelDensities: 1.5
+                            placeholder: BLURRED
+                        )
+                    }
                 }
             }
             headline
@@ -552,7 +796,7 @@ export const query = graphql`
                 ... on SanityBlockquote {
                     _key
                     _type
-                    autor
+                    _rawAutor
                     frase
                 }
                 ... on SanityHeadline {
@@ -564,6 +808,7 @@ export const query = graphql`
                     _key
                     _type
                     _rawCaption
+                    imageSize
                     image {
                     alt
                     asset {
@@ -634,6 +879,7 @@ export const query = graphql`
                     _type
                     _rawCaption
                     embedUrl
+                    videoSize
                 }
             }
             tags {
