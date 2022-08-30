@@ -799,6 +799,12 @@ export const query = graphql`
                     _rawAutor
                     frase
                 }
+                ... on SanityLargeQuote {
+                    _key
+                    _type
+                    _rawTexto
+                    _rawDescripcion
+                }
                 ... on SanityHeadline {
                     _key
                     _type

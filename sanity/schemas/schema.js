@@ -26,6 +26,7 @@ import headline from './arrays/modules/headline'
 import parrafoColumna from './arrays/modules/parrafoColumna'
 import parrafosColumnas from './arrays/modules/parrafosColumnas'
 import blockquote from './arrays/modules/blockquote'
+import largeQuote from './arrays/modules/largeQuote'
 import video from './arrays/modules/video'
 import imagenFullscreen from './arrays/modules/imagenFullscreen'
 import imagenesDosColumnas from './arrays/modules/imagenesDosColumnas'
@@ -76,6 +77,7 @@ export default createSchema({
     parrafoColumna,
     parrafosColumnas,
     blockquote,
+    largeQuote,
     video,
     imagenFullscreen,
     imagenesDosColumnas,

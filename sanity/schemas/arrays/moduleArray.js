@@ -8,6 +8,7 @@ export default {
         {type: 'parrafoColumna'},
         {type: 'parrafosColumnas'},
         {type: 'blockquote'},
+        {type: 'largeQuote'},
         {type: 'video'},
         {type: 'imagenFullscreen'},
         {type: 'imagenesDosColumnas'},

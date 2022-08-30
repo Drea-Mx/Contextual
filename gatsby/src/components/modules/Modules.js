@@ -5,6 +5,7 @@ import Blockquote from "./Blockquote";
 import Headline from "./Headline";
 import ImagenesDosColumnas from "./ImagenesDosColumnas";
 import ImagenFullscreen from "./ImagenFullscreen";
+import largeQuote from "./largeQuote";
 import ParrafoColumna from "./ParrafoColumna";
 import ParrafosColumnas from "./ParrafosColumnas";
 import TextoImagen from "./TextoImagen";
@@ -13,6 +14,7 @@ import Video from "./Video";
 const modulesArr = [
   { name: "audio", comp: Audio },
   { name: "blockquote", comp: Blockquote },
+  { name: "largeQuote", comp: largeQuote },
   { name: "headline", comp: Headline },
   { name: "imagenesDosColumnas", comp: ImagenesDosColumnas },
   { name: "imagenFullscreen", comp: ImagenFullscreen },
