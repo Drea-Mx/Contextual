@@ -115,7 +115,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                 <div className={bar ? 'cortinilla open' : 'cortinilla'}>
                     <div className='bar'>
                         <BarProgress
-                            color="#EB4726"
+                            color="#000000"
                             gradient={false}
                             height={5}
                         />
@@ -197,7 +197,7 @@ const ProjectContainer = styled.section`
         background-color: white;
         transition: all 350ms ease-in-out;
         .bar {
-            border-top: solid 1px #E6E6E6;
+            border-top: solid 1px black;
             div {
                 position: absolute !important;
                 top: 0;
@@ -264,7 +264,7 @@ const ProjectContainer = styled.section`
                         }
                         strong {
                             font-weight: normal;
-                            color: var(--orange);
+                            color: black;
                             margin-right: 15px;
                         }
                     }
@@ -300,7 +300,7 @@ const ProjectContainer = styled.section`
                                 flex-direction: row;
                                 border: solid 1px transparent;
                                 &:hover {
-                                    border: solid 1px var(--orange);
+                                    border: solid 1px black;
                                 }
                                 .imagen {
                                     display: block;
@@ -312,7 +312,7 @@ const ProjectContainer = styled.section`
                                 p {
                                     align-self: center;
                                     justify-self: center;
-                                    color: var(--orange);
+                                    color: black;
                                     margin-bottom: 0;
                                 }
                             }
@@ -339,10 +339,10 @@ const ProjectContainer = styled.section`
                                 flex-direction: row;
                                 border: solid 1px transparent;
                                 &:hover {
-                                    border: solid 1px var(--orange);
+                                    border: solid 1px black;
                                 }
                                 p {
-                                    color: var(--orange)
+                                    color: black
                                 }
                             }
                         }
@@ -479,7 +479,7 @@ const ProjectContainer = styled.section`
                     }
                 }
                 h1 {
-                    color: var(--orange);
+                    color: black;
                     font-size: 3.052rem;
                     line-height: 108%;
                     box-sizing: border-box;
@@ -544,7 +544,7 @@ const ProjectContainer = styled.section`
             text-align: left;
         }
         .hero {
-            background-color: var(--orange);
+            background-color: black;
             padding-top: 100px;
             padding-bottom: 50px;
             @media (max-width: 650px) {
