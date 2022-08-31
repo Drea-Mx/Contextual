@@ -20,7 +20,7 @@ async function turnPostsIntoPages({graphql, actions}) {
   data.articulos.nodes.forEach((articulo) => {
       actions.createPage({
           // url forths new page
-          path: `/articulos/${articulo.slug.current}`,
+          path: `/contenido/${articulo.slug.current}`,
           component: articuloTemplate,
           context: {
               language: 'es',

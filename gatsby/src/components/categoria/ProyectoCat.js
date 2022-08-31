@@ -19,7 +19,7 @@ const ProyectoCat = ({node}) => {
 
     return(
         <ProyectoContainer className={`${node.destacado === true ? 'destacado' : 'undefined'} ${node.cover && node.cover} ${node.thumbnailForma && node.thumbnailForma}` }>
-            <Link to={`/articulos/${node.slug.current}`}>
+            <Link to={`/contenido/${node.slug.current}`}>
                 {node.imagenDeCover &&
                     <div className='image'>
                         <GatsbyImage

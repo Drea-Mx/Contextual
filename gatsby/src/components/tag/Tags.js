@@ -88,6 +88,7 @@ const ProyectosContainer = styled(XMasonry)`
 const CategoriasContainer = styled.div`
     width: 100%;
     position: relative;
+    padding-top: 60px;
     .categories {
         position: sticky;
         bottom: 0;
