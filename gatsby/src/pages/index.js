@@ -7,7 +7,7 @@ import Seo from "../components/layout/seo"
 export const data = graphql`
   query {
     allSanityArticulosPage(sort: {fields: fecha, order: DESC}
-        filter: {archivo: {eq: false}}
+        filter: {archivo: {ne: true}}
       ) {
         nodes {
         _id

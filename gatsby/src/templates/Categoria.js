@@ -65,5 +65,14 @@ export const query = graphql`
                 }
             }
         }
+        categoriesSection: allSanityCategoriasPage {
+            nodes {
+                _id
+                title
+                slug {
+                    current
+                }
+            }
+        }
     }
 `

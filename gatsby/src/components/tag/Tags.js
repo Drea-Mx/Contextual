@@ -51,7 +51,7 @@ const Tags = ( {data: { tag, proyectos, categorias } }) => {
             >
                 <XBlock width={2} >
                     <div className='hero'>
-                        <h3 className='meta'>Etiqueta</h3>
+                        <h3 className='meta'>Categoría</h3>
                         <div className='title'>
                             <h1 className='headline-2'>{tag.title}</h1>
                         </div>

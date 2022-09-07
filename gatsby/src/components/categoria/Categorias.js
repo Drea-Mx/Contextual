@@ -6,7 +6,7 @@ import { Link } from 'gatsby';
 import ProyectoCat from './ProyectoCat';
 
 
-const Categorias = ( {data: { categoria, proyectos, tagsSection } }) => {
+const Categorias = ( {data: { categoria, proyectos, tagsSection, categoriesSection } }) => {
 
     
 
@@ -51,12 +51,12 @@ const Categorias = ( {data: { categoria, proyectos, tagsSection } }) => {
             >
                 <XBlock width={2} >
                     <div className='hero'>
-                        <h3 className='meta'>Categoría</h3>
+                        <h3 className='meta'>Formato</h3>
                         <div className='title'>
                             <h1 className='headline-2'>{categoria.title}</h1>
                         </div>
                         <div className='tags'>
-                            <p className='meta'>ETIQUETAS</p>
+                            <p className='meta'>Categorías</p>
                             <ul>
                                 {tagsSection.nodes.map(( tag ) => {
                                     return (
@@ -83,7 +83,7 @@ const Categorias = ( {data: { categoria, proyectos, tagsSection } }) => {
                     })}
             </ProyectosContainer>
             <ul className='categories'>
-                {tagsSection.nodes.map(( node ) => {
+                {categoriesSection.nodes.map(( node ) => {
                     return (
                         <li><Link to={`/categorias/${node.slug.current}`}><p>{node.title}</p></Link></li>
                     )
