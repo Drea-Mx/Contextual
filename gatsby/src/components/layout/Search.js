@@ -2,11 +2,8 @@ import React, {useState} from 'react'
 import styled from 'styled-components'
 
 const Search = ({setQuery, query}) => {
-    const [searchTerm, setSearchTerm] = useState('');
-    const resetFilter = (e) => {
-        setSearchTerm('');
-        setQuery('');
-    }
+    const [searchTerm, setSearchTerm] = useState(query);
+
     const updateQuery = (e) => {
         e.preventDefault();
         setQuery(searchTerm);
@@ -20,14 +17,7 @@ const Search = ({setQuery, query}) => {
             <SearchBar type='text' value={searchTerm} onChange = {updateSearchTerm} placeholder='Buscar artículos ...' />
             <SearchButton type='submit'>Search</SearchButton>
         </SearchContainer>
-        <ResultContainer>
-        {
-            query && <div>
-                <h2>Search results for "{query}":</h2>
-                <ResetButton type='reset' value='Reset filter' onClick={resetFilter}></ResetButton>
-            </div>
-        }
-        </ResultContainer>
+
     </Form>
     )
 }
@@ -37,9 +27,6 @@ const Form = styled.form`
 `
 const SearchContainer = styled.div`
     display: flex;
-`
-const ResultContainer = styled.div`
-    padding: 16px;
 `
 
 const SearchBar = styled.input`
@@ -52,16 +39,7 @@ const SearchButton = styled.button`
     background-color: var(--black);
     padding: 4px 8px;
 `
-const ResetButton = styled.input`
-    background-color: var(--white);
-    border: none;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    &:hover {
-        cursor: pointer;
-        color: var(--darkOrange);
-    }
-`
+
 
 
 export default Search
