@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Layout from "../components/layout/layout";
 import Proyectos from '../components/home/Proyectos'
 import { graphql } from "gatsby";
@@ -82,10 +82,12 @@ export const data = graphql`
 `;
 
 const IndexPage = ({data}) => {
+  const [query, setQuery] = useState('');
+
   return(
-    <Layout>
+    <Layout  query={query} setQuery={setQuery}>
         <Seo title={data.sanitySettingsPage.title} description={data.sanitySettingsPage.descriptionSite} image={data.sanitySettingsPage.siteImage.asset.url} />
-      <Proyectos data={data} />
+      <Proyectos query={query} setQuery={setQuery} data={data} />
     </Layout>
   )
 }

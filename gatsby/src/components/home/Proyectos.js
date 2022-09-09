@@ -7,9 +7,8 @@ import { Link } from 'gatsby';
 import Search from '../layout/Search';
 
 
-const Proyectos = ({data}) => {
+const Proyectos = ({data,query,setQuery}) => {
 
-    const [query, setQuery] = useState('');
     const [resizeListener, sizes] = useResizeAware();
 
 
@@ -28,6 +27,9 @@ const Proyectos = ({data}) => {
         setColumnWidth(Math.floor(sizes.width / 4));
       }
     };
+    const resetFilter = (e) => {
+      setQuery('');
+    }
     // Updating the variable on window resize
     useEffect(() => {
       function handleResize() {
@@ -52,11 +54,21 @@ const Proyectos = ({data}) => {
         return node.title.toLowerCase().includes(query) || node.headline.toLowerCase().includes(query) || node.seo.description.toLowerCase().includes(query) || paragraph.toLowerCase().includes(query)
     }
     const filteredArticulos=data.allSanityArticulosPage.nodes.filter(FilterArticulos);
+
     return(
         <Container>
-            <Search  query={query} setQuery={setQuery} />
         {resizeListener}
-        {(filteredArticulos.length===0)&&<NoSearchResults>No Search Results</NoSearchResults>}
+          <ResultContainer>
+            {
+              query && <div>
+                <h2 key={query}>Search results for "{query}":</h2>
+                <ResetButton type='reset' value='Reset filter' onClick={resetFilter}></ResetButton>
+              </div>
+            }
+            {(filteredArticulos.length===0)&&<NoSearchResults>No Search Results</NoSearchResults>}
+
+          </ResultContainer>
+
 
         <ProyectosContainer
         targetBlockWidth={columnWidth}
@@ -86,7 +98,7 @@ const Proyectos = ({data}) => {
 }
 
 const NoSearchResults=styled.div`
-    padding: 0 20px;
+    padding: 20px;
 `
 
 const Container = styled.div`
@@ -135,6 +147,19 @@ const Container = styled.div`
             }
         }
     }
+`
+const ResetButton = styled.input`
+    background-color: var(--white);
+    border: none;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    &:hover {
+        cursor: pointer;
+        color: var(--darkOrange);
+    }
+`
+const ResultContainer = styled.div`
+    padding: 16px;
 `
 
 const ProyectosContainer = styled(XMasonry)`

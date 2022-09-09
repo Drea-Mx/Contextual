@@ -1,11 +1,12 @@
-import React, { useState } from 'react'
+import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Search from "./Search";
 // import Search from './SearchContainer';
 
 
-const Header = () => {
+const Header = ({query, setQuery}) => {
 
 const data = useStaticQuery(graphql`
     query {
@@ -323,7 +324,7 @@ const HeaderContainer = styled.header`
     }
 
 `
-
+    useEffect(()=>{setMenu(false)},[query])
 
     return(
         <HeaderContainer>
@@ -333,7 +334,7 @@ const HeaderContainer = styled.header`
                         style={{ height: "100%", width: "100%" }}
                         image={logoNegroGetDataImage}
                         alt={logoNegroGetDataImageAlt}
-                    /> 
+                    />
                 </Link>
             </div>
             <button className={menu ? 'ham open' : 'ham'} onClick={() => setMenu(!menu)}>
@@ -357,7 +358,7 @@ const HeaderContainer = styled.header`
                                 alt={logoNegroGetDataImageAlt}
                             />
                         </Link>
-                    </div> 
+                    </div>
                     <button className='x' onClick={() => setMenu(!menu)}>
                         <div className='line'></div>
                         <div className='line'></div>
@@ -365,6 +366,8 @@ const HeaderContainer = styled.header`
                     </button>
                 </div>
                 {/* <Search /> */}
+                {setQuery&&<Search  query={query} setQuery={setQuery} />}
+
                 <div className='bot'>
                     <nav className='iz'>
                         <h3 className='meta'>Formato</h3>
