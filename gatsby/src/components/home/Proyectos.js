@@ -4,10 +4,12 @@ import Proyecto from './Proyecto'
 import { XMasonry, XBlock } from "react-xmasonry"; // Imports JSX plain sources
 import useResizeAware from 'react-resize-aware';
 import { Link } from 'gatsby';
+import Search from '../layout/Search';
 
 
 const Proyectos = ({data}) => {
 
+    const [query, setQuery] = useState('');
     const [resizeListener, sizes] = useResizeAware();
 
 
@@ -36,16 +38,31 @@ const Proyectos = ({data}) => {
         window.removeEventListener("resize", handleResize);
       };
     });
-
-
+    function FilterArticulos(node){
+        let paragraph = '';
+        node.moduleArray.forEach(obj => {
+            if (obj.campoDeTexto) {
+                obj.campoDeTexto.forEach(obj => {
+                    obj.children.forEach(obj => {
+                        paragraph += obj.text;
+                    })
+                })
+            }
+        })
+        return node.title.toLowerCase().includes(query) || node.headline.toLowerCase().includes(query) || node.seo.description.toLowerCase().includes(query) || paragraph.toLowerCase().includes(query)
+    }
+    const filteredArticulos=data.allSanityArticulosPage.nodes.filter(FilterArticulos);
     return(
         <Container>
+            <Search  query={query} setQuery={setQuery} />
         {resizeListener}
+        {(filteredArticulos.length===0)&&<NoSearchResults>No Search Results</NoSearchResults>}
+
         <ProyectosContainer
         targetBlockWidth={columnWidth}
         responsive={false}
         >
-            {data.allSanityArticulosPage.nodes.map(( node ) => {
+            {filteredArticulos.map(( node ) => {
                 return (
                     <XBlock
                     width={node.destacado ? '2' : '1'}
@@ -67,6 +84,10 @@ const Proyectos = ({data}) => {
         </Container>
     )
 }
+
+const NoSearchResults=styled.div`
+    padding: 0 20px;
+`
 
 const Container = styled.div`
     position: relative;

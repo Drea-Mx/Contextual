@@ -39,6 +39,18 @@ export const data = graphql`
           current
         }
         thumbnailForma
+        moduleArray {
+          ... on SanityParrafoColumna {
+            campoDeTexto {
+              children {
+                text
+              }
+            }
+          }
+        }
+        seo {
+          description
+        }
         }
     }
 
