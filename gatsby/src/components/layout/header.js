@@ -6,7 +6,7 @@ import Search from "./Search";
 // import Search from './SearchContainer';
 
 
-const Header = ({query, setQuery}) => {
+const Header = ({query}) => {
 
 const data = useStaticQuery(graphql`
     query {
@@ -324,7 +324,6 @@ const HeaderContainer = styled.header`
     }
 
 `
-    useEffect(()=>{setMenu(false)},[query])
 
     return(
         <HeaderContainer>
@@ -366,7 +365,7 @@ const HeaderContainer = styled.header`
                     </button>
                 </div>
                 {/* <Search /> */}
-                {setQuery&&<Search  query={query} setQuery={setQuery} />}
+                <Search closeHeader={()=>setMenu(false)} query={query} />
 
                 <div className='bot'>
                     <nav className='iz'>
