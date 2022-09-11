@@ -7,7 +7,7 @@ import { Link } from 'gatsby';
 import Search from '../layout/Search';
 
 
-const Proyectos = ({data,query,setQuery}) => {
+const Proyectos = ({data,query,resetFilter}) => {
 
     const [resizeListener, sizes] = useResizeAware();
 
@@ -27,9 +27,6 @@ const Proyectos = ({data,query,setQuery}) => {
         setColumnWidth(Math.floor(sizes.width / 4));
       }
     };
-    const resetFilter = (e) => {
-      setQuery('');
-    }
     // Updating the variable on window resize
     useEffect(() => {
       function handleResize() {
