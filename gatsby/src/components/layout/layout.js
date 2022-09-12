@@ -6,14 +6,14 @@ import Footer from "./footer"
 
 
 
-function Layout({ children, query }) {
+function Layout({ children, query, resetFilter }) {
 
 
   return (
     <>
       <Normalizer />
       <Typography />
-      <Header query={query} />
+      <Header query={query} resetFilter={resetFilter} />
       <main>{children}</main>
       <Footer />
     </>

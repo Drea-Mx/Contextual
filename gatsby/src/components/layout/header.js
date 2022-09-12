@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import styled from 'styled-components'
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
@@ -6,7 +6,9 @@ import Search from "./Search";
 // import Search from './SearchContainer';
 
 
-const Header = ({query}) => {
+const Header = ({query, resetFilter}) => {
+
+
 
 const data = useStaticQuery(graphql`
     query {
@@ -328,7 +330,7 @@ const HeaderContainer = styled.header`
     return(
         <HeaderContainer>
             <div className='logo'>
-                <Link to='/'>
+                <Link to='/' onClick={resetFilter}>
                     <GatsbyImage
                         style={{ height: "100%", width: "100%" }}
                         image={logoNegroGetDataImage}

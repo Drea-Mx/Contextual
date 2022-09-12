@@ -20,7 +20,7 @@ const Search = ({ query, closeHeader }) => {
                     type="text"
                     value={searchTerm}
                     onChange={updateSearchTerm}
-                    placeholder="Buscar artículos ..."
+                    placeholder="🔎 Busca artículo"
                 />
                 <SearchButton type="submit">Search</SearchButton>
             </SearchContainer>
@@ -37,13 +37,20 @@ const SearchContainer = styled.div`
 
 const SearchBar = styled.input`
     width: 100%;
-    padding: 4px auto;
+    padding: 8px auto;
     text-align: center;
+    border-left: none;
+    border-right: none;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    outline: none;
+    height: 44px;
 `;
 const SearchButton = styled.button`
     color: var(--gray);
     background-color: var(--black);
     padding: 4px 8px;
+    display: none;
 `;
 
 export default Search;

@@ -58,11 +58,10 @@ const Proyectos = ({data,query,resetFilter}) => {
           <ResultContainer>
             {
               query && <div>
-                <h2 key={query}>Search results for "{query}":</h2>
-                <ResetButton type='reset' value='Reset filter' onClick={resetFilter}></ResetButton>
+                <h2 key={query}>Resultados de "{query}" ({filteredArticulos.length})</h2>
               </div>
             }
-            {(filteredArticulos.length===0)&&<NoSearchResults>No Search Results</NoSearchResults>}
+            {(filteredArticulos.length===0)&&<NoSearchResults>No hay resultados</NoSearchResults>}
 
           </ResultContainer>
 
@@ -145,18 +144,14 @@ const Container = styled.div`
         }
     }
 `
-const ResetButton = styled.input`
-    background-color: var(--white);
-    border: none;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-    &:hover {
-        cursor: pointer;
-        color: var(--darkOrange);
-    }
-`
 const ResultContainer = styled.div`
+border-bottom: solid 1px black;
+text-align: center;
+h2 {
+    border-top: solid 1px black;
     padding: 16px;
+    font-size: 1rem;
+}
 `
 
 const ProyectosContainer = styled(XMasonry)`

@@ -88,7 +88,7 @@ const IndexPage = ({data,location:{state}}) => {
     if(state?.query) setQuery(state.query)
   },[state?.query])
   return(
-    <Layout  query={query}>
+    <Layout  query={query} resetFilter={()=>setQuery('')}>
         <Seo title={data.sanitySettingsPage.title} description={data.sanitySettingsPage.descriptionSite} image={data.sanitySettingsPage.siteImage.asset.url} />
       <Proyectos resetFilter={()=>setQuery('')} query={query} data={data} />
     </Layout>
