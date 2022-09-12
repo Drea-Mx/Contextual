@@ -82,10 +82,11 @@ export const data = graphql`
 `;
 
 const IndexPage = ({data,location:{state}}) => {
-  const [query, setQuery]=useState(state.query);
+  const [query, setQuery]=useState(state?.query||'');
+  console.log(query)
   useEffect(()=>{
-    setQuery(state.query)
-  },[state.query])
+    if(state?.query) setQuery(state.query)
+  },[state?.query])
   return(
     <Layout  query={query}>
         <Seo title={data.sanitySettingsPage.title} description={data.sanitySettingsPage.descriptionSite} image={data.sanitySettingsPage.siteImage.asset.url} />
