@@ -17,7 +17,6 @@ const AudioContainer = styled.section`
     iframe {
         width: 60%;
         margin: 50px auto;
-        height: auto;
         @media (max-width: 680px) {
             width: 100%;
         }

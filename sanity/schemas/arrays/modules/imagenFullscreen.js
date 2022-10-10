@@ -14,7 +14,7 @@ export default {
             type: 'number',
             description: 'Slider para elegir el tamaño del logo',
             options: {
-                range: {min: 0, max: 100, step: 1}
+                range: {min: 0, max: 100, step: 25}
             }
         },
         {

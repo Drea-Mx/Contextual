@@ -47,6 +47,9 @@ const ImagenesDosColumnasContainer = styled.section`
         flex-direction: column;
         padding-bottom: 0;
     }
+    .meta {
+        text-transform: none;
+    }
     .element {
         width: 50%;
         @media (max-width: 650px) {
@@ -59,7 +62,10 @@ const ImagenesDosColumnasContainer = styled.section`
         p {
             padding: 5px 20px;
             font-family: var(--mono);
-            text-transform: uppercase;
+        }
+        a {
+            color: #666666;
+            text-decoration: underline;
         }
         .image {
             position: relative;

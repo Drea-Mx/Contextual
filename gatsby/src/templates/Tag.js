@@ -60,7 +60,7 @@ export const query = graphql`
             }
         }
         categorias: #Categorias
-            allSanityCategoriasPage {
+            allSanityCategoriasPage(sort: {fields: order, order: ASC}) {
             nodes {
                 _id
                 title

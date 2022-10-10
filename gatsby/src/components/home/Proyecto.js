@@ -6,7 +6,7 @@ import { Link } from 'gatsby'
 const Proyecto = ({node}) => {
 
 
-    const date = new Date(node.fecha)
+    const date = new Date(`${node.fecha} EST`)
 
     const year = date.getFullYear() // 2019
     const month = date.toLocaleString('default', { month: 'short' });

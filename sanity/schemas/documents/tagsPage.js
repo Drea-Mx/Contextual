@@ -6,6 +6,12 @@ export default {
     icon: () => `🖇`,
     fields: [
         {
+            name: "order",
+            title: "Order",
+            type: "number",
+            hidden: true,
+        },
+        {
             name: 'title',
             title: 'Tag',
             type: 'string',

@@ -29,7 +29,13 @@ padding: 48px 0;
         font-weight: normal;
         color: var(--orange);
     }
-    p {
+    ul {
+        list-style: disc;
+    }
+    ul, ol {
+        margin-left: 20px;
+    }
+    p, li {
         line-height: 140%;
         font-size: 1.2rem;
         letter-spacing: .02rem;

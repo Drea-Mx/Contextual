@@ -28,7 +28,13 @@ padding: 48px 20px;
             padding: 8px 0;
         }
     }
-    p {
+    ul {
+        list-style: disc;
+    }
+    ul, ol {
+        margin-left: 20px;
+    }
+    p, li {
         line-height: 140%;
         font-size: 1.2rem;
         letter-spacing: .02rem;

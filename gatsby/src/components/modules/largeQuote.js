@@ -41,7 +41,12 @@ const LargeQuoteContainer = styled.section`
         }
         .meta {
             margin-top: 20px;
-            text-transform: uppercase;
+            text-transform: none;
+        }
+        a {
+            color: #666666;
+            text-decoration: underline;
+
         }
     }
 `

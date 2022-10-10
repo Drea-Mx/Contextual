@@ -56,7 +56,7 @@ export const query = graphql`
                 }
             }
         }
-        tagsSection: allSanityTagsPage {
+        tagsSection: allSanityTagsPage(sort: {fields: order, order: ASC}) {
             nodes {
                 _id
                 title
@@ -65,7 +65,7 @@ export const query = graphql`
                 }
             }
         }
-        categoriesSection: allSanityCategoriasPage {
+        categoriesSection: allSanityCategoriasPage(sort: {fields: order, order: ASC}) {
             nodes {
                 _id
                 title

@@ -50,7 +50,11 @@ const BlockquoteContainer = styled.section`
             }
             p {
                 margin-top: 1rem;
-                text-transform: uppercase;
+            }
+            a {
+                color: #666666;
+                text-decoration: underline;
+
             }
         }
     }

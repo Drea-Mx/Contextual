@@ -10,7 +10,7 @@ import Seo from "../components/layout/seo"
 export default function SinglePostPage({ data: { articulo } }) {
 
 
-    const fecha = new Date(articulo.fecha)
+    const fecha = new Date(`${articulo.fecha} EST`)
 
     const year = fecha.getFullYear() // 2019
     const month = fecha.toLocaleString('default', { month: 'short' });
@@ -38,14 +38,13 @@ export default function SinglePostPage({ data: { articulo } }) {
                                 />
                         </div>
                         <div className='text'>
-                            <div className='overlay'></div>
                             <div className='data'>
                                 <p className='fecha meta'>
                                     <span>FORMATO, <p>{articulo.categoria.title}</p></span>
                                     <span>{`${n(dia)}.${n(month)}.${n(year)}`}</span>
                                 </p>
                                 <h1 className='headline-2'>{articulo.title}</h1>
-                                <h2 className='headline-4'>{articulo.headline}</h2>
+                                <h2 className='headline-5'>{articulo.headline}</h2>
                                 <p className='lectura meta'>
                                     <strong> POR 
                                         {articulo.autor.map(( autor ) => {
@@ -58,6 +57,8 @@ export default function SinglePostPage({ data: { articulo } }) {
                                 </p>
                             </div>
                         </div>
+                        <div className='overlay'></div>
+
                     </div>
                     <div className='coverMov'>
                         <h2 className='headline-4'>{articulo.headline}</h2>
@@ -139,7 +140,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                                 </div>
                                 
                                 <p className='fechaTag meta'>Fecha</p>
-                                <p className='fecha'>{`${n(dia)}.${n(month + 1)}.${n(year - 2000)}`}</p>
+                                <p className='fecha'>{`${n(dia)}.${n(month)}.${n(year - 2000)}`}</p>
                             </div>
                             <div className='der'>
                                 <div className='categorias'>
@@ -252,6 +253,7 @@ const ProjectContainer = styled.section`
                         margin-bottom: 20px;
                     }
                     .fecha {
+                        letter-spacing: 0.1rem;
                         text-transform: uppercase;
                     }
                     .autorDesc {
@@ -266,6 +268,7 @@ const ProjectContainer = styled.section`
                             font-weight: normal;
                             color: black;
                             margin-right: 15px;
+                            display: block;
                         }
                     }
                     .fechaTag {
@@ -365,32 +368,32 @@ const ProjectContainer = styled.section`
             position: relative;
             .image {
                 filter: grayscale(100%);
-                height: 100vh;
+                height: auto;
                 @media (max-width: 700px) {
-                    height: 130vh;
-                }
-                @media (max-width: 700px) {
-                    padding-top: 50px;
+                    display: none;
+
                 }
             }
-            .text {
-                position: absolute;
-                bottom: 0;
-                color: white;
-                text-align: center;
-                padding-bottom: 50px;
-                padding-top: 50px;
-                @media (max-width: 700px) {
-                    padding-top: 50px;
-                }
-                .overlay {
-                    position: absolute;
+            .overlay {
+                    position: relative;
                     top: 0;
+                    height: 250px;
                     left: 0;
                     bottom: 0;
                     right: 0;
                     z-index: 1;
-                    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,1) 100%);                
+                    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,1) 100%);                
+                }
+            .text {
+                position: relative;
+                top: 0;
+                background-color: black;
+                color: white;
+                text-align: center;
+                padding-bottom: 0px;
+                padding-top: 150px;
+                @media (max-width: 700px) {
+                    padding-top: 50px;
                 }
                 .data {
                     position: relative;
@@ -465,6 +468,7 @@ const ProjectContainer = styled.section`
                     font-family: var(--mono);
                 }
                 .fecha {
+                    padding-top: 50px;
                     padding-bottom: 50px;
                     display: flex;
                     justify-content: space-between;
@@ -484,19 +488,21 @@ const ProjectContainer = styled.section`
                     line-height: 108%;
                     box-sizing: border-box;
                     display: block;
+                    text-align: center;
                     width: 100%;
                     text-transform: uppercase;
                     letter-spacing: .01em;
                     @media (max-width: 850px) {
-                        font-size: 2.5rem;
+                        font-size: 1.953rem;
                     }
                 }
                 h2 {
                     margin-top: 50px;
-                    font-size: 1.953rem;
+                    font-size: 1.563rem;
                     line-height: 108%;
+                    text-align: center;
                     @media (max-width: 850px) {
-                        font-size: 1.5rem;
+                        font-size: 1rem !important;
                     }
                     @media (max-width: 650px) {
                         display: none;
@@ -530,6 +536,7 @@ const ProjectContainer = styled.section`
             h2 {
                 margin-bottom: 20px;
                 line-height: 108%;
+                font-size: 1rem;
             }
             @media (min-width: 650px) {
                 display: none;

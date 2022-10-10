@@ -44,6 +44,12 @@ const Modules = ({ editorialModule, props }) => {
   );
 };
 
-const ModulesWrapper = styled.div``;
+const ModulesWrapper = styled.div`
+p, li {
+  @media (max-width: 680px) {
+      font-size: 1rem !important;
+  }
+}
+`;
 
 export default Modules;

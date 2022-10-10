@@ -24,10 +24,17 @@ const VideoContainer = styled.section`
         width: 100%;
         height: 100%;
     }
+    .meta {
+        text-transform: none;
+    }
     p {
         padding: 5px 20px;
-        text-transform: uppercase;
     }
+    a {
+            color: #666666;
+            text-decoration: underline;
+
+        }
 `
     return(
         <VideoContainer>

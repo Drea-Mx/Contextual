@@ -26,7 +26,7 @@ export const data = graphql`
     }
 
 #Categorias
-    allSanityCategoriasPage {
+    allSanityCategoriasPage(sort: {fields: order, order: ASC}) {
     nodes {
       _id
       title
@@ -77,7 +77,7 @@ function n(num, len = 2) {
 
 
                 return (
-                  <Link to={`/articulos/${node.slug.current}`} className='pro'>
+                  <Link to={`/contenido/${node.slug.current}`} className='pro'>
                     <div className='texto'>
                       <div className='top'>
                         <p className='meta'>{`${n(dia)}.${n(month)}.${n(year)}`}</p>

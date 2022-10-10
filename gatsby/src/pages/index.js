@@ -55,7 +55,7 @@ export const data = graphql`
     }
 
 #Categorias
-    allSanityCategoriasPage {
+    allSanityCategoriasPage(sort: {fields: order, order: ASC}) {
     nodes {
       _id
       title

@@ -14,8 +14,14 @@ margin: 0 auto;
 padding: 48px 0;
     .caption {
         padding: 5px 20px;
-        text-transform: uppercase;
     }
+    .meta {
+        text-transform: none;
+    }
+        a {
+            color: #666666;
+            text-decoration: underline;
+        }
 `
 
 

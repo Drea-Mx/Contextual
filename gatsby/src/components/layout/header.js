@@ -44,7 +44,7 @@ const data = useStaticQuery(graphql`
             }
         }
         #Categories
-        allSanityCategoriasPage {
+        allSanityCategoriasPage(sort: {fields: order, order: ASC}) {
             nodes {
             _key
             title
@@ -54,7 +54,7 @@ const data = useStaticQuery(graphql`
             }
         }
         #Tags
-        allSanityTagsPage {
+        allSanityTagsPage(sort: {fields: order, order: ASC}) {
             nodes {
                 title
                 _id
@@ -417,16 +417,16 @@ const HeaderContainer = styled.header`
                     <nav className='de'>
                         <h3 className='meta'>Categorías</h3>
                         <ul className='tags'>
-                        {data.allSanityTagsPage.nodes.map(( node ) => {
-                            return (
-                                <li key={node._id} className='icon'>
-                                    <Link to={`/etiquetas/${node.slug.current}`}>
-                                        <div className='texto'>
-                                            <p>{node.title}</p>
-                                        </div>
-                                    </Link>
-                                </li>
-                            )
+                            {data.allSanityTagsPage.nodes.map(( node ) => {
+                                return (
+                                    <li key={node._id} className='icon'>
+                                        <Link to={`/etiquetas/${node.slug.current}`}>
+                                            <div className='texto'>
+                                                <p>{node.title}</p>
+                                            </div>
+                                        </Link>
+                                    </li>
+                                )
                             })}
                         </ul>
                     </nav>

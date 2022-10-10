@@ -34,6 +34,9 @@ const TextoImagenContainer = styled.section`
         flex-direction: column;
         margin-bottom: 20px;
     }
+    .meta {
+        text-transform: none;
+    }
     .iz, .de {
         width: 50%;
         @media (max-width: 650px) {
@@ -43,7 +46,10 @@ const TextoImagenContainer = styled.section`
     .iz {
         p {
             padding-top: 5px;
-            text-transform: uppercase;
+        }
+        a {
+            color: #666666;
+            text-decoration: underline;
         }
     }
     .de {
