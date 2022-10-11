@@ -445,6 +445,7 @@ const ProjectContainer = styled.section`
     .container.conThumbnail {
         .hero {
             display: flex;
+            align-items: center;
             @media (max-width: 650px) {
                 flex-direction: column-reverse;
             }
