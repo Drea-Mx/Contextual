@@ -40,7 +40,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                         <div className='text'>
                             <div className='data'>
                                 <p className='fecha meta'>
-                                    <span>FORMATO, <p>{articulo.categoria.title}</p></span>
+                                    <span><p>{articulo.categoria.title}</p></span>
                                     <span>{`${n(dia)}.${n(month)}.${n(year)}`}</span>
                                 </p>
                                 <h1 className='headline-2'>{articulo.title}</h1>
