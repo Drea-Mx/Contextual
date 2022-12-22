@@ -44,27 +44,32 @@ const ManifestoPage = ({data}) => {
 }
 
 const Container = styled.div`
-    padding-top: 60px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding-top: 8.88rem;
+    padding-left: 2.66rem;
+    padding-right: 2.66rem;
+    padding-bottom: 8.88rem;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     background-color: var(--gray);
     @media (max-width: 680px) {
       display: block;
-      padding: 80px 20px;
+      padding: 4.5rem 1.33rem;
     }
     .title {
       grid-column: 1/ 5;
       @media (max-width: 1200px) {
         grid-column: 1/ 4;
-        font-size: 3.8vw;
+        font-size: var(--headline-1);
+        line-height: var(--lineheight);
       }
       @media (max-width: 680px) {
         text-align: center;
-        font-size: 3.815rem;
+        font-size: var(--headline-1);
         margin-bottom: 50px;
       }
+    }
+    h1 p {
+      line-height: var(--lineheight);
     }
     .bodyDesc {
       grid-column: 5/9;

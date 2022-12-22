@@ -19,6 +19,7 @@ const AudioContainer = styled.section`
         margin: 50px auto;
         @media (max-width: 680px) {
             width: 100%;
+            margin: 0 auto;
         }
     }
 `

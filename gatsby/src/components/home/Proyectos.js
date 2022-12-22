@@ -99,7 +99,7 @@ const NoSearchResults=styled.div`
 
 const Container = styled.div`
     position: relative;
-    padding-top: 60px;
+    padding-top: 59px;
     .categories {
         position: sticky;
         bottom: 0;
@@ -158,7 +158,10 @@ const ProyectosContainer = styled(XMasonry)`
     width: 100%;
     margin-bottom: 100px;
     article {
-        padding: 48px 24px 48px;
+        padding: 1.33rem 1.33rem 2.66rem 1.33rem;
+        @media screen and (max-width: 650px){
+            padding: 1.33rem;
+        }
         .icon {
             display: none;
         }
@@ -167,15 +170,17 @@ const ProyectosContainer = styled(XMasonry)`
         }
         .texto {
             h2 {
-                font-size: 1.563rem;
-                text-transform: uppercase;
+                font-size: var(--headline-4);
+                line-height: var(--lineheight);
+                letter-spacing: 0.01rem;
                 color: var(--orange);
             }
         }
     }
+    
     .undefined {
         h2 {
-            font-size: 1.563rem;
+            font-size: var(--headline-4);
         }
     }
     
@@ -183,14 +188,21 @@ const ProyectosContainer = styled(XMasonry)`
         
         padding: 0;
         .texto {
-            padding: 10px;
+            padding: 0 1.33rem 2.66rem 1.33rem;
             h2 {
-                font-size: 2.441rem;
-                line-height: 108%;
+                font-size: var(--headline-2);
+                line-height: var(--lineheight);
                 letter-spacing: 1%;
+            }
+            p {
+                max-width: 80%;
+                @media screen and (max-width: 650px){
+                    max-width: 100%;
+                }
             }
         }
     }
+
     .conThumbnail {
         .texto {
             h2 {
@@ -200,8 +212,9 @@ const ProyectosContainer = styled(XMasonry)`
             }
         }
     }
+
     .sinThumbnail {
-        padding: 48px 24px 48px;
+        padding: 2.66rem 1.33rem 2.66rem;
         a {
             display: block;
             background-color: var(--orange);
@@ -222,10 +235,11 @@ const ProyectosContainer = styled(XMasonry)`
             }
         }
     }
+
     .podcast, .sinThumbnail {
         .texto {
             h2 {
-                font-size: 2.441rem;
+                font-size: var(--headline-3);
             }
             .icon {
                 float: left;
@@ -235,6 +249,7 @@ const ProyectosContainer = styled(XMasonry)`
             }
         }
     }
+
     .podcast {
         
         .texto {
@@ -246,12 +261,14 @@ const ProyectosContainer = styled(XMasonry)`
             }
         }
     }
+
     .redondeado {
         .image {
-            border-radius: 80px;
+            border-radius: 24%;
             overflow: hidden;
         }
     }
+
     .circulo {
         .image {
             border-radius: 100%;

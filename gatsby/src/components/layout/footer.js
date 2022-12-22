@@ -98,13 +98,13 @@ background-color: var(--gray);
     }
 .de {
     width: 50%;
-    padding: 20px;
+    padding: 1.33rem;
     @media (max-width: 680px) {
         width: 100%;
     }
 }
 .iz {
-    padding: 20px;
+    padding: 1.33rem;
     width: 50%;
     @media (max-width: 680px) {
         width: 100%;
@@ -116,13 +116,13 @@ background-color: var(--gray);
         }
     }
     .redes {
-        margin-top: 50px;
+        margin-top: 2.66rem;
         display: flex;
         @media (max-width: 680px) {
             justify-content: center;
             img {
                 width: 25px !important;
-                margin-right: 20px !important;
+                margin-right: 1.33rem !important;
             }
         }
         img {
@@ -140,7 +140,7 @@ background-color: var(--gray);
     }
     .iz {
         width: 50%;
-        padding: 50px 20px;
+        padding: 50px 1.33rem;
         @media (max-width: 680px) {
             width: 100%;
             border-bottom: solid 1px var(--darkgray);
@@ -153,7 +153,7 @@ background-color: var(--gray);
             text-transform: uppercase;
             font-family: var(--mono);
             border-radius: 4px;
-            margin-bottom: 20px;
+            margin-bottom: 1.33rem;
             @media (max-width: 680px) {
                 display: block;
                 text-align: center;
@@ -165,7 +165,7 @@ background-color: var(--gray);
     }
     .de {
         width: 50%;
-        padding: 50px 20px;
+        padding: 50px 1.33rem;
         @media (max-width: 680px) {
             width: 100%;
         }
@@ -174,7 +174,7 @@ background-color: var(--gray);
             font-family: var(--mono);
         }
         ul {
-            margin-top: 20px;
+            margin-top: 1.33rem;
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;

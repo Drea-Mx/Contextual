@@ -19,7 +19,7 @@ padding: 48px 0;
 .columns {
     column-count: 1;
     column-gap: 20px;
-    max-width: 503px;
+    max-width: 650px;
     margin: 0 auto;
     @media (max-width: 650px) {
         width: 100%;

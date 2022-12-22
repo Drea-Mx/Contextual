@@ -52,7 +52,7 @@ padding: 48px 20px;
         &:first-child {
             &:first-letter {
                 text-transform: uppercase;
-                font-size: 4.768rem;
+                font-size: var(--jumbo);
                 color: var(--orange);
                 float: left;
                 margin-right: 0.8rem;

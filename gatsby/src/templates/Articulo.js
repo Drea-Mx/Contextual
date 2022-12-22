@@ -215,8 +215,14 @@ const ProjectContainer = styled.section`
             position: relative;
             h2 {
                 line-height: 140%;
-                font-size: 1.2rem;
+                font-size: var(--headline-6);
                 letter-spacing: .02rem;
+                @media screen and (max-width: 650px){
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    width: 85%;
+                }
             }
             button {
                 background-color: white;
@@ -236,7 +242,7 @@ const ProjectContainer = styled.section`
         .bot {
             border-top: solid 1px #E6E6E6;
             .cont {
-                padding: 24px;
+                padding: 1.33rem;
                 display: flex;
                 @media (max-width: 680px) {
                     flex-direction: column;
@@ -249,12 +255,11 @@ const ProjectContainer = styled.section`
                 }
                 .left {
                     .autores {
-                        margin-top: 20px;
-                        margin-bottom: 20px;
+                        margin-top: 0.5rem;
+                        margin-bottom: 1.33rem;
                     }
                     .fecha {
-                        letter-spacing: 0.1rem;
-                        text-transform: uppercase;
+                        // letter-spacing: 0.1rem;
                     }
                     .autorDesc {
                         padding-top: 0;
@@ -382,7 +387,7 @@ const ProjectContainer = styled.section`
                     bottom: 0;
                     right: 0;
                     z-index: 1;
-                    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 72%, rgba(0,0,0,1) 100%);                
+                    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);                
                 }
             .text {
                 position: relative;
@@ -391,9 +396,10 @@ const ProjectContainer = styled.section`
                 color: white;
                 text-align: center;
                 padding-bottom: 0px;
-                padding-top: 150px;
+                padding-top: 8.3rem;
+                padding-bottom: 4rem;
                 @media (max-width: 700px) {
-                    padding-top: 50px;
+                    padding-top: 2.66rem;
                 }
                 .data {
                     position: relative;
@@ -402,7 +408,7 @@ const ProjectContainer = styled.section`
                     margin: 0 auto;
                     @media (max-width: 700px) {
                         width: 100%;
-                        padding: 50px 20px 20px;
+                        padding: 2.66rem 1.33rem 1.33rem;
                     }
                     .fecha {
                         display: flex;
@@ -462,15 +468,15 @@ const ProjectContainer = styled.section`
                 width: 50%;
                 @media (max-width: 650px) {
                     width: 100%;
-                    padding: 50px 20px 20px;
+                    padding: 2.66rem 1.33rem 1.33rem;
                 }
                 p {
                     letter-spacing: 2px;
                     font-family: var(--mono);
                 }
                 .fecha {
-                    padding-top: 50px;
-                    padding-bottom: 50px;
+                    padding-top: 2.66rem;
+                    padding-bottom: 2.66rem;
                     display: flex;
                     justify-content: space-between;
                     span {
@@ -479,28 +485,28 @@ const ProjectContainer = styled.section`
                         }
                     }
                     @media (max-width: 650px) {
-                        padding-bottom: 20px;
-                        padding-top: 30px;
+                        padding-bottom: 1.33rem;
+                        padding-top: 1.66rem;
                     }
                 }
                 h1 {
                     color: black;
-                    font-size: 3.052rem;
+                    font-size: var(--headline-2);
                     line-height: 108%;
                     box-sizing: border-box;
                     display: block;
                     text-align: center;
                     width: 100%;
-                    text-transform: uppercase;
                     letter-spacing: .01em;
                     @media (max-width: 850px) {
                         font-size: 1.953rem;
                     }
                 }
                 h2 {
-                    margin-top: 50px;
-                    font-size: 1.563rem;
-                    line-height: 108%;
+                    margin-top: 1.33rem;
+                    font-size: var(--headline-5);
+                    line-height: 132%;
+                    letter-spacing: 0.03rem;
                     text-align: center;
                     @media (max-width: 850px) {
                         font-size: 1rem !important;
@@ -511,9 +517,9 @@ const ProjectContainer = styled.section`
                 }
                 .lectura {
                     text-transform: uppercase;
-                    padding-top: 50px;
-                    font-size: 0.64rem;
-                    letter-spacing: .1rem;
+                    padding-top: 2.66rem;
+                    font-size: var(--meta);
+                    letter-spacing: 1px;
                     text-align: center;
                     strong {
                         display: block;
@@ -533,11 +539,13 @@ const ProjectContainer = styled.section`
             }
         }
         .coverMov {
-            padding: 20px;
+            padding: 1.33rem;
             h2 {
-                margin-bottom: 20px;
+                margin-bottom: 1.33rem;
                 line-height: 108%;
                 font-size: 1rem;
+                line-height: 140%;
+                letter-spacing: 0.02rem;
             }
             @media (min-width: 650px) {
                 display: none;
@@ -554,13 +562,13 @@ const ProjectContainer = styled.section`
         .hero {
             background-color: black;
             padding-top: 100px;
-            padding-bottom: 50px;
+            padding-bottom: 2.66rem;
             @media (max-width: 650px) {
-                padding: 100px 20px 0;
+                padding: 5.5rem 1.33rem 0;
             }
             .text {
                 .meta {
-                    letter-spacing: 2px;
+                    letter-spacing: 1px;
                 }
             }
             .image {
@@ -569,7 +577,7 @@ const ProjectContainer = styled.section`
             h1 {
                 padding-top: 50px;
                 padding-bottom: 50px;
-                font-size: 3.052rem;
+                font-size: var(--headline-2);
                 line-height: 108%;
                 width: 80%;
                 margin: 0 auto;
@@ -579,9 +587,9 @@ const ProjectContainer = styled.section`
                 }
             }
             h2 {
-                font-size: 1.563rem;
+                font-size: var(--headline-5);
                 line-height: 108%;
-                padding-bottom: 50px;
+                padding-bottom: 2.66rem;
                 width: 80%;
                 margin: 0 auto;
                 @media (max-width: 650px) {
@@ -647,15 +655,14 @@ const ProjectContainer = styled.section`
             h1 {
                 padding-top: 25px;
                 padding-bottom: 25px;
-                font-size: 3.052rem;
+                font-size: var(--headline-2);
                 line-height: 108%;
-                max-width: 450px;
+                max-width: 550px;
                 margin: 0 auto;
                 color: var(--orange);
-                text-transform: uppercase;
             }
             h2 {
-                font-size: 1.563rem;
+                font-size: var(--headline-5);
                 line-height: 108%;
                 padding-bottom: 50px;
                 width: 80%;
@@ -698,11 +705,14 @@ const LinksReferencia = styled.section`
             width: 10px;
         }
     }
+    a:hover {
+        text-decoration: underline;
+    }
 `
 
 const RelatedPost = styled.section`
     border-top: solid 1px var(--gray);
-    padding: 20px;
+    padding: 1rem 1.33rem 2.66rem 1.33rem;
     p {
         margin-bottom: 20px;
         img {
@@ -715,7 +725,7 @@ const RelatedPost = styled.section`
         grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         h2 {
-            text-transform: uppercase;
+            margin-top: .5rem;
             @media (max-width: 680px) {
                 margin-top: 5px;
                 font-size: 0.8rem;

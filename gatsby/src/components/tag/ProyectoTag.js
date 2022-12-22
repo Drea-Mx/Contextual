@@ -56,12 +56,11 @@ const ProyectoContainer = styled.article`
     }
     .texto {
         h2 {
-            margin-bottom: 10px;
-            letter-spacing: .05rem;
+            margin-bottom: 1.33rem;
         }
         p {
-            margin-bottom: 20px;
-            font-size: 1.25rem;
+            margin-bottom: 1.33rem;
+            font-size: var(--paragraph);
             letter-spacing: .025rem;
 	        line-height: 132%;
         }
@@ -74,6 +73,9 @@ const ProyectoContainer = styled.article`
                 font-family: var(--mono);
                 text-transform: uppercase;
                 font-size: 0.64rem;
+            }
+            .autores {
+                display: none;
             }
         }
     }

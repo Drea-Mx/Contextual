@@ -58,19 +58,18 @@ const ProyectoContainer = styled.article`
     .image {
         filter: grayscale(100%);
         transition: filter 300ms ease-in;
-        margin-bottom: 10px;
+        margin-bottom: 1.33rem;
         @media (max-width: 650px) {
             filter: grayscale(0);
         }
     }
     .texto {
         h2 {
-            margin-bottom: 10px;
-            letter-spacing: .05rem;
+            margin-bottom: 1.33rem;
         }
         p {
-            margin-bottom: 20px;
-            font-size: 1.25rem;
+            margin-bottom: 1.33rem;
+            font-size: var(--paragraph);
             letter-spacing: .025rem;
 	        line-height: 132%;
         }

@@ -177,17 +177,25 @@ const CategoriasContainer = styled.div`
         }
     }
     article {
-        padding: 50px 10px 10px;
+        padding: 1.33rem 1.33rem 2.66rem 1.33rem;
         .icon {
             display: none;
         }
         .image {
+
         }
         .texto {
             h2 {
-                text-transform: uppercase;
+                font-size: var(--headline-4);
+                line-height: var(--lineheight);
+                letter-spacing: 0.01rem;
                 color: var(--orange);
             }
+        }
+    }
+    .undefined {
+        h2 {
+            font-size: var(--headline-4);
         }
     }
     
@@ -195,12 +203,22 @@ const CategoriasContainer = styled.div`
         
         padding: 0;
         .texto {
-            padding: 10px;
+            padding: 0 1.33rem 2.66rem 1.33rem;
             h2 {
-                font-size: 3rem;
+                font-size: var(--headline-2);
+                line-height: var(--lineheight);
+                letter-spacing: 1%;
+            }
+            p {
+                margin-bottom: 1.33rem;
+                font-size: var(--paragraph);
+                letter-spacing: .025rem;
+                line-height: 132%;
+                max-width: 80%;
             }
         }
     }
+
     .conThumbnail {
         .texto {
             h2 {
@@ -210,8 +228,9 @@ const CategoriasContainer = styled.div`
             }
         }
     }
+
     .sinThumbnail {
-        padding: 10px;
+        padding: 2.66rem 1.33rem 2.66rem;
         a {
             display: block;
             background-color: var(--orange);
@@ -232,10 +251,11 @@ const CategoriasContainer = styled.div`
             }
         }
     }
+
     .podcast, .sinThumbnail {
         .texto {
             h2 {
-                font-size: 3rem;
+                font-size: var(--headline-3);
             }
             .icon {
                 float: left;
@@ -245,6 +265,7 @@ const CategoriasContainer = styled.div`
             }
         }
     }
+
     .podcast {
         
         .texto {
@@ -256,12 +277,14 @@ const CategoriasContainer = styled.div`
             }
         }
     }
+
     .redondeado {
         .image {
-            border-radius: 80px;
+            border-radius: 24%;
             overflow: hidden;
         }
     }
+
     .circulo {
         .image {
             border-radius: 100%;

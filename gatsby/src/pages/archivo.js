@@ -109,12 +109,12 @@ const Container = styled.div`
       background-color: var(--gray);
       h1 {
         padding-top: 150px;
-        padding-left: 25px;
-        padding-bottom: 25px;
+        padding-left: 1.33rem;
+        padding-bottom: 1.33rem;
         @media (max-width: 680px) {
           padding-top: 80px;
           padding-bottom: 50px;
-          font-size: 1.563rem !important;
+          font-size: var(--headline-5) !important;
         }
       }
     }
@@ -170,7 +170,7 @@ const ArchivoContainr = styled.section`
     grid-template-columns: 1fr;
   }
   .pro {
-    padding: 25px;
+    padding: 1.33rem;
     border-bottom: solid 1px var(--black);
     &:nth-child(2n -1) {
       border-right: solid 1px var(--black);
@@ -183,9 +183,9 @@ const ArchivoContainr = styled.section`
       justify-content: space-between;
     }
     h2 {
-      margin-top: 20px;
-      margin-bottom: 20px;
-      
+      margin-top: 1.33rem;
+      margin-bottom: 1.33rem;
+      font-size: var(--headline-5);
     }
   }
 `
