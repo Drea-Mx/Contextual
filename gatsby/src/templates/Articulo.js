@@ -10,11 +10,16 @@ import Seo from "../components/layout/seo"
 export default function SinglePostPage({ data: { articulo } }) {
 
 
-    const fecha = new Date(`${articulo.fecha} EST`)
+    let dt = new Date(articulo.fecha)
 
-    const year = fecha.getFullYear() // 2019
-    const month = fecha.toLocaleString('default', { month: 'short' });
-    const dia = fecha.getDate() // 23
+
+    dt.setTime(dt.getTime()+dt.getTimezoneOffset()*60*1000);
+    const offset = +210; //Timezone offset for EST in minutes.
+    const estDate = new Date(dt.getTime() + offset*60*1000);
+
+    const year = estDate.getFullYear() // 2019
+    const month = estDate.toLocaleString('default', { month: 'short' });
+    const dia = estDate.getDate() // 23
 
 
     function n(num, len = 2) {
@@ -97,7 +102,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                             {articulo.postRelacionados.map(( post ) => {
                                 return (
                                     <li key={post._id}>
-                                        <Link to={`/articulos/${post.slug.current}`}>
+                                        <Link to={`/contenido/${post.slug.current}`}>
                                             <div className='image'>
                                                 <GatsbyImage
                                                         style={{ height: "100%", width: "100%" }}

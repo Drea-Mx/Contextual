@@ -5,11 +5,16 @@ import { Link } from 'gatsby'
 
 const ProyectoTag = ({node}) => {
 
-    const fecha = new Date(node.fecha)
+    let dt = new Date(node.fecha)
 
-    const year = fecha.getFullYear() // 2019
-    const month = fecha.toLocaleString('default', { month: 'short' });
-    const dia = fecha.getDate() // 23
+
+    dt.setTime(dt.getTime()+dt.getTimezoneOffset()*60*1000);
+    const offset = +210; //Timezone offset for EST in minutes.
+    const estDate = new Date(dt.getTime() + offset*60*1000);
+
+    const year = estDate.getFullYear() // 2019
+    const month = estDate.toLocaleString('default', { month: 'short' });
+    const dia = estDate.getDate() // 23
 
 
     function n(num, len = 2) {

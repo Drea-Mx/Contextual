@@ -6,24 +6,25 @@ import styled from 'styled-components';
 
 export const data = graphql`
   query {
-    allSanityArticulosPage(sort: {fields: fecha, order: DESC}
+    allSanityArticulosPage(
     filter: {archivo: {eq: true}}
+    sort: {fields: fecha, order: ASC}
   ) {
-      nodes {
+    nodes {
+      title
+      fecha
+      _id
+      slug {
+        current
+      }
+      autor {
         title
-        _id
-        fecha
-        slug {
-          current
-        }
-        autor {
-          title
-        }
-        categoria {
-          title
-        }
+      }
+      categoria {
+        title
       }
     }
+  }
 
 #Categorias
     allSanityCategoriasPage(sort: {fields: order, order: ASC}) {
@@ -63,11 +64,16 @@ const ArchivoPage = ({data}) => {
           <ArchivoContainr>
             {data.allSanityArticulosPage.nodes.map(( node ) => {
 
-const date = new Date(`${node.fecha} EST`)
+let dt = new Date(node.fecha)
 
-const year = date.getFullYear() // 2019
-const month = date.toLocaleString('default', { month: 'short' });
-const dia = date.getDate() // 23
+
+dt.setTime(dt.getTime()+dt.getTimezoneOffset()*60*1000);
+const offset = +210; //Timezone offset for EST in minutes.
+const estDate = new Date(dt.getTime() + offset*60*1000);
+
+const year = estDate.getFullYear() // 2019
+const month = estDate.toLocaleString('default', { month: 'short' });
+const dia = estDate.getDate() // 23
 
 
 function n(num, len = 2) {
@@ -84,7 +90,15 @@ function n(num, len = 2) {
                         <p className='meta'>{node.categoria ?  node.categoria.title : ''}</p>
                       </div>
                       <h2>{node.title}</h2>
-                      <p className='meta'>{node.autor ? node.autor.title : ''}</p>
+                      <div className='autores'>
+                        {node.autor.map(( aut ) => {
+                          return (
+                            <p className='meta'>{aut.title}</p>
+
+                          )
+                        })}
+                      </div>
+                      
                     </div>
                   </Link>
                 )

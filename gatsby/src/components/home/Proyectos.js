@@ -4,7 +4,7 @@ import Proyecto from './Proyecto'
 import { XMasonry, XBlock } from "react-xmasonry"; // Imports JSX plain sources
 import useResizeAware from 'react-resize-aware';
 import { Link } from 'gatsby';
-import Search from '../layout/Search';
+// import Search from '../layout/Search';
 
 
 const Proyectos = ({data,query,resetFilter}) => {
@@ -16,11 +16,11 @@ const Proyectos = ({data,query,resetFilter}) => {
     // Setting responsive column widths where sizes.width is the container width
     const getWidth = () => {
       if (sizes.width < 480) {
-        setColumnWidth(Math.floor(sizes.width / 4));
+        setColumnWidth(Math.floor(sizes.width / 1));
       } else if (sizes.width < 640) {
-        setColumnWidth(Math.floor(sizes.width / 4));
+        setColumnWidth(Math.floor(sizes.width / 1));
       } else if (sizes.width < 1280) {
-        setColumnWidth(Math.floor(sizes.width / 4));
+        setColumnWidth(Math.floor(sizes.width / 2));
       } else if (sizes.width < 1536) {
         setColumnWidth(Math.floor(sizes.width / 4));
       } else if (sizes.width >= 1536) {
@@ -68,7 +68,7 @@ const Proyectos = ({data,query,resetFilter}) => {
 
         <ProyectosContainer
         targetBlockWidth={columnWidth}
-        responsive={false}
+        responsive={true}
         >
             {filteredArticulos.map(( node ) => {
                 return (
