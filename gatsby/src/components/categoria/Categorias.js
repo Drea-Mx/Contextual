@@ -123,7 +123,7 @@ const CategoriasContainer = styled.div`
             padding-top: 5px;
             @media (max-width: 680px) {
                 display: inline-block;
-                padding: 5px 20px;
+                padding: 5px 16px;
             }
             a {
                 display: flex;
