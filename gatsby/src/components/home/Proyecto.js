@@ -5,7 +5,6 @@ import { Link } from 'gatsby'
 
 const Proyecto = ({node}) => {
 
-
     let dt = new Date(node.fecha)
 
 
@@ -14,7 +13,7 @@ const offset = +210; //Timezone offset for EST in minutes.
 const estDate = new Date(dt.getTime() + offset*60*1000);
 
     const year = estDate.getFullYear() // 2019
-    const month = estDate.toLocaleString('default', { month: 'short' });
+    const month = estDate.toLocaleString('es-ES', { month: 'short' });
     const dia = estDate.getDate() // 23
 
 
