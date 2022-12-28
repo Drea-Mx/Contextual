@@ -135,7 +135,7 @@ export default function SinglePostPage({ data: { articulo } }) {
                     <div className='bot'>
                         <div className='cont'>
                             <div className='left'>
-                                <p className='autor meta'>Autores</p>
+                                <p className='autor meta'>Escrito Por</p>
                                 <div className='autores'>
                                     {articulo.autor.map(( autor ) => {
                                         return (
@@ -200,6 +200,7 @@ const ProjectContainer = styled.section`
         bottom: auto;
         left: 0;
         width: 100vw;
+        z-index: 999;
         background-color: white;
         transition: all 350ms ease-in-out;
         .bar {
@@ -265,6 +266,7 @@ const ProjectContainer = styled.section`
                     }
                     .fecha {
                         // letter-spacing: 0.1rem;
+                        text-transform: capitalize;
                     }
                     .autorDesc {
                         padding-top: 0;
