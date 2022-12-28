@@ -50,6 +50,13 @@ p, li {
       font-size: 1rem !important;
   }
 }
+
+.meta p, .meta {
+  @media (max-width: 680px) {
+    font-size: var(--meta) !important;
+    line-height: 140%;
+  }
+}
 `;
 
 export default Modules;

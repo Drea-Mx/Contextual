@@ -140,7 +140,7 @@ html {
         font-size: var(--small);
     }
     .meta, .meta p {
-        font-size: var(--meta);
+        font-size: var(--meta) !important;
         text-transform: uppercase;
         line-height: 116%;
         letter-spacing: .05rem;

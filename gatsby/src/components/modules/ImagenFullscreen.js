@@ -14,6 +14,10 @@ margin: 0 auto;
 padding: 48px 0;
     .caption {
         padding: 5px 20px;
+
+        @media (max-width: 680px) {
+            padding: 8px 0;
+        }
     }
     .meta {
         text-transform: none;
