@@ -129,6 +129,7 @@ html {
     }
     .headline-5, .headline-5 p {
         font-size: var(--headline-5);
+        letter-spacing: 0.0125rem;
     }
     .headline-6 {
         font-size: var(--headline-6);

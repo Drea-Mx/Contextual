@@ -44,6 +44,7 @@ const BlockquoteContainer = styled.section`
         }
         .ri {
             h2 {
+                line-height: 120%;
                 @media (max-width: 850px) {
                     font-size: 2rem;
                 }
