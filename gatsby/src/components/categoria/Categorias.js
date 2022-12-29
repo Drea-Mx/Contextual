@@ -105,6 +105,7 @@ const CategoriasContainer = styled.div`
         position: sticky;
         bottom: 0;
         width: 100%;
+        display: -webkit-flex;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -116,16 +117,18 @@ const CategoriasContainer = styled.div`
         @media (max-width: 680px) {
             overflow-x: scroll;
             white-space:nowrap;
-            display: block;
+            // display: block;
         }
         li {
             padding-bottom: 5px;
             padding-top: 5px;
             @media (max-width: 680px) {
-                display: inline-block;
-                padding: 5px 16px;
+                // display: inline-block;
+                text-align: center;
+                padding: 5px 16px !important;
             }
             a {
+                text-align: center;
                 display: flex;
             }
             img {

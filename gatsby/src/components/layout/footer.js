@@ -61,7 +61,14 @@ query {
                     </ul>
                 </div>
                 <div className='de'>
-                        <Newsletter data={data} />
+                    {/* <Newsletter data={data} /> */}
+                    <p>Tenemos un Substack en donde compartimos lo que nos inspira y lleva a pensar —o 'trippear'— el mundo que nos rodea. Suscríbete en: 
+                        <span>&nbsp;
+                            <a href="https://contextualmx.substack.com" target="_blank">
+                                contextualmx.substack.com
+                            </a>
+                        </span>
+                    </p>
                 </div>
             </div>
             <div className='bot'>
@@ -99,6 +106,13 @@ background-color: var(--gray);
 .de {
     width: 50%;
     padding: 1.33rem;
+    a {
+        opacity: .5;
+    }
+    a:hover {
+        opacity: 1;
+        text-decoration: underline;
+    }
     @media (max-width: 680px) {
         width: 100%;
     }
