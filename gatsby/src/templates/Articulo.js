@@ -31,7 +31,7 @@ export default function SinglePostPage({ data: { articulo } }) {
 
     return (
         <Layout>
-            <Seo title={articulo.seo.title ? articulo.seo.title : articulo.title} description={articulo.seo.description ? articulo.seo.description : 'Contextual'} image={articulo.seo.image ? articulo.seo.image.asset.url : '/screenshot.png'} />
+            <Seo title={articulo.seo ? articulo.seo.title : articulo.title} description={articulo.seo ? articulo.seo.description : 'Contextual'} image={articulo.seo ? articulo.seo.image.asset.url : '/screenshot.png'} />
             <ProjectContainer>
                 <div className={`container ${articulo.cover}`}>
                     <div className='hero'>
