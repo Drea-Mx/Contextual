@@ -51,13 +51,12 @@ export default function SinglePostPage({ data: { articulo } }) {
                                 <h1 className='headline-2'>{articulo.title}</h1>
                                 <h2 className='headline-5'>{articulo.headline}</h2>
                                 <p className='lectura meta'>
-                                    <strong> POR 
+                                    POR 
                                         {articulo.autor.map(( autor ) => {
                                             return (
                                                 <span key={autor._id} className='autorDesc'> {autor.title} <span className='slash'>/</span> </span>
                                             )
                                         })}
-                                    </strong>
                                     <span>{`Lectura de ${articulo.lecturaDeXMinutos} min.`}</span>
                                 </p>
                             </div>
@@ -274,7 +273,7 @@ const ProjectContainer = styled.section`
                         width: 90%;
                         @media (max-width: 680px) {
                             width: 100%;
-                            padding-bottom: 20px;
+                            padding-bottom: 0;
                         }
                         strong {
                             font-weight: normal;
@@ -435,14 +434,13 @@ const ProjectContainer = styled.section`
                         padding-bottom: 30px;
                     }
                     .lectura {
-                        strong {
-                            display: block;
-                            margin-bottom: 3px;
-                            .autorDesc {
-                                &:last-child {
-                                    span.slash {
-                                        display: none;
-                                    }
+                        font-weight: 100 !important;
+                        display: block;
+                        margin-bottom: 3px;
+                        .autorDesc {
+                            &:last-child {
+                                span.slash {
+                                    display: none;
                                 }
                             }
                         }
@@ -452,6 +450,16 @@ const ProjectContainer = styled.section`
         }
         .coverMov {
             display: none;
+        }
+    }
+
+    .lectura.meta {
+        padding-right: 2.66rem;
+        padding-left: 2.66rem;
+        line-height: 140%;
+        @media screen and (min-width: 1500px) {
+            padding-right: 5rem;
+            padding-left: 5rem;
         }
     }
 
