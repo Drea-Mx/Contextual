@@ -1,9 +1,48 @@
-# Sanity Clean Content Studio
+# Contextual
+[contextual.mx](https://contextual.mx/)
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
 
-Now you can do the following things:
+Instructions to run the project in your local machine. The project was created using [React Gatsby](https://www.gatsbyjs.com) for the Front-End and [Sanity](https://www.sanity.io/)
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+
+## Runing the front-end
+
+1. **Make sure you have installed [Node Js](https://nodejs.org/download/release/latest-v16.x/) version 16.**
+
+2. **Install the Gatsby CLI:**
+    ```shell
+        npm install -g gatsby-cli
+    ```
+
+3. **In the gatsby folder run:**
+    ```shell
+        npm install
+    ```
+
+4. **Run the project**
+    ```shell
+        npm run develop
+    ```
+
+## Runing the CMS Local
+
+
+1. **Install Sanity:**
+    ```shell
+        npm install -g @sanity/cli
+    ```
+
+2. **Inside sanity folder:**
+    ```shell
+        sanity start
+    ```
+
+3. **To deploy CMS:**
+    ```shell
+        sanity deploy
+    ```
+
+4. **To deploy Graphql CMS:**
+    ```shell
+        sanity graphql deploy
+    ```
