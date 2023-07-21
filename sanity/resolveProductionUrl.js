@@ -1,4 +1,4 @@
 // ./resolveProductionUrl.js
 export default function resolveProductionUrl(document) {
-    return `https://preview-contextual.gtsb.io/articulos/${document.slug.current}`
+    return `https://preview-contextualmaster.gatsbyjs.io/contenido/${document.slug.current}`
   }
