@@ -35,10 +35,23 @@ export default {
             title: 'URL Botón Donaciones',
             type: 'url'
         },
-        {
+       {
             name: 'textoBajoBoton',
             title: 'Texto debajo botón donaciones',
             type: 'text'
-        }
+        },
+        {
+            name: 'textoSubstack',
+            title: 'Texto Substack (footer)',
+            type: 'text',
+            rows: 3,
+            description: 'Texto descriptivo del bloque de Substack en el footer.',
+        },
+        {
+            name: 'urlSubstack',
+            title: 'URL Substack',
+            type: 'url',
+            description: 'Link al Substack. Ej: https://contextualmx.substack.com',
+        },
     ],
 }

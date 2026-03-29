@@ -25,6 +25,8 @@ query {
         urlDona
         textoBotonDona
         textoBajoBoton
+	textoSubstack
+	urlSubstack
     }
 
     sanitySettingsPage {
@@ -61,16 +63,19 @@ query {
                     </ul>
                 </div>
                 <div className='de'>
-                    {/* <Newsletter data={data} /> */}
-                    <p>Tenemos un Substack en donde compartimos lo que nos inspira y lleva a pensar —o 'trippear'— el mundo que nos rodea. Suscríbete en: 
-                        <span>&nbsp;
-                            <a href="https://contextualmx.substack.com" target="_blank">
-                                contextualmx.substack.com
-                            </a>
-                        </span>
-                    </p>
-                </div>
-            </div>
+    {/* <Newsletter data={data} /> */}
+    {data.sanityFooterPage.textoSubstack && (
+        <p>{data.sanityFooterPage.textoSubstack}
+            {data.sanityFooterPage.urlSubstack && (
+                <span>&nbsp;
+                    <a href={data.sanityFooterPage.urlSubstack} target="_blank" rel="noreferrer">
+                        {data.sanityFooterPage.urlSubstack.replace('https://', '')}
+                    </a>
+                </span>
+            )}
+        </p>
+    )}
+</div>
             <div className='bot'>
                 <div className='iz'>
                         <a href={data.sanityFooterPage.urlDona}>{data.sanityFooterPage.textoBotonDona}</a>
