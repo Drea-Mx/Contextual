@@ -103,3 +103,20 @@ exports.createPages = async (params) => {
 
     ])
 }
+exports.onCreateWebpackConfig = ({ actions, loaders }) => {
+  const path = require('path');
+  actions.setWebpackConfig({
+    module: {
+      rules: [
+        {
+          test: /\.m?js$/,
+          include: [
+            path.resolve(__dirname, 'node_modules/@sanity'),
+            path.resolve(__dirname, 'node_modules/react-resize-aware'),
+          ],
+          use: [loaders.js()],
+        },
+      ],
+    },
+  });
+};
