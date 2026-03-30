@@ -4,204 +4,228 @@ import { useStaticQuery, graphql } from "gatsby";
 import BlockContent from '@sanity/block-content-to-react';
 import Newsletter from './newsletter';
 
-
 const Footer = () => {
-
-const data = useStaticQuery(graphql`
-query {
-    
-    sanityFooterPage {
+  const data = useStaticQuery(graphql`
+    query {
+      sanityFooterPage {
         _rawTextoDescriptivo
         redesSociales {
-            _key
-            url
-            icon {
-                alt
-                asset {
-                    url
-                }
+          _key
+          url
+          icon {
+            alt
+            asset {
+              url
             }
+          }
         }
         urlDona
         textoBotonDona
         textoBajoBoton
-	textoSubstack
-	urlSubstack
-    }
+        textoSubstack
+        urlSubstack
+      }
 
-    sanitySettingsPage {
+      sanitySettingsPage {
         otrosLinks {
-        _key
-        texto
-        url
+          _key
+          texto
+          url
         }
+      }
     }
-    
-}
-`);
+  `);
 
+  return (
+    <FooterContainer>
+      <div className='top'>
+        <div className='iz'>
+          <div className='texto'>
+            <BlockContent blocks={data.sanityFooterPage._rawTextoDescriptivo} />
+          </div>
 
-    return(
-        <FooterContainer>
-            <div className='top'>
-                <div className='iz'>
-                    <div className='texto'>
-                        <BlockContent blocks={data.sanityFooterPage._rawTextoDescriptivo}  />
-                    </div>
-                    <ul className='redes'>
-                    {data.sanityFooterPage.redesSociales.map(( red ) => {
+          <ul className='redes'>
+            {data.sanityFooterPage.redesSociales.map((red) => {
+              return (
+                <li key={red._key} className='red'>
+                  <a href={red.url} rel="noreferrer" target='_blank'>
+                    <img src={red.icon.asset.url} alt={red.icon.alt} />
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
 
-                        return (
-                            <li key={red._key} className='red'>
-                                <a href={red.url} rel="noreferrer" target='_blank'>
-                                        <img src={red.icon.asset.url} alt={red.icon.alt} /> 
-                                </a>
-                            </li>
-                        )
-                        })}
-
-                    </ul>
-                </div>
-                <div className='de'>
-    {/* <Newsletter data={data} /> */}
-    {data.sanityFooterPage.textoSubstack && (
-        <p>{data.sanityFooterPage.textoSubstack}
-            {data.sanityFooterPage.urlSubstack && (
+        <div className='de'>
+          {/* <Newsletter data={data} /> */}
+          {data.sanityFooterPage.textoSubstack && (
+            <p>
+              {data.sanityFooterPage.textoSubstack}
+              {data.sanityFooterPage.urlSubstack && (
                 <span>&nbsp;
-                    <a href={data.sanityFooterPage.urlSubstack} target="_blank" rel="noreferrer">
-                        {data.sanityFooterPage.urlSubstack.replace('https://', '')}
-                    </a>
+                  <a href={data.sanityFooterPage.urlSubstack} target="_blank" rel="noreferrer">
+                    {data.sanityFooterPage.urlSubstack.replace('https://', '')}
+                  </a>
                 </span>
-            )}
-        </p>
-    )}
-</div>
-            <div className='bot'>
-                <div className='iz'>
-                        <a href={data.sanityFooterPage.urlDona}>{data.sanityFooterPage.textoBotonDona}</a>
-                        <p>{data.sanityFooterPage.textoBajoBoton}</p>
-                </div>
-                <div className='de'>
-                        <h3 className='meta'>Otros Links</h3>
-                        <ul>
-                        {data.sanitySettingsPage.otrosLinks.map(( link ) => {
+              )}
+            </p>
+          )}
+        </div>
+      </div>
 
-                            return (
-                                <li key={link._key} className='red'>
-                                    <a href={link.url} rel="noreferrer" target='_blank'>{link.texto}</a>
-                                </li>
-                            )
-                            })}
+      <div className='bot'>
+        <div className='iz'>
+          <a href={data.sanityFooterPage.urlDona}>
+            {data.sanityFooterPage.textoBotonDona}
+          </a>
+          <p>{data.sanityFooterPage.textoBajoBoton}</p>
+        </div>
 
-                        </ul>
-                </div>
-            </div>
-        </FooterContainer>
-    )
+        <div className='de'>
+          <h3 className='meta'>Otros Links</h3>
+          <ul>
+            {data.sanitySettingsPage.otrosLinks.map((link) => {
+              return (
+                <li key={link._key} className='red'>
+                  <a href={link.url} rel="noreferrer" target='_blank'>
+                    {link.texto}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+      </div>
+    </FooterContainer>
+  )
 }
 
 const FooterContainer = styled.footer`
-background-color: var(--gray);
-.top {
+  background-color: var(--gray);
+
+  .top {
     border-bottom: solid 1px var(--darkgray);
     display: flex;
+
     @media (max-width: 680px) {
-        flex-direction: column;
+      flex-direction: column;
     }
-.de {
-    width: 50%;
-    padding: 1.33rem;
-    a {
+
+    .de {
+      width: 50%;
+      padding: 1.33rem;
+
+      a {
         opacity: .5;
-    }
-    a:hover {
+      }
+
+      a:hover {
         opacity: 1;
         text-decoration: underline;
-    }
-    @media (max-width: 680px) {
+      }
+
+      @media (max-width: 680px) {
         width: 100%;
+      }
     }
-}
-.iz {
-    padding: 1.33rem;
-    width: 50%;
-    @media (max-width: 680px) {
+
+    .iz {
+      padding: 1.33rem;
+      width: 50%;
+
+      @media (max-width: 680px) {
         width: 100%;
         border-bottom: solid 1px var(--darkgray);
-    }
-    .texto {
+      }
+
+      .texto {
         a {
-            color: var(--orange);
+          color: var(--orange);
         }
-    }
-    .redes {
+      }
+
+      .redes {
         margin-top: 2.66rem;
         display: flex;
+
         @media (max-width: 680px) {
-            justify-content: center;
-            img {
-                width: 25px !important;
-                margin-right: 1.33rem !important;
-            }
+          justify-content: center;
+
+          img {
+            width: 25px !important;
+            margin-right: 1.33rem !important;
+          }
         }
+
         img {
-            margin-right: 15px;
-            width: 18px;
+          margin-right: 15px;
+          width: 18px;
         }
+      }
     }
-}
-}
-.bot {
+  }
+
+  .bot {
     display: flex;
     padding-bottom: 50px;
+
     @media (max-width: 680px) {
-        flex-direction: column;
+      flex-direction: column;
     }
+
     .iz {
-        width: 50%;
-        padding: 50px 1.33rem;
+      width: 50%;
+      padding: 50px 1.33rem;
+
+      @media (max-width: 680px) {
+        width: 100%;
+        border-bottom: solid 1px var(--darkgray);
+      }
+
+      a {
+        display: inline-block;
+        background-color: var(--orange);
+        color: var(--white);
+        padding: 10px 15px;
+        text-transform: uppercase;
+        font-family: var(--mono);
+        border-radius: 4px;
+        margin-bottom: 1.33rem;
+
         @media (max-width: 680px) {
-            width: 100%;
-            border-bottom: solid 1px var(--darkgray);
+          display: block;
+          text-align: center;
         }
-        a {
-            display: inline-block;
-            background-color: var(--orange);
-            color: var(--white);
-            padding: 10px 15px;
-            text-transform: uppercase;
-            font-family: var(--mono);
-            border-radius: 4px;
-            margin-bottom: 1.33rem;
-            @media (max-width: 680px) {
-                display: block;
-                text-align: center;
-            }
-        }
-        p {
-            max-width: 500px;
-        }
+      }
+
+      p {
+        max-width: 500px;
+      }
     }
+
     .de {
-        width: 50%;
-        padding: 50px 1.33rem;
-        @media (max-width: 680px) {
-            width: 100%;
-        }
-        h3 {
-            text-transform: uppercase;
-            font-family: var(--mono);
-        }
-        ul {
-            margin-top: 1.33rem;
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-gap: 5px;
-        }
+      width: 50%;
+      padding: 50px 1.33rem;
+
+      @media (max-width: 680px) {
+        width: 100%;
+      }
+
+      h3 {
+        text-transform: uppercase;
+        font-family: var(--mono);
+      }
+
+      ul {
+        margin-top: 1.33rem;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 5px;
+      }
     }
-}
-    
+  }
 `
 
 export default Footer
