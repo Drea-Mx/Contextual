@@ -113,6 +113,7 @@ exports.onCreateWebpackConfig = ({ actions, loaders }) => {
           include: [
             path.resolve(__dirname, 'node_modules/@sanity'),
             path.resolve(__dirname, 'node_modules/react-resize-aware'),
+            path.resolve(__dirname, 'node_modules/email-validator'),
           ],
           use: [loaders.js()],
         },
