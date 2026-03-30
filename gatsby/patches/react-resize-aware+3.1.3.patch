@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-resize-aware/src/useResizeAware.js b/node_modules/react-resize-aware/src/useResizeAware.js
+index 5fd0da1..ba600fa 100644
+--- a/node_modules/react-resize-aware/src/useResizeAware.js
++++ b/node_modules/react-resize-aware/src/useResizeAware.js
+@@ -15,7 +15,7 @@ export default function useResizeAware(
+     reporter,
+   ]);
+   const resizeListenerNode = React.useMemo(
+-    () => <ResizeListener onResize={onResize} />,
++    () => React.createElement(ResizeListener, { onResize: onResize }),
+     [onResize]
+   );
+ 
